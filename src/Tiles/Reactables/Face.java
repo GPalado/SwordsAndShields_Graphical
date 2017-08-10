@@ -1,6 +1,6 @@
 package Tiles.Reactables;
 
-import Actions.Action;
+import Actions.Visitors.Visitor;
 import Tiles.Tile;
 
 import java.awt.*;
@@ -35,8 +35,8 @@ public class Face implements Tile, Reactable {
     }
 
     @Override
-    public void accept(Action action) {
-        //todo implement this
+    public void accept(Visitor visitor) {
+        visitor.visitFace(this);
     }
 
     @Override

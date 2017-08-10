@@ -41,7 +41,7 @@ public class Piece implements Tile, Reactable {
 
     public void setOrientation(int o){
         orientation=o;
-        //todo rotate to match orientation
+        rotate(o);
     }
 
     @Override

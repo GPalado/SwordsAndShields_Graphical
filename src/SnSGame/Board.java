@@ -54,6 +54,7 @@ public class Board {
         if(x<0||x>SnSGame.BOARD_SIZE-1||y<0||y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
         }
+        piece.setPosition(x, y);
         tiles[x][y] = piece;
     }
 

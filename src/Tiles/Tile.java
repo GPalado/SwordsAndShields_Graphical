@@ -1,6 +1,6 @@
 package Tiles;
 
-import Actions.Action;
+import Actions.Visitors.Visitor;
 
 import java.awt.*;
 
@@ -16,6 +16,6 @@ public interface Tile {
 
     public Point getPosition();
 
-    public void accept(Action action);
+    public void accept(Visitor visitor);
 
 }

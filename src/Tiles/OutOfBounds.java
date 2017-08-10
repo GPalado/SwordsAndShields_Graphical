@@ -1,5 +1,7 @@
 package Tiles;
 
+import Actions.Visitors.Visitor;
+
 import java.awt.*;
 
 public class OutOfBounds implements Tile {
@@ -7,7 +9,6 @@ public class OutOfBounds implements Tile {
     private boolean movable;
     private Character[][] representation;
     private Point position;
-    private Optional<Piece> piece;
 
     public OutOfBounds(Point pos){
         movable=false;
@@ -16,22 +17,20 @@ public class OutOfBounds implements Tile {
     }
 
     @Override
-    public Character[][] getRepresentation() {
-        return new Character[0][];
-    }
+    public Character[][] getRepresentation() { return representation; }
 
     @Override
     public boolean isMovable() {
-        return false;
+        return movable;
     }
 
     @Override
     public Point getPosition() {
-        return null;
+        return position;
     }
 
     @Override
-    public void accept(Action action) {
-
+    public void accept(Visitor visitor) {
+        visitor.visitOOB(this);
     }
 }

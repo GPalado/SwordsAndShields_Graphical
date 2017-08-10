@@ -1,5 +1,7 @@
 package Tiles;
 
+import Actions.Visitors.Visitor;
+
 import java.awt.*;
 
 public class EmptySpace implements Tile {
@@ -30,7 +32,7 @@ public class EmptySpace implements Tile {
     }
 
     @Override
-    public void accept(Action action) {
-
+    public void accept(Visitor visitor) {
+        visitor.visitEmpty(this);
     }
 }

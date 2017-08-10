@@ -1,5 +1,7 @@
 package Tiles;
 
+import Actions.Action;
+import Actions.Visitors.Visitor;
 import Tiles.Reactables.Piece;
 
 import java.awt.*;
@@ -9,7 +11,7 @@ public class CreationSquare implements Tile {
     private boolean movable;
     private Character[][] representation;
     private Point position;
-    private Optional<Piece> piece; //todo use this properly
+    private Piece piece; //todo use optional?
 
     public CreationSquare(Point pos){
         movable=false;
@@ -18,8 +20,11 @@ public class CreationSquare implements Tile {
     }
 
     public boolean isOccupied(){
-        //todo implement this
-        return false;
+        return piece!=null;
+    }
+
+    public void setPiece(Piece piece){
+        this.piece=piece;
     }
 
     @Override
@@ -38,7 +43,8 @@ public class CreationSquare implements Tile {
     }
 
     @Override
-    public void accept(Action action) {
-
+    public void accept(Visitor visitor) {
+        visitor.visitCreation(this);
     }
+
 }
