@@ -43,40 +43,72 @@ public class Board {
     }
 
     public void apply(Action action){
-        //todo implement this
+        action.execute(this);
     }
 
     public void reverse(Action action){
-        //todo implement this
+        action.undo();
     }
 
     public void setPiece(Piece piece, int x, int y){
-        //todo implement this
+        if(x<0||x>SnSGame.BOARD_SIZE-1||y<0||y>SnSGame.BOARD_SIZE-1){
+            throw new IndexOutOfBoundsException();
+        }
+        tiles[x][y] = piece;
     }
 
     public Tile getLeftOf(Tile tile){
-        //todo implement this
-        return null;
+        if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
+            throw new IndexOutOfBoundsException();
+        } else if(tile.getPosition().x==0){
+            return new OutOfBounds(new Point(-1, tile.getPosition().y));
+        }
+        return tiles[tile.getPosition().x-1][tile.getPosition().y];
     }
 
     public Tile getRightOf(Tile tile){
-        //todo implement this
-        return null;
+        if(tile.getPosition().x<0||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
+            throw new IndexOutOfBoundsException();
+        } else if(tile.getPosition().x==SnSGame.BOARD_SIZE-1){
+            return new OutOfBounds(new Point(SnSGame.BOARD_SIZE, tile.getPosition().y));
+        }
+        return tiles[tile.getPosition().x+1][tile.getPosition().y];
     }
 
     public Tile getAboveOf(Tile tile){
-        //todo implement this
-        return null;
+        if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
+            throw new IndexOutOfBoundsException();
+        } else if(tile.getPosition().y==0){
+            return new OutOfBounds(new Point(tile.getPosition().x, -1));
+        }
+        return tiles[tile.getPosition().x][tile.getPosition().y-1];
     }
 
     public Tile getBelowOf(Tile tile){
-        //todo implement this
-        return null;
+        if(tile.getPosition().x<SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y<0){
+            throw new IndexOutOfBoundsException();
+        } else if(tile.getPosition().y==SnSGame.BOARD_SIZE-1){
+            return new OutOfBounds(new Point(tile.getPosition().x, SnSGame.BOARD_SIZE));
+        }
+        return tiles[tile.getPosition().x][tile.getPosition().y+1];
     }
 
     public ArrayList<Piece> offerReactions(Piece piece){
-        //todo implement this
-        return null;
+        //todo how to do w/out casting
+        ArrayList<Piece> neighbours = new ArrayList<>();
+        if(tiles[piece.getPosition().x][piece.getPosition().y+1].getClass().equals(Piece.class)){
+            neighbours.add((Piece)tiles[piece.getPosition().x][piece.getPosition().y+1]);
+        }
+        if(tiles[piece.getPosition().x][piece.getPosition().y-1].getClass().equals(Piece.class)){
+
+        }
+        if(tiles[piece.getPosition().x+1][piece.getPosition().y].getClass().equals(Piece.class)){
+
+        }
+        if(tiles[piece.getPosition().x-1][piece.getPosition().y].getClass().equals(Piece.class)){
+
+        }
+        return neighbours;
     }
 
     @Override

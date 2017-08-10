@@ -1,8 +1,15 @@
 package SnSGame;
 
+import Actions.CreateAction;
+import Actions.RotateAction;
+import Actions.Visitors.MoveDown;
+import Actions.Visitors.MoveLeft;
+import Actions.Visitors.MoveRight;
+import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Reactable;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 
 public class SnSGame {
@@ -37,6 +44,7 @@ public class SnSGame {
                     String input = System.in.toString();
                     playerMove(input);
                 }
+                //todo MAKE player pass?
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
             }
@@ -55,11 +63,37 @@ public class SnSGame {
         if (input[0].toLowerCase().equals("create")) {
             char c = parseChar(input[1]);
             int i = parseInt(input[2]);
+            CreateAction create = new CreateAction(currentPlayer.getPiece(c), i, currentPlayer);
+            currentPlayer.addAction(create);
+            board.apply(create);
         } else if (input[0].toLowerCase().equals("rotate")) {
             char c = parseChar(input[1]);
             int i = parseInt(input[2]);
+            RotateAction rotate = new RotateAction(currentPlayer.getPiece(c), i, currentPlayer);
+            currentPlayer.addAction(rotate);
+            board.apply(rotate);
         } else if (input[0].toLowerCase().equals("move")) {
             char c = parseChar(input[1]);
+            String direction = input[2];
+            if(direction.toLowerCase().equals("up")){
+                MoveUp up = new MoveUp(currentPlayer.getPiece(c), currentPlayer);
+                currentPlayer.addAction(up);
+                board.apply(up);
+            } else if(direction.toLowerCase().equals("down")){
+                MoveDown down = new MoveDown(currentPlayer.getPiece(c), currentPlayer);
+                currentPlayer.addAction(down);
+                board.apply(down);
+            } else if(direction.toLowerCase().equals("left")){
+                MoveLeft left = new MoveLeft(currentPlayer.getPiece(c), currentPlayer);
+                currentPlayer.addAction(left);
+                board.apply(left);
+            } else if(direction.toLowerCase().equals("right")){
+                MoveRight right = new MoveRight(currentPlayer.getPiece(c), currentPlayer);
+                currentPlayer.addAction(right);
+                board.apply(right);
+            } else {
+                throw new InvalidMoveException("Invalid direction");
+            }
         } else if (input[0].toLowerCase().equals("undo")) {
             currentPlayer.undo();
         } else if (input[0].toLowerCase().equals("pass")) {
@@ -109,7 +143,7 @@ public class SnSGame {
 
     /**
      * This is a helper method for parsing user input. It checks whether the player entered a character where necessary
-     * @param s
+     * @param token
      * @return char
      * @throws InvalidMoveException
      */
@@ -123,7 +157,7 @@ public class SnSGame {
 
     /**
      * This is a helper method for parsing user input. It checks whether the player entered an integer where necessary
-     * @param s
+     * @param token
      * @return int
      * @throws InvalidMoveException
      */

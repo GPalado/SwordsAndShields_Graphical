@@ -1,5 +1,6 @@
 package Tiles.Reactables;
 
+import Actions.Action;
 import Tiles.Tile;
 
 import java.awt.*;
