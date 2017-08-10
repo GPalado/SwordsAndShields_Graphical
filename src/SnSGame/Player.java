@@ -32,6 +32,7 @@ public class Player {
 
     public void addAction(Action action){
         //todo implement this
+        actions.push(action);
     }
 
     public Action undo(){
@@ -39,7 +40,7 @@ public class Player {
             //todo throw exception
         }
         //todo implement this
-        return null;
+        return actions.pollLast();
     }
 
     public void drawUnusedPieces(){
@@ -47,12 +48,19 @@ public class Player {
     }
 
     public void pass(){
-        //todo implement this
+        actions=new ArrayDeque<>();
+        hasCreated=false;
+
     }
 
     public Piece getPiece(char c){
-        //todo implement this
-        return null;
+        if(isCaps){
+            c=Character.toUpperCase(c);
+        } else {
+            c=Character.toLowerCase(c);
+        }
+        if(pieces.get(c)==null) throw new IllegalArgumentException("That piece does not exist");
+        return pieces.get(c);
     }
 
     public boolean hasMovesLeft(){
@@ -123,8 +131,5 @@ public class Player {
             pieces.put(c, new Piece(new Character[][]{{' ', '#', ' '}, {'|', c++, '#'}, {' ', '#', ' '}}));
             pieces.put(c, new Piece(new Character[][]{{' ', '#', ' '}, {' ', c++, '#'}, {' ', '#', ' '}}));
         }
-//        for(Character c:pieces.keySet()){
-//            System.out.println(c+"->"+pieces.get(c).getRepresentation().toString());
-//        }
     }
 }

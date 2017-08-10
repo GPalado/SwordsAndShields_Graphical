@@ -1,6 +1,6 @@
 package Tiles.Reactables;
 
-import Actions.Action;
+import Actions.Visitors.Visitor;
 import Tiles.Tile;
 
 import java.awt.*;
@@ -44,6 +44,8 @@ public class Piece implements Tile, Reactable {
         rotate(o);
     }
 
+    public void backToUnused(){ status=Status.UNUSED; }
+
     @Override
     public Status getStatus() {
         return status;
@@ -75,7 +77,7 @@ public class Piece implements Tile, Reactable {
     }
 
     @Override
-    public void accept(Action action) {
+    public void accept(Visitor visitor) {
 
     }
 }

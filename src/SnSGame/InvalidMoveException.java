@@ -1,6 +1,6 @@
 package SnSGame;
 
-public class InvalidMoveException extends Throwable {
+public class InvalidMoveException extends RuntimeException {
 
     public InvalidMoveException(){
         super();

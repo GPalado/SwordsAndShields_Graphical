@@ -16,7 +16,7 @@ public class SnSTests {
             "xxxxxx                        \n" +
             "xxxxxx                        \n" +
             "xxx                           \n" +
-            "xxx 0                         \n" +
+            "xxx 1                         \n" +
             "xxx                           \n" +
             "      /-\\                     \n" +
             "      | |                     \n" +
@@ -37,7 +37,7 @@ public class SnSTests {
             "                     | |      \n" +
             "                     \\-/      \n" +
             "                           xxx\n" +
-            "                         1 xxx\n" +
+            "                         0 xxx\n" +
             "                           xxx\n" +
             "                        xxxxxx\n" +
             "                        xxxxxx\n" +
@@ -49,18 +49,18 @@ public class SnSTests {
         assertEquals(emptyBoard, game.getBoard().toString());
     }
 
-    @Test
-    public void get_piece(){
-        //todo fix this test
-        Player p1 = new Player(Color.yellow, true, '0');
-        Character[][] pieceRep = {{' ', '-', ' '},{'|', 'A', '|'},{' ', '#', ' '}};
-        try {
-            assertEquals(pieceRep, p1.getPiece('A').getRepresentation());
-            assertEquals("unused", p1.getPiece('A').getStatus());
-        } catch (InvalidMoveException e){
-            fail(e.getMessage());
-        }
-    }
+//    @Test
+//    public void get_piece(){
+//        //todo fix this test
+//        Player p1 = new Player(Color.yellow, true, '0');
+//        Character[][] pieceRep = {{' ', '-', ' '},{'|', 'A', '|'},{' ', '#', ' '}};
+//        try {
+//            assertEquals(pieceRep, p1.getPiece('A').getRepresentation());
+//            assertEquals("unused", p1.getPiece('A').getStatus());
+//        } catch (InvalidMoveException e){
+//            fail(e.getMessage());
+//        }
+//    }
 
     @Test
     public void player_place_new_piece() {
@@ -71,11 +71,11 @@ public class SnSTests {
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
-                    "       |                      \n" +
-                    "      -a#                     \n" +
-                    "       |                      \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
@@ -88,11 +88,11 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\      \n" +
-                    "                     | |      \n" +
-                    "                     \\-/      \n" +
+                    "                      |       \n" +
+                    "                     -a#      \n" +
+                    "                      |       \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -124,19 +124,20 @@ public class SnSTests {
     public void test_move_down(){
         SnSGame game = new SnSGame();
         try {
+            game.playerMove("pass"); //green player turn
             game.playerMove("Create a 90");
             game.playerMove("Move a down");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "      /-\\                     \n" +
                     "      | |                     \n" +
                     "      \\-/                     \n" +
                     "       |                      \n" +
-                    "      -a#                     \n" +
+                    "      -A#                     \n" +
                     "       |                      \n" +
                     "                              \n" +
                     "                              \n" +
@@ -151,7 +152,7 @@ public class SnSTests {
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -166,16 +167,17 @@ public class SnSTests {
     public void test_move_right(){
         SnSGame game = new SnSGame();
         try {
+            game.playerMove("pass"); //green player turn
             game.playerMove("Create a 90");
             game.playerMove("Move a right");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "      /-\\ |                   \n" +
-                    "      | |-a#                  \n" +
+                    "      | |-A#                  \n" +
                     "      \\-/ |                   \n" +
                     "                              \n" +
                     "                              \n" +
@@ -193,7 +195,7 @@ public class SnSTests {
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -208,16 +210,17 @@ public class SnSTests {
     public void test_move_left(){
         SnSGame game = new SnSGame();
         try {
+            game.playerMove("pass"); //green player turn
             game.playerMove("Create a 90");
             game.playerMove("Move a left");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "    | /-\\                     \n" +
-                    "   -a#| |                     \n" +
+                    "   -A#| |                     \n" +
                     "    | \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
@@ -235,7 +238,7 @@ public class SnSTests {
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -251,14 +254,13 @@ public class SnSTests {
     public void test_move_up(){
         SnSGame game = new SnSGame();
         try{
-            game.playerMove("pass"); //green player turn
             game.playerMove("Create a 90");
             game.playerMove("Move a up");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "      /-\\                     \n" +
                     "      | |                     \n" +
@@ -273,13 +275,13 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                      |       \n" +
-                    "                     -A#      \n" +
+                    "                     -a#      \n" +
                     "                      |       \n" +
                     "                     /-\\      \n" +
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -337,10 +339,10 @@ public class SnSTests {
             game.playerMove("pass");
             game.playerMove("move a left");
             String moveBoard = "xxxxxx                        \n" +
-                    "xxxxxx                        \n" +
+                    "xxxxxx E                      \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "      /-\\                     \n" +
                     "      | |                     \n" +
@@ -361,10 +363,10 @@ public class SnSTests {
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
-                    "                      E xxxxxx\n" +
+                    "                        xxxxxx\n" +
                     "                        xxxxxx\n";
             assertEquals(moveBoard, game.getBoard().toString());
             game.playerMove("pass");
@@ -374,7 +376,7 @@ public class SnSTests {
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
                     "      /-\\                     \n" +
                     "      | |                     \n" +
@@ -395,7 +397,7 @@ public class SnSTests {
                     "                     | |      \n" +
                     "                     \\-/      \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +
@@ -445,11 +447,11 @@ public class SnSTests {
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxx                           \n" +
-                    "xxx 0                         \n" +
+                    "xxx 1                         \n" +
                     "xxx                           \n" +
-                    " |    /-\\                     \n" +
-                    "-a# e | |                     \n" +
-                    " |    \\-/                     \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
@@ -462,11 +464,11 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\      \n" +
-                    "                     | |      \n" +
-                    "                     \\-/      \n" +
+                    "                     /-\\    | \n" +
+                    "                     | | e -a#\n" +
+                    "                     \\-/    | \n" +
                     "                           xxx\n" +
-                    "                         1 xxx\n" +
+                    "                         0 xxx\n" +
                     "                           xxx\n" +
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n" +

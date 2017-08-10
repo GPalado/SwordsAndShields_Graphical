@@ -58,6 +58,10 @@ public class Board {
         tiles[x][y] = piece;
     }
 
+    public void setEmpty(int x, int y){
+        tiles[x][y]=new EmptySpace(new Point(x, y));
+    }
+
     public Tile getLeftOf(Tile tile){
         if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();

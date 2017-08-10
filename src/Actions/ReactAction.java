@@ -1,6 +1,7 @@
 package Actions;
 
 import SnSGame.Board;
+import SnSGame.Player;
 import Tiles.Reactables.Reactable;
 
 public class ReactAction implements Action {
@@ -10,7 +11,7 @@ public class ReactAction implements Action {
     private Reactable r2;
     private Board board;
 
-    public CreateAction(Reactable re1, Reactable re2, Player p){
+    public ReactAction(Reactable re1, Reactable re2, Player p){
         r1=re1;
         r2=re2;
         player=p;

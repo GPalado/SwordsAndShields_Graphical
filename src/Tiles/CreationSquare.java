@@ -2,6 +2,7 @@ package Tiles;
 
 import Actions.Action;
 import Actions.Visitors.Visitor;
+import SnSGame.InvalidMoveException;
 import Tiles.Reactables.Piece;
 
 import java.awt.*;
@@ -23,12 +24,21 @@ public class CreationSquare implements Tile {
         return piece!=null;
     }
 
+    public Piece getPiece(){
+        if(piece==null) throw new InvalidMoveException("This CS doesn't have a piece");
+        return piece;
+    }
+
     public void setPiece(Piece piece){
         this.piece=piece;
+        if(piece!=null) {
+            this.piece.setPosition(position.x, position.y);
+        }
     }
 
     @Override
     public Character[][] getRepresentation() {
+        if(isOccupied()) return piece.getRepresentation();
         return representation;
     }
 

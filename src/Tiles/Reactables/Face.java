@@ -45,12 +45,8 @@ public class Face implements Tile, Reactable {
     }
 
     @Override
-    public void kill() {
-        status=Status.CEMETERY;
-    }
+    public void kill() { status=Status.CEMETERY; }
 
     @Override
-    public void toLife() {
-        status=Status.ON_BOARD;♦
-    }
+    public void toLife() { status=Status.ON_BOARD; }
 }
