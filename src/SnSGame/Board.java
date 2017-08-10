@@ -1,5 +1,10 @@
 package SnSGame;
 
+import Actions.Action;
+import Tiles.*;
+import Tiles.Reactables.Piece;
+
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Board {
@@ -9,28 +14,22 @@ public class Board {
     public Board(Player p1, Player p2){
         assert p1!=null&&p2!=null;
         //initialize tiles and contents
-        tiles = new AbstractTile[SnSGame.BOARD_SIZE][SnSGame.BOARD_SIZE];
-        cemetery = new ArrayList<>();
+        tiles = new Tile[SnSGame.BOARD_SIZE][SnSGame.BOARD_SIZE];
         for(int x=0; x<tiles.length; x++){
             for(int y=0; y<tiles[0].length; y++) {
                 if(x+y<=1||x+y>=17){ //out of bounds corners
-                    tiles[x][y] = new OutOfBounds();
-                } else if(x==SnSGame.p1CreationSquare.x&&y==SnSGame.p1CreationSquare.y){
-                    creationSquares.put(p1, new CreationSquare()); //todo fix
-                    tiles[x][y] = creationSquares.get(p1);
-                } else if(x==SnSGame.p2CreationSquare.x&&y==SnSGame.p2CreationSquare.y){
-                    creationSquares.put(p2, new CreationSquare()); //todo fix
-                    tiles[x][y] = creationSquares.get(p2);
-                } else if(x==SnSGame.p1FaceSquare.x&&y==SnSGame.p1FaceSquare.y){
-//                    faceSquares.put(p1, p1.face); //todo fix
+                    tiles[x][y] = new OutOfBounds(new Point(x, y));
+                } else if(x==SnSGame.p1CreationCoords.x&&y==SnSGame.p1CreationCoords.y){
+                    tiles[x][y] = p1.creationSquare;
+                } else if(x==SnSGame.p2CreationCoords.x&&y==SnSGame.p2CreationCoords.y){
+                    tiles[x][y] = p2.creationSquare;
+                } else if(x==SnSGame.p1FaceCoords.x&&y==SnSGame.p1FaceCoords.y){
                     tiles[x][y] = p1.face;
-                } else if(x==SnSGame.p2FaceSquare.x&&y==SnSGame.p2FaceSquare.y){
-//                    faceSquares.put(p2, new FaceCell(p2.face)); //todo fix
+                } else if(x==SnSGame.p2FaceCoords.x&&y==SnSGame.p2FaceCoords.y){
                     tiles[x][y] = p2.face;
                 } else {
-                    tiles[x][y] = new EmptySpace();
+                    tiles[x][y] = new EmptySpace(new Point(x, y));
                 }
-                tiles[x][y].setPosition(x, y);
             }
         }
     }
@@ -75,7 +74,7 @@ public class Board {
         return null;
     }
 
-    public List<Piece> offerReactions(Piece piece){
+    public ArrayList<Piece> offerReactions(Piece piece){
         //todo implement this
         return null;
     }

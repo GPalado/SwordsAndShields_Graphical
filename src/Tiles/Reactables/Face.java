@@ -1,5 +1,6 @@
 package Tiles.Reactables;
 
+import Actions.Action;
 import Tiles.Tile;
 
 import java.awt.*;
@@ -20,22 +21,22 @@ public class Face implements Tile, Reactable {
 
     @Override
     public Character[][] getRepresentation() {
-        return new Character[0][];
+        return representation;
     }
 
     @Override
     public boolean isMovable() {
-        return false;
+        return movable;
     }
 
     @Override
     public Point getPosition() {
-        return null;
+        return position;
     }
 
     @Override
     public void accept(Action action) {
-
+        //todo implement this
     }
 
     @Override

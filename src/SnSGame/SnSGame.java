@@ -1,22 +1,26 @@
 package SnSGame;
 
+import Tiles.CreationSquare;
+import Tiles.Reactables.Reactable;
+
 import java.awt.*;
 
 public class SnSGame {
 
     public static final int BOARD_SIZE = 10;
     public static final int PIECE_SIZE = 3;
-    public static final Point p1CreationSquare = new Point(2, 2);
-    public static final Point p2CreationSquare = new Point(7, 7);
-    public static final Point p1FaceSquare = new Point(1, 1);
-    public static final Point p2FaceSquare = new Point(8, 8);
+    public static final Point p1CreationCoords = new Point(7, 7);
+    public static final Point p2CreationCoords = new Point(2, 2);
+    public static final Point p1FaceCoords = new Point(8, 8);
+    public static final Point p2FaceCoords = new Point(1, 1);
+    public static final Color[] colors = new Color[]{Color.yellow, Color.green};
     private Player player1, player2;
     private Player currentPlayer;
     private Board board;
 
     public SnSGame() {
-        player1 = new Player(colors[0], false, '0');
-        player2 = new Player(colors[1], true, '1');
+        player1 = new Player(colors[0], false, '0', p1FaceCoords, new CreationSquare(p1CreationCoords));
+        player2 = new Player(colors[1], true, '1', p2FaceCoords, new CreationSquare(p2CreationCoords));
         board = new Board(player1, player2);
         currentPlayer = player1;
         redrawGame();
@@ -24,7 +28,7 @@ public class SnSGame {
 
     public void playGame(){
         //loop while game is not won
-        while(!gameOver()){
+        while(!isGameOver()){
             System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " SnSGame.Player's Turn!\nYour unplayed pieces are:\n");
             currentPlayer.drawUnusedPieces();
             try {
@@ -51,25 +55,11 @@ public class SnSGame {
         if (input[0].toLowerCase().equals("create")) {
             char c = parseChar(input[1]);
             int i = parseInt(input[2]);
-            Piece newPiece = currentPlayer.createPiece(c, i);
-            board.addPiece(newPiece, currentPlayer);
-            currentPlayer.movePiece(in);
-            if(currentPlayer.getPiece(c).getStatus()!="cemetery"){
-                offerReactions(currentPlayer.getPiece(c));
-            }
         } else if (input[0].toLowerCase().equals("rotate")) {
             char c = parseChar(input[1]);
             int i = parseInt(input[2]);
-            currentPlayer.rotatePiece(c, i);
-            if(currentPlayer.getPiece(c).getStatus()!="cemetery"){
-                offerReactions(currentPlayer.getPiece(c));
-            }
         } else if (input[0].toLowerCase().equals("move")) {
             char c = parseChar(input[1]);
-            board.movePiece(currentPlayer.getPiece(c),input[2], currentPlayer);
-            if(currentPlayer.getPiece(c).getStatus()!="cemetery"){
-                offerReactions(currentPlayer.getPiece(c));
-            }
         } else if (input[0].toLowerCase().equals("undo")) {
             currentPlayer.undo();
         } else if (input[0].toLowerCase().equals("pass")) {
@@ -95,7 +85,7 @@ public class SnSGame {
      * @return boolean [true if game won, false otherwise]
      */
     private boolean isGameOver(){
-        return player1.face.isDead() || player2.face.isDead();
+        return player1.face.getStatus().equals(Reactable.Status.CEMETERY) || player2.face.getStatus().equals(Reactable.Status.CEMETERY);
     }
 
     /**

@@ -1,5 +1,11 @@
 package SnSGame;
 
+import Actions.Action;
+import Tiles.CreationSquare;
+import Tiles.Reactables.Face;
+import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
+
 import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -15,12 +21,12 @@ public class Player {
     private Deque<Action> actions = new ArrayDeque<>();
     private boolean hasCreated;
 
-    public Player(Color c, boolean caps, char faceChar){
+    public Player(Color c, boolean caps, char faceChar, Point facePos, CreationSquare cs){
         color=c;
         isCaps=caps;
         hasCreated = false;
-        Character[][] faceRep = {{' ', ' ', ' '},{' ', faceChar, ' '},{' ', ' ', ' '}};
-        face=new Face(faceRep);
+        face=new Face(faceChar, facePos);
+        creationSquare=cs;
         initializePieces();
     }
 
@@ -29,6 +35,9 @@ public class Player {
     }
 
     public Action undo(){
+        if(actions.isEmpty()){
+            //todo throw exception
+        }
         //todo implement this
         return null;
     }
@@ -47,13 +56,17 @@ public class Player {
     }
 
     public boolean hasMovesLeft(){
-        if(!hasCreated) return true;
-        for(Piece p : placedPieces.values()){
+        boolean pieceNotMoved=false;
+        boolean hasMovedAPiece=false;
+        for(Piece p : pieces.values()){
+            if(!p.getStatus().equals(Reactable.Status.ON_BOARD)) continue;
             if(!p.beenMoved()){
-                return true;
+                pieceNotMoved=true;
+            } else {
+                hasMovedAPiece=true;
             }
         }
-        return false;
+        return (!hasCreated && !hasMovedAPiece) || pieceNotMoved;
     }
 
     private void initializePieces() {

@@ -1,12 +1,15 @@
 package Tiles;
 
+import Tiles.Reactables.Piece;
+
 import java.awt.*;
+import java.util.Optional;
 
 public class CreationSquare implements Tile {
     private boolean movable;
     private Character[][] representation;
     private Point position;
-    private Optional<Piece> piece;
+    private Optional<Piece> piece; //todo use this properly
 
     public CreationSquare(Point pos){
         movable=false;
