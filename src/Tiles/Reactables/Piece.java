@@ -47,8 +47,10 @@ public class Piece implements Tile, Reactable {
      * Note, the Symbol array symbols are in order of NORTH, EAST, SOUTH, WEST
      */
     public Piece(Symbol[] symbols, char letter){
+        if(symbols.length!=4){
+            throw new IllegalArgumentException("There should be 4 symbols in the array");
+        }
         status=Status.UNUSED;
-//        representation=pieceRep;
         this.symbols=symbols;
         this.letter=letter;
     }
@@ -72,19 +74,6 @@ public class Piece implements Tile, Reactable {
             throw new InvalidMoveException("That is an invalid orientation");
         }
         pieceOrientation.rotate(this, amount);
-    }
-
-    /**
-     * This method sets the piece's orientation to the orientation mapped to by the given integer
-     * @param o
-     */
-    public void setOrientation(int o){
-        if(!orientations.keySet().contains(o)){
-            throw new InvalidMoveException("That is an invalid orientation");
-        }
-        pieceOrientation=orientations.get(o);
-        //todo do I need to rotate still here?
-//        rotate(o);
     }
 
     /**

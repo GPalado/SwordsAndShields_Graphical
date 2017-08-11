@@ -33,13 +33,15 @@ public class RotateAction implements Action {
 
     @Override
     public void execute(Board board) {
-        piece.setOrientation((piece.getOrientation()+amount>360) ? piece.getOrientation()+amount-360 : amount+piece.getOrientation());
+//        piece.setOrientation((piece.getOrientation()+amount>360) ? piece.getOrientation()+amount-360 : amount+piece.getOrientation());
+        piece.rotate(amount);
         player.pieceMoved(piece);
     }
 
     @Override
     public void undo() {
-        piece.setOrientation((piece.getOrientation()-amount<0) ? piece.getOrientation()-amount+360 : piece.getOrientation()-amount);
+//        piece.setOrientation((piece.getOrientation()-amount<0) ? piece.getOrientation()-amount+360 : piece.getOrientation()-amount);
+        piece.rotate(360-amount);
         player.pieceNotMoved(piece);
     }
 

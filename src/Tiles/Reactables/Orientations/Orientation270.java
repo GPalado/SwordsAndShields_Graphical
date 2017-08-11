@@ -16,6 +16,11 @@ public class Orientation270 implements PieceOrientation {
 
     @Override
     public Character[][] getRepresentation(Piece piece) {
-        return new Character[0][];
+        Character[][] rep = new Character[][]{
+                {' ', ' ', ' '}, //first column
+                {' ', piece.letter, ' '}, //second column
+                {' ', ' ', ' '} //third column
+        } ;
+        return rep;
     }
 }
