@@ -53,6 +53,7 @@ public class Piece implements Tile, Reactable {
         status=Status.UNUSED;
         this.symbols=symbols;
         this.letter=letter;
+        pieceOrientation=orientations.get(0);
     }
 
     /**

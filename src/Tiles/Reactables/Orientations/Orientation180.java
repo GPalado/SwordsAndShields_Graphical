@@ -21,9 +21,9 @@ public class Orientation180 implements PieceOrientation {
     @Override
     public Character[][] getRepresentation(Piece piece) {
         Character[][] rep = new Character[][]{
-                {' ', symbolCharacterMap.get(piece.symbols[1]), ' '}, //first column
+                {' ', symbolCharacterMap.get(piece.symbols[3]), ' '}, //first column
                 {symbolCharacterMap.get(piece.symbols[2]), piece.letter, symbolCharacterMap.get(piece.symbols[0])}, //second column
-                {' ', symbolCharacterMap.get(piece.symbols[3]), ' '} //third column
+                {' ', symbolCharacterMap.get(piece.symbols[1]), ' '} //third column
         } ;
         return rep;
     }
