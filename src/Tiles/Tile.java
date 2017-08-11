@@ -5,17 +5,12 @@ import Actions.Visitors.Visitor;
 import java.awt.*;
 
 public interface Tile {
-    //todo double check what you want to do here
-//    boolean movable;
-//    Character[][] representation;
-//    Point position;
 
-    public Character[][] getRepresentation();
+    Character[][] getRepresentation();
 
-    public boolean isMovable();
+    boolean isMovable();
 
-    public Point getPosition();
+    Point getPosition();
 
-    public void accept(Visitor visitor);
-
+    void accept(Visitor visitor);
 }

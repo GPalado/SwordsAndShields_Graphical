@@ -8,7 +8,6 @@ import Tiles.EmptySpace;
 import Tiles.OutOfBounds;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Piece;
-import Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,31 +50,23 @@ public abstract class MoveActionVisitor implements Action, Visitor{
 
     public void setPieceToPlace(Piece p){ pieceToPlace=p; }
 
-    @Override
     public void visitFace(Face face) {
-        System.out.println("Face");
-        piecesPushed.add(pieceToPlace);
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }
 
-    @Override
     public void visitOOB(OutOfBounds oob) {
-        System.out.println("OOB");
-        piecesPushed.add(pieceToPlace);
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }
 
-    @Override
     public void visitEmpty(EmptySpace empty) {
-        System.out.println("Empty");
-        piecesPushed.add(pieceToPlace);
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         board.setPiece(pieceToPlace, empty.getPosition().x, empty.getPosition().y);
     }
 
-    @Override
     public void visitCreation(CreationSquare cs) {
-        System.out.println("Creation");
-        piecesPushed.add(pieceToPlace);
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         if(cs.isOccupied()){
             Piece temp = cs.getPiece();
             cs.setPiece(pieceToPlace);
@@ -83,5 +74,9 @@ public abstract class MoveActionVisitor implements Action, Visitor{
         } else {
             cs.setPiece(pieceToPlace);
         }
+    }
+
+    public Piece getPiece(){
+        return startingPiece;
     }
 }

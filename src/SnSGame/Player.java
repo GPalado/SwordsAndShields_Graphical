@@ -7,10 +7,7 @@ import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 
 import java.awt.*;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Player {
     public final Color color;
@@ -19,21 +16,32 @@ public class Player {
     public final boolean isCaps;
     private Map<Character, Piece> pieces = new HashMap<>();
     private Deque<Action> actions = new ArrayDeque<>();
+    private Set<Piece> piecesMoved = new HashSet<>();
     private boolean hasCreated;
-    private boolean hasMoved;
 
     public Player(Color c, boolean caps, char faceChar, Point facePos, CreationSquare cs){
         color=c;
         isCaps=caps;
         hasCreated = false;
-        hasMoved=false;
         face=new Face(faceChar, facePos);
         creationSquare=cs;
         initializePieces();
     }
 
+    public Set<Piece> getPiecesMoved(){
+        return piecesMoved;
+    }
+
+    public void pieceMoved(Piece p){
+        piecesMoved.add(p);
+    }
+
+    public void pieceNotMoved(Piece p){
+        if(piecesMoved.contains(p)) piecesMoved.remove(p);
+    }
+
     public void addAction(Action action){
-        actions.push(action);
+        actions.add(action);
     }
 
     public Action undo(){
@@ -51,11 +59,7 @@ public class Player {
         hasCreated=b;
     }
 
-    public boolean hasMoved(){ return hasMoved; }
-
-    public void setMoved(boolean b){
-        hasMoved=b;
-    }
+    public boolean hasMoved(){ return !piecesMoved.isEmpty(); }
 
     public void drawUnusedPieces(){
         //todo implement this
@@ -64,10 +68,10 @@ public class Player {
     public void pass(){
         actions=new ArrayDeque<>();
         hasCreated=false;
-        hasMoved=false;
-        for(Piece p:pieces.values()){
-            p.setMoved(false);
-        }
+        piecesMoved.clear();
+//        for(Piece p:pieces.values()){
+//            p.setMoved(false);
+//        }
     }
 
     public Piece getPiece(char c){
@@ -85,7 +89,7 @@ public class Player {
         boolean hasMovedAPiece=false;
         for(Piece p : pieces.values()){
             if(!p.getStatus().equals(Reactable.Status.ON_BOARD)) continue;
-            if(!p.beenMoved()){
+            if(!piecesMoved.contains(p)){
                 pieceNotMoved=true;
             } else {
                 hasMovedAPiece=true;

@@ -2,6 +2,7 @@ package Actions;
 
 import SnSGame.Board;
 import SnSGame.Player;
+import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 
 public class ReactAction implements Action {

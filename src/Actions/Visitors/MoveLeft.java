@@ -4,6 +4,7 @@ import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
 import Tiles.Tile;
 
 public class MoveLeft extends MoveActionVisitor {
@@ -14,11 +15,10 @@ public class MoveLeft extends MoveActionVisitor {
 
     @Override
     public void execute(Board board) {
-        if(getPieceToPlace().beenMoved()){
+        if(getPlayer().getPiecesMoved().contains(getStartingPiece())){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
-        getPieceToPlace().setMoved(true);
-        getPlayer().setMoved(true);
+        getPlayer().pieceMoved(getStartingPiece());
         setBoard(board);
         if(getPieceToPlace().getPosition().equals(getPlayer().creationSquare.getPosition())){ //set creation square to no piece
             getPlayer().creationSquare.setPiece(null);
@@ -26,17 +26,15 @@ public class MoveLeft extends MoveActionVisitor {
             board.setEmpty(getPieceToPlace().getPosition().x, getPieceToPlace().getPosition().y);
         }
         Tile shift = board.getLeftOf(getStartingPiece());
-        System.out.println("executing");
         shift.accept(this);
     }
 
 
     @Override
     public void visitPiece(Piece piece) {
-        System.out.println("Piece");
+        if(getPieceToPlace()!=getStartingPiece())getPiecesPushed().add(getPieceToPlace());
         getBoard().setPiece(getPieceToPlace(), piece.getPosition().x, piece.getPosition().y);
         setPieceToPlace(piece);
-        getPiecesPushed().add(piece);
         Tile shift = getBoard().getLeftOf(getPieceToPlace());
         shift.accept(this);
     }
@@ -44,13 +42,28 @@ public class MoveLeft extends MoveActionVisitor {
     @Override
     public void undo() {
         //todo fix this
+        System.out.println("undo left");
+        getPlayer().pieceNotMoved(getStartingPiece());
         if(getPiecesPushed().isEmpty()){ //just move the one piece
-            getBoard().apply(new MoveRight(getStartingPiece(), getPlayer()));
+            System.out.println("just one");
+            if(getStartingPiece().getStatus().equals(Reactable.Status.CEMETERY)){
+                getStartingPiece().toLife();
+                getBoard().setPiece(getStartingPiece(), getStartingPiece().getPosition().x, getStartingPiece().getPosition().y);
+            } else {
+                getBoard().apply(new MoveRight(getStartingPiece(), getPlayer()));
+            }
         } else if(getStartingPiece().getPosition().x-getPiecesPushed().size()<0) { //move all pushed pieces and bring other piece back to life
-            getBoard().apply(new MoveRight(getPiecesPushed().get(getPiecesPushed().size()-2), getPlayer()));
+            System.out.println("killed");
+            //todo fix line below because if only one neighbour is pushed and pushed to death then index oob exception
+            if(getPiecesPushed().size()==1){
+                getBoard().apply(new MoveRight(getStartingPiece(), getPlayer()));
+            } else {
+                getBoard().apply(new MoveRight(getPiecesPushed().get(getPiecesPushed().size() - 2), getPlayer()));
+            }
             getPiecesPushed().get(getPiecesPushed().size()-1).toLife();
             getBoard().setPiece(getPiecesPushed().get(getPiecesPushed().size()-1), 0, getStartingPiece().getPosition().y);
-        } else {
+        } else { //move all pushed pieces back
+            System.out.println("shifted");
             getBoard().apply(new MoveRight(getPiecesPushed().get(getPiecesPushed().size()-1), getPlayer()));
         }
     }

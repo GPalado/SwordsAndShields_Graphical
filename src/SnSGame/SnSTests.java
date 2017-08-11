@@ -675,7 +675,7 @@ public class SnSTests {
                 "      \\-/                     \n" +
                 "                              \n" +
                 "                              \n" +
-                "                             \n" +
+                "                              \n" +
                 "                              \n" +
                 "                              \n" +
                 "                              \n" +
@@ -729,7 +729,7 @@ public class SnSTests {
                 "      \\-/                     \n" +
                 "                              \n" +
                 "                              \n" +
-                "                             \n" +
+                "                              \n" +
                 "                              \n" +
                 "                              \n" +
                 "                              \n" +
@@ -782,7 +782,7 @@ public class SnSTests {
                 "      \\-/                     \n" +
                 "                              \n" +
                 "                              \n" +
-                "                             \n" +
+                "                              \n" +
                 "                              \n" +
                 "                              \n" +
                 "                              \n" +
@@ -793,7 +793,7 @@ public class SnSTests {
                 "                              \n" +
                 "                              \n" +
                 "                   #          \n" +
-                "                i##c# e       \n" +
+                "                e #c# i#      \n" +
                 "                   #          \n" +
                 "                           xxx\n" +
                 "                         0 xxx\n" +
@@ -835,7 +835,7 @@ public class SnSTests {
                 "      \\-/                     \n" +
                 "                              \n" +
                 "                              \n" +
-                "                             \n" +
+                "                              \n" +
                 "                              \n" +
                 "                              \n" +
                 "                              \n" +
@@ -888,7 +888,7 @@ public class SnSTests {
                 "      \\-/                     \n" +
                 "                              \n" +
                 "                              \n" +
-                "                             \n" +
+                "                              \n" +
                 "                              \n" +
                 "                              \n" +
                 "                              \n" +
@@ -926,6 +926,8 @@ public class SnSTests {
             fail(e.getMessage());
         }
     }
+
+//todo test undo moving off the board
 
 //    @Test
 //    public void test_undo_8(){

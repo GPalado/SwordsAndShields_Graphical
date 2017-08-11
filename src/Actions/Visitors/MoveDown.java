@@ -3,7 +3,9 @@ package Actions.Visitors;
 import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
+import SnSGame.SnSGame;
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
 import Tiles.Tile;
 
 public class MoveDown extends MoveActionVisitor {
@@ -15,11 +17,10 @@ public class MoveDown extends MoveActionVisitor {
     @Override
     public void execute(Board board) {
         //todo implement this
-        if(getPieceToPlace().beenMoved()){
+        if(getPlayer().getPiecesMoved().contains(getStartingPiece())){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
-        getPieceToPlace().setMoved(true);
-        getPlayer().setMoved(true);
+        getPlayer().pieceMoved(getStartingPiece());
         setBoard(board);
         if(getPieceToPlace().getPosition().equals(getPlayer().creationSquare.getPosition())){ //set creation square to no piece
             getPlayer().creationSquare.setPiece(null);
@@ -32,9 +33,9 @@ public class MoveDown extends MoveActionVisitor {
 
     @Override
     public void visitPiece(Piece piece) {
+        if(getPieceToPlace()!=getStartingPiece())getPiecesPushed().add(getPieceToPlace());
         getBoard().setPiece(getPieceToPlace(), piece.getPosition().x, piece.getPosition().y);
         setPieceToPlace(piece);
-        getPiecesPushed().add(piece);
         Tile shift = getBoard().getBelowOf(getPieceToPlace());
         shift.accept(this);
     }
@@ -42,12 +43,23 @@ public class MoveDown extends MoveActionVisitor {
     @Override
     public void undo() {
         //todo fix this
+        System.out.println("undo down");
+        getPlayer().pieceNotMoved(getStartingPiece());
         if(getPiecesPushed().isEmpty()){ //just move the one piece
-            getBoard().apply(new MoveUp(getStartingPiece(), getPlayer()));
-        } else if(getStartingPiece().getPosition().y-getPiecesPushed().size()<0) { //move all pushed pieces and bring other piece back to life
-            getBoard().apply(new MoveUp(getPiecesPushed().get(getPiecesPushed().size()-2), getPlayer()));
+            if(getStartingPiece().getStatus().equals(Reactable.Status.CEMETERY)){
+                getStartingPiece().toLife();
+                getBoard().setPiece(getStartingPiece(), getStartingPiece().getPosition().x, getStartingPiece().getPosition().y);
+            } else {
+                getBoard().apply(new MoveUp(getStartingPiece(), getPlayer()));
+            }
+        } else if(getStartingPiece().getPosition().y+getPiecesPushed().size()>SnSGame.BOARD_SIZE-1) { //move all pushed pieces and bring other piece back to life
+            if(getPiecesPushed().size()==1){
+                getBoard().apply(new MoveUp(getStartingPiece(), getPlayer()));
+            } else {
+                getBoard().apply(new MoveUp(getPiecesPushed().get(getPiecesPushed().size() - 2), getPlayer()));
+            }
             getPiecesPushed().get(getPiecesPushed().size()-1).toLife();
-            getBoard().setPiece(getPiecesPushed().get(getPiecesPushed().size()-1), getStartingPiece().getPosition().x, 0);
+            getBoard().setPiece(getPiecesPushed().get(getPiecesPushed().size()-1), getStartingPiece().getPosition().x, SnSGame.BOARD_SIZE-1);
         } else {
             getBoard().apply(new MoveUp(getPiecesPushed().get(getPiecesPushed().size()-1), getPlayer()));
         }

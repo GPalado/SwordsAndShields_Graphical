@@ -8,7 +8,6 @@ import java.awt.*;
 public class Piece implements Tile, Reactable {
 
     private int orientation;
-    private char letter;
     private boolean moved;
     private boolean movable;
     private Character[][] representation;
@@ -20,7 +19,6 @@ public class Piece implements Tile, Reactable {
         movable=true;
         status=Status.UNUSED;
         representation=pieceRep;
-        letter=representation[1][1];
     }
 
     public void setPosition(int x, int y){

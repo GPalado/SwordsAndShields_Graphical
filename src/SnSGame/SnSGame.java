@@ -9,6 +9,7 @@ import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Reactable;
 import java.awt.*;
+import java.util.Arrays;
 
 public class SnSGame {
 
@@ -103,9 +104,7 @@ public class SnSGame {
                 passed = true;
                 currentPlayer.pass();
                 swapPlayers();
-                System.out.println("pass turn");
             } else {
-                System.out.println("pass create");
                 currentPlayer.setCreated(true);
             }
         } else {

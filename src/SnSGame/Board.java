@@ -46,9 +46,7 @@ public class Board {
         action.execute(this);
     }
 
-    public void reverse(Action action){
-        action.undo();
-    }
+    public void reverse(Action action){ action.undo(); }
 
     public void setPiece(Piece piece, int x, int y){
         if(x<0||x>SnSGame.BOARD_SIZE-1||y<0||y>SnSGame.BOARD_SIZE-1){

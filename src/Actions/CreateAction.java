@@ -6,8 +6,6 @@ import SnSGame.Player;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 
-import java.nio.InvalidMarkException;
-
 public class CreateAction implements Action {
 
     private Player player;
@@ -24,7 +22,6 @@ public class CreateAction implements Action {
 
     @Override
     public void execute(Board board) {
-        //todo implement this
         if(player.creationSquare.isOccupied()){
             throw new InvalidMoveException("Your creation square is occupied");
         }
@@ -47,8 +44,11 @@ public class CreateAction implements Action {
 
     @Override
     public void undo() {
-        //todo implement this
         player.creationSquare.setPiece(null);
         piece.backToUnused();
+    }
+
+    public Piece getPiece() {
+        return piece;
     }
 }
