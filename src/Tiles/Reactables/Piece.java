@@ -1,26 +1,55 @@
 package Tiles.Reactables;
 
 import Actions.Visitors.Visitor;
+import SnSGame.InvalidMoveException;
+import Tiles.Reactables.Orientations.*;
 import Tiles.Tile;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class provides a representation of a Piece in the Swords and Shields game.
  */
 public class Piece implements Tile, Reactable {
 
-    private int orientation;
-    private Character[][] representation;
+    public static final Map<Symbol, Character> symbolCharacterMap;
+    public static final Map<Integer, PieceOrientation> orientations;
+    public final Character letter;
+    public final Symbol[] symbols;
     private Point position;
     private Status status;
+    private PieceOrientation pieceOrientation;
+
+    static {
+        symbolCharacterMap = new HashMap<>();
+        symbolCharacterMap.put(Symbol.SWORD_VERTICAL, '|');
+        symbolCharacterMap.put(Symbol.SWORD_HORIZONTAL, '-');
+        symbolCharacterMap.put(Symbol.SHIELD, '#');
+        symbolCharacterMap.put(Symbol.NOTHING, ' ');
+        orientations=new HashMap<>();
+        orientations.put(0, new Orientation0());
+        orientations.put(90, new Orientation90());
+        orientations.put(180, new Orientation180());
+        orientations.put(270, new Orientation270());
+    }
+
+    public enum Symbol{
+        SWORD_VERTICAL,
+        SWORD_HORIZONTAL,
+        SHIELD,
+        NOTHING
+    }
 
     /**
      * The constructor takes a character array representation of the piece.
      * It sets initial values of moved to false, and status to unused.
      */
-    public Piece(Character[][] pieceRep){
+    public Piece(Symbol[] symbols, char letter){
         status=Status.UNUSED;
-        representation=pieceRep;
+//        representation=pieceRep;
+        this.symbols=symbols;
+        this.letter=letter;
     }
 
     /**
@@ -38,23 +67,42 @@ public class Piece implements Tile, Reactable {
      */
     public void rotate(int amount){
         //todo implement this
+        if(!orientations.keySet().contains(amount)){
+            throw new InvalidMoveException("That is an invalid orientation");
+        }
+        pieceOrientation.rotate(this, amount);
+    }
+
+    /**
+     * This method sets the piece's orientation to the orientation mapped to by the given integer
+     * @param o
+     */
+    public void setOrientation(int o){
+        if(!orientations.keySet().contains(o)){
+            throw new InvalidMoveException("That is an invalid orientation");
+        }
+        pieceOrientation=orientations.get(o);
+        //todo do I need to rotate still here?
+//        rotate(o);
     }
 
     /**
      * This method sets the piece's orientation to the given orientation
      * @param o
      */
-    public void setOrientation(int o){
-        orientation=o;
-        rotate(o);
+    public void setOrientation(PieceOrientation o){
+        if(!orientations.values().contains(o)){
+            throw new InvalidMoveException("That is an invalid orientation");
+        }
+        pieceOrientation=o;
     }
 
     /**
      * This method returns the piece's orientation
      * @return
      */
-    public int getOrientation(){
-        return orientation;
+    public PieceOrientation getOrientation(){
+        return pieceOrientation;
     }
 
     /**
@@ -79,7 +127,7 @@ public class Piece implements Tile, Reactable {
 
     @Override
     public Character[][] getRepresentation() {
-        return representation;
+        return pieceOrientation.getRepresentation(this);
     }
 
     @Override

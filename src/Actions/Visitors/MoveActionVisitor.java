@@ -34,21 +34,25 @@ public abstract class MoveActionVisitor implements Action, Visitor{
         this.player=player;
     }
 
+    @Override
     public void visitFace(Face face) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }
 
+    @Override
     public void visitOOB(OutOfBounds oob) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }
 
+    @Override
     public void visitEmpty(EmptySpace empty) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         board.setPiece(pieceToPlace, empty.getPosition().x, empty.getPosition().y);
     }
 
+    @Override
     public void visitCreation(CreationSquare cs) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         if(cs.isOccupied()){
