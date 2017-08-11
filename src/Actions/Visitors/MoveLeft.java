@@ -14,7 +14,6 @@ public class MoveLeft extends MoveActionVisitor {
 
     @Override
     public void execute(Board board) {
-        //todo implement this
         if(getPieceToPlace().beenMoved()){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }

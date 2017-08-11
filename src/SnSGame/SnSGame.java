@@ -8,8 +8,6 @@ import Actions.Visitors.MoveRight;
 import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Reactable;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 
 public class SnSGame {
