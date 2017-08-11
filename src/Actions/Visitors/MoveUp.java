@@ -18,7 +18,6 @@ public class MoveUp extends MoveActionVisitor {
 
     @Override
     public void execute(Board board) {
-        //todo implement this
         if(player.getPiecesMoved().contains(startingPiece)){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
