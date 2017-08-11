@@ -41,8 +41,6 @@ public class MoveUp extends MoveActionVisitor {
 
     @Override
     public void undo() {
-        //todo fix this
-        System.out.println("undo up");
         getPlayer().pieceNotMoved(getStartingPiece());
         if(getPiecesPushed().isEmpty()){ //just move the one piece
             if(getStartingPiece().getStatus().equals(Reactable.Status.CEMETERY)){

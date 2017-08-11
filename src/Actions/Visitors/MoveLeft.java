@@ -41,7 +41,6 @@ public class MoveLeft extends MoveActionVisitor {
 
     @Override
     public void undo() {
-        //todo fix this
         System.out.println("undo left");
         getPlayer().pieceNotMoved(getStartingPiece());
         if(getPiecesPushed().isEmpty()){ //just move the one piece
@@ -54,7 +53,6 @@ public class MoveLeft extends MoveActionVisitor {
             }
         } else if(getStartingPiece().getPosition().x-getPiecesPushed().size()<0) { //move all pushed pieces and bring other piece back to life
             System.out.println("killed");
-            //todo fix line below because if only one neighbour is pushed and pushed to death then index oob exception
             if(getPiecesPushed().size()==1){
                 getBoard().apply(new MoveRight(getStartingPiece(), getPlayer()));
             } else {

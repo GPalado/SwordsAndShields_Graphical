@@ -927,27 +927,108 @@ public class SnSTests {
         }
     }
 
-//todo test undo moving off the board
+    @Test
+    public void test_undo_8(){
+        SnSGame game = new SnSGame();
+        String undoBoard = "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxx                           \n" +
+                "xxx 1                         \n" +
+                "xxx                           \n" +
+                "      /-\\                     \n" +
+                "      | |                     \n" +
+                "      \\-/                     \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                     /-\\      \n" +
+                "                     | |      \n" +
+                "                     \\-/      \n" +
+                "                      #    xxx\n" +
+                "                     #c# 0 xxx\n" +
+                "                      #    xxx\n" +
+                "                        xxxxxx\n" +
+                "                      e xxxxxx\n" +
+                "                        xxxxxx\n";
+        try{
+            game.playerMove("create e 0");
+            game.playerMove("move e down");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("create c 0");
+            game.playerMove("move c down");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("move c down");
+            game.playerMove("undo");
+            assertEquals(undoBoard, game.getBoard().toString());
+        } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
 
-//    @Test
-//    public void test_undo_8(){
-//        SnSGame game = new SnSGame();
-//        try{
-//
-//        } catch (Exception e){
-//            fail(e.getMessage());
-//        }
-//    }
-//
-//    @Test
-//    public void test_undo_9(){
-//        SnSGame game = new SnSGame();
-//        try{
-//
-//        } catch (Exception e){
-//            fail(e.getMessage());
-//        }
-//    }
+    @Test
+    public void test_undo_9(){
+        SnSGame game = new SnSGame();
+        String undoBoard = "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxx                           \n" +
+                "xxx 1                         \n" +
+                "xxx                           \n" +
+                "      /-\\                     \n" +
+                "      | |                     \n" +
+                "      \\-/                     \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                     /-\\      \n" +
+                "                     | |      \n" +
+                "                     \\-/      \n" +
+                "                           xxx\n" +
+                "                         0 xxx\n" +
+                "                           xxx\n" +
+                "                        xxxxxx\n" +
+                "                      e xxxxxx\n" +
+                "                        xxxxxx\n";
+        try{
+            game.playerMove("create e 0");
+            game.playerMove("move e down");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("move e down");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("move e down");
+            game.playerMove("undo");
+            assertEquals(undoBoard, game.getBoard().toString());
+        } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
 //
 //    @Test
 //    public void test_undo_10(){
@@ -969,10 +1050,11 @@ public class SnSTests {
 //        }
 //    }
 
+    //test rotations
+
     //test reactions
 
     //test kill face
-
 
     //test invalid inputs
 }

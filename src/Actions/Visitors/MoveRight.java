@@ -42,8 +42,6 @@ public class MoveRight extends MoveActionVisitor {
 
     @Override
     public void undo() {
-        //todo implement this
-        System.out.println("undo right");
         getPlayer().pieceNotMoved(getStartingPiece());
         if(getPiecesPushed().isEmpty()){ //just move the one piece
             if(getStartingPiece().getStatus().equals(Reactable.Status.CEMETERY)){

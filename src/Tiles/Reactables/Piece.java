@@ -42,6 +42,10 @@ public class Piece implements Tile, Reactable {
         rotate(o);
     }
 
+    public int getOrientation(){
+        return orientation;
+    }
+
     public void backToUnused(){ status=Status.UNUSED; }
 
     @Override
