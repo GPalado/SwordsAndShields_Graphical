@@ -3,6 +3,7 @@ package Tiles.Reactables.Orientations;
 import Tiles.Reactables.Piece;
 
 import static Tiles.Reactables.Piece.orientations;
+import static Tiles.Reactables.Piece.symbolCharacterMap;
 
 /**
  * This class provides a representation of a '90' degree orientation for a piece.
@@ -19,10 +20,11 @@ public class Orientation90 implements PieceOrientation {
 
     @Override
     public Character[][] getRepresentation(Piece piece) {
+//        symbolCharacterMap.get(piece.symbols[0])
         Character[][] rep = new Character[][]{
-                {' ', ' ', ' '}, //first column
-                {' ', piece.letter, ' '}, //second column
-                {' ', ' ', ' '} //third column
+                {' ', piece.symbols[2].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[2]), ' '}, //first column
+                {piece.symbols[3].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[3]), piece.letter, piece.symbols[0].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[1])}, //second column
+                {' ', piece.symbols[0].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[0]), ' '} //third column
         } ;
         return rep;
     }
