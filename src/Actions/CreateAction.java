@@ -4,6 +4,7 @@ import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
 
 import java.nio.InvalidMarkException;
 
@@ -32,6 +33,12 @@ public class CreateAction implements Action {
         }
         if(player.hasMoved()){
             throw new InvalidMoveException("You can only create at the start of your turn");
+        }
+        if(piece.getStatus().equals(Reactable.Status.CEMETERY)){
+            throw new InvalidMoveException("Cannot create piece that is deado");
+        }
+        if(piece.getStatus().equals(Reactable.Status.ON_BOARD)){
+            throw new InvalidMoveException("Cannot create a piece already on the board");
         }
         player.creationSquare.setPiece(piece);
         player.setCreated(true);

@@ -41,16 +41,18 @@ public class SnSGame {
             currentPlayer.drawUnusedPieces();
             try {
                 while(currentPlayer.hasMovesLeft()&&!passed) {
-                    System.out.print("What would you like to do (Create, Rotate, Move): ");
+                    if(currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
+                        System.out.print("What would you like to do (Rotate, Move): ");
+                    } else {
+                        System.out.print("What would you like to do (Create, Rotate, Move): ");
+                    }
                     String input = System.in.toString();
                     playerMove(input);
                 }
-                currentPlayer.pass();
+                passed=false;
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
             }
-            swapPlayers();
-            passed=false;
         }
     }
 
@@ -99,7 +101,15 @@ public class SnSGame {
         } else if (input[0].toLowerCase().equals("undo")) {
             board.reverse(currentPlayer.undo());
         } else if (input[0].toLowerCase().equals("pass")) {
-            passed=true;
+            if(currentPlayer.hasCreated()||currentPlayer.hasMoved()) {
+                passed = true;
+                currentPlayer.pass();
+                swapPlayers();
+                System.out.println("pass turn");
+            } else {
+                System.out.println("pass create");
+                currentPlayer.setCreated(true);
+            }
         } else {
             throw new InvalidMoveException("Unrecognizable command");
         }
@@ -111,7 +121,7 @@ public class SnSGame {
      */
     public void redrawGame() {
         //clear current board from console
-//        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\n\n\n");
         board.draw();
     }
 

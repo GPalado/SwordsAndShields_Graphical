@@ -104,8 +104,9 @@ public class SnSTests {
         SnSGame game = new SnSGame();
         try {
             game.playerMove("Create a 90");
-            game.playerMove("pass");
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create b 180");
             fail("Cannot create when creation square occupied");
         } catch (InvalidMoveException e) {
@@ -119,7 +120,8 @@ public class SnSTests {
     public void test_move_down(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("pass"); //green player turn
+            game.playerMove("pass"); //yellow player pass create
+            game.playerMove("pass"); //yellow player pass turn
             game.playerMove("Create a 90");
             game.playerMove("Move a down");
             String moveBoard = "xxxxxx                        \n" +
@@ -162,7 +164,8 @@ public class SnSTests {
     public void test_move_right(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("pass"); //green player turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create a 90");
             game.playerMove("Move a right");
             String moveBoard = "xxxxxx                        \n" +
@@ -205,7 +208,8 @@ public class SnSTests {
     public void test_move_left(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("pass"); //green player turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create a 90");
             game.playerMove("Move a left");
             String moveBoard = "xxxxxx                        \n" +
@@ -324,14 +328,14 @@ public class SnSTests {
             //also test caps/non caps
             game.playerMove("Create A 90"); //should be lower case
             game.playerMove("Move A right"); //^
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create e 180"); //should be upper case
             game.playerMove("Move e up"); //^
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass turn
             game.playerMove("move a RIGHT");
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass turn
             game.playerMove("move e UP");
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass turn
             game.playerMove("move a Right");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx E                      \n" +
@@ -364,7 +368,7 @@ public class SnSTests {
                     "                        xxxxxx\n" +
                     "                        xxxxxx\n";
             assertEquals(moveBoard, game.getBoard().toString());
-            game.playerMove("pass");
+            game.playerMove("pass");//pass turn
             game.playerMove("move e left");
 
             moveBoard = "xxxxxx                        \n" +
@@ -410,17 +414,21 @@ public class SnSTests {
         try {
             //also test caps/non caps
             game.playerMove("Create A 90"); //should be lower case
-            game.playerMove("Move A left"); //^
-            game.playerMove("pass");
+            game.playerMove("Move A right"); //^
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create e 180"); //should be upper case
-            game.playerMove("Move e down"); //^
-            game.playerMove("pass");
-            game.playerMove("move a Left");
-            game.playerMove("pass");
-            game.playerMove("move e down");
-            game.playerMove("pass");
-            game.playerMove("move a left");
-            game.playerMove("pass");
+            game.playerMove("Move e up"); //^
+            game.playerMove("pass"); //pass turn
+            game.playerMove("move a right");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("move e up");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("move a right");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass move
+            game.playerMove("create a 90");
+            fail("cannot create a dead piece");
         } catch (InvalidMoveException e){
             //good
             System.out.println(e.getMessage());
@@ -429,13 +437,14 @@ public class SnSTests {
 
     //test pushing pieces
     @Test
-    public void test_push(){
+    public void test_push_left(){
         SnSGame game = new SnSGame();
         try{
             game.playerMove("Create a 90");
             game.playerMove("Move a left");
-            game.playerMove("pass");
-            game.playerMove("pass");
+            game.playerMove("pass"); //pass move
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
             game.playerMove("Create e 180");
             game.playerMove("move e left");
             String moveBoard = "xxxxxx                        \n" +
@@ -474,6 +483,153 @@ public class SnSTests {
         }
     }
 
+    @Test
+    public void test_push_right(){
+        SnSGame game = new SnSGame();
+        try{
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create e 90");
+            game.playerMove("Move e right");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create a 180");
+            game.playerMove("move a right");
+            String moveBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx                           \n" +
+                    "xxx 1                         \n" +
+                    "xxx                           \n" +
+                    "      /-\\ |                   \n" +
+                    "      | |-A# E                \n" +
+                    "      \\-/ |                   \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                     /-\\      \n" +
+                    "                     | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            assertEquals(moveBoard, game.getBoard().toString());
+        } catch (InvalidMoveException e){
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void test_push_up(){
+        SnSGame game = new SnSGame();
+        try{
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create e 90");
+            game.playerMove("Move e up");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create c 180");
+            game.playerMove("move c up");
+            String moveBoard = "xxxxxx                        \n" +
+                    "xxxxxx E                      \n" +
+                    "xxxxxx                        \n" +
+                    "xxx    #                      \n" +
+                    "xxx 1 #C#                     \n" +
+                    "xxx    #                      \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                     /-\\      \n" +
+                    "                     | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            assertEquals(moveBoard, game.getBoard().toString());
+        } catch (InvalidMoveException e){
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void test_push_down(){
+        SnSGame game = new SnSGame();
+        try{
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create e 90");
+            game.playerMove("Move e down");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create c 180");
+            game.playerMove("move c down");
+            String moveBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx                           \n" +
+                    "xxx 1                         \n" +
+                    "xxx                           \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "       #                      \n" +
+                    "      #C#                     \n" +
+                    "       #                      \n" +
+                    "                              \n" +
+                    "       E                      \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                     /-\\      \n" +
+                    "                     | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            assertEquals(moveBoard, game.getBoard().toString());
+        } catch (InvalidMoveException e){
+            fail(e.getMessage());
+        }
+    }
+
     //test undo
 
     //test reactions
@@ -481,6 +637,21 @@ public class SnSTests {
     //test kill face
 
     //test placing piece already on board
-
+    @Test
+    public void test_create_onboard(){
+        SnSGame game = new SnSGame();
+        try {
+            game.playerMove("Create a 90");
+            game.playerMove("Move a right");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("pass");
+            game.playerMove("Create a 180");
+            fail("Cannot create a piece already on the board");
+        } catch (InvalidMoveException e) {
+            //good. Supposed to happen
+            System.out.println(e.getMessage());
+        }
+    }
     //test invalid inputs
 }
