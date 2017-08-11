@@ -8,6 +8,9 @@ import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import Tiles.Tile;
 
+/**
+ * This class provides the full implementation of the move down action
+ */
 public class MoveDown extends MoveActionVisitor {
 
     public MoveDown(Piece p, Player pl){

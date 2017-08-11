@@ -4,14 +4,18 @@ import Actions.Visitors.Visitor;
 
 import java.awt.*;
 
+/**
+ * This class is a representation of an empty tile on the Swords and Shields board.
+ */
 public class EmptySpace implements Tile {
-
-    private boolean movable;
     private Character[][] representation;
     private Point position;
 
+    /**
+     * The constructor takes a point parameter which is the position at which the EmptySpace tile will be on the board
+     * @param pos
+     */
     public EmptySpace(Point pos){
-        movable=false;
         representation=new Character[][]{{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
         position=pos;
     }
@@ -19,11 +23,6 @@ public class EmptySpace implements Tile {
     @Override
     public Character[][] getRepresentation() {
         return representation;
-    }
-
-    @Override
-    public boolean isMovable() {
-        return movable;
     }
 
     @Override

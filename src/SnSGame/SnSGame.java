@@ -7,10 +7,13 @@ import Actions.Visitors.MoveLeft;
 import Actions.Visitors.MoveRight;
 import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
+import Tiles.Reactables.Face;
 import Tiles.Reactables.Reactable;
 import java.awt.*;
-import java.util.Arrays;
 
+/**
+ * This class is a representation of the Swords and Shields game.
+ */
 public class SnSGame {
 
     public static final int BOARD_SIZE = 10;
@@ -25,14 +28,22 @@ public class SnSGame {
     private Board board;
     private boolean passed=false;
 
+    /**
+     * The constructor initializes the two players and their faces and creation squares.
+     * It also initializes the board.
+     */
     public SnSGame() {
-        player1 = new Player(colors[0], false, '0', p1FaceCoords, new CreationSquare(p1CreationCoords));
-        player2 = new Player(colors[1], true, '1', p2FaceCoords, new CreationSquare(p2CreationCoords));
+        player1 = new Player(colors[0], false, new Face('0', p1FaceCoords), new CreationSquare(p1CreationCoords));
+        player2 = new Player(colors[1], true, new Face('1', p2FaceCoords), new CreationSquare(p2CreationCoords));
         board = new Board(player1, player2);
         currentPlayer = player1;
         redrawGame();
     }
 
+    /**
+     * This method is invoked to play the game until someone wins.
+     * It repeatedly asks for user inputs and passes the input to the playerMove method which parses the commands.
+     */
     public void playGame(){
         //loop while game is not won
         while(!isGameOver()){
@@ -56,7 +67,7 @@ public class SnSGame {
     }
 
     /**
-     * This method retrieves and translates user input into player moves and applies the relevant actions.
+     * This method retrieves and translates user input into player moves and triggers the relevant actions.
      */
     public void playerMove(String in) throws InvalidMoveException {
         String[] input = in.split(" ");

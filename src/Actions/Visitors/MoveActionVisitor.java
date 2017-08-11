@@ -12,6 +12,9 @@ import Tiles.Reactables.Piece;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This abstract MOVE class provides general implementations of some of the methods specified by Action and Visitor interfaces.
+ */
 public abstract class MoveActionVisitor implements Action, Visitor{
     protected Piece pieceToPlace;
     protected Piece startingPiece;
@@ -19,6 +22,11 @@ public abstract class MoveActionVisitor implements Action, Visitor{
     protected Player player;
     protected Board board;
 
+    /**
+     * The constructor takes the piece to be moved and the player involved.
+     * @param p
+     * @param player
+     */
     public MoveActionVisitor(Piece p, Player player){
         pieceToPlace=p;
         startingPiece=p;
@@ -51,8 +59,4 @@ public abstract class MoveActionVisitor implements Action, Visitor{
             cs.setPiece(pieceToPlace);
         }
     }
-
-//    public Piece getPiece(){
-//        return startingPiece;
-//    }
 }

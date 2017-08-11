@@ -4,25 +4,25 @@ import Actions.Visitors.Visitor;
 
 import java.awt.*;
 
+/**
+ * This class is a representation of an OutOfBounds tile on a Swords and Shields game's board.
+ */
 public class OutOfBounds implements Tile {
 
-    private boolean movable;
     private Character[][] representation;
     private Point position;
 
+    /**
+     * The constructor takes the position at which the OutOfBounds tile is on the board.
+     * @param pos
+     */
     public OutOfBounds(Point pos){
-        movable=false;
         representation=new Character[][]{{'x', 'x', 'x'},{'x', 'x', 'x'},{'x', 'x', 'x'}};;
         position=pos;
     }
 
     @Override
     public Character[][] getRepresentation() { return representation; }
-
-    @Override
-    public boolean isMovable() {
-        return movable;
-    }
 
     @Override
     public Point getPosition() {

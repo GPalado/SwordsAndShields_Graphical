@@ -6,13 +6,21 @@ import SnSGame.Player;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 
+/**
+ * This class provides the concrete implementation of the Create action
+ */
 public class CreateAction implements Action {
 
     private Player player;
     private int orientation;
     private Piece piece;
-    private Board board;
 
+    /**
+     * The constructor takes the piece to be created, the orientation of the piece, and the player involved in the creation.
+     * @param p
+     * @param o
+     * @param pl
+     */
     public CreateAction(Piece p, int o, Player pl){
         if(p==null) throw new InvalidMoveException("Cannot create null piece");
         orientation=o;
@@ -37,6 +45,7 @@ public class CreateAction implements Action {
         if(piece.getStatus().equals(Reactable.Status.ON_BOARD)){
             throw new InvalidMoveException("Cannot create a piece already on the board");
         }
+        piece.setOrientation(orientation);
         player.creationSquare.setPiece(piece);
         player.setCreated(true);
         piece.toLife();
@@ -48,6 +57,10 @@ public class CreateAction implements Action {
         piece.backToUnused();
     }
 
+    /**
+     * This method returns the piece created in this action
+     * @return
+     */
     public Piece getPiece() {
         return piece;
     }

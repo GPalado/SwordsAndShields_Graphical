@@ -3,14 +3,22 @@ package SnSGame;
 import Actions.Action;
 import Tiles.*;
 import Tiles.Reactables.Piece;
-
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * This class is a representation of the board in a Swords and Shields game.
+ */
 public class Board {
 
     private Tile[][] tiles;
 
+    /**
+     * The constructor takes two players as parameters to set up their faces and creation squares on the board.
+     * It also initializes the out of bounds tiles and empty spaces on the board.
+     * @param p1
+     * @param p2
+     */
     public Board(Player p1, Player p2){
         assert p1!=null&&p2!=null;
         //initialize tiles and contents
@@ -38,16 +46,29 @@ public class Board {
      * This method draws the board and the pieces on it.
      */
     public void draw(){
-        //generate character grid representation of cell grid
         System.out.print(toString());
     }
 
+    /**
+     * This method applies the given action to the board.
+     * @param action
+     */
     public void apply(Action action){
         action.execute(this);
     }
 
+    /**
+     * This method reverses the given reaction on the board.
+     * @param action
+     */
     public void reverse(Action action){ action.undo(); }
 
+    /**
+     * This method sets the given pieces at the given coordinates on the board.
+     * @param piece
+     * @param x
+     * @param y
+     */
     public void setPiece(Piece piece, int x, int y){
         if(x<0||x>SnSGame.BOARD_SIZE-1||y<0||y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
@@ -56,10 +77,20 @@ public class Board {
         tiles[x][y] = piece;
     }
 
+    /**
+     * This method sets the position set by the given coordinates to an empty square on the board.
+     * @param x
+     * @param y
+     */
     public void setEmpty(int x, int y){
         tiles[x][y]=new EmptySpace(new Point(x, y));
     }
 
+    /**
+     * This method returns the contents of the tile to the left of the given tile. OutOfBounds returned if it goes off the board.
+     * @param tile
+     * @return
+     */
     public Tile getLeftOf(Tile tile){
         if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
@@ -69,6 +100,11 @@ public class Board {
         return tiles[tile.getPosition().x-1][tile.getPosition().y];
     }
 
+    /**
+     * This method returns the contents of the tile to the right of the given tile.  OutOfBounds returned if it goes off the board.
+     * @param tile
+     * @return
+     */
     public Tile getRightOf(Tile tile){
         if(tile.getPosition().x<0||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
@@ -78,6 +114,11 @@ public class Board {
         return tiles[tile.getPosition().x+1][tile.getPosition().y];
     }
 
+    /**
+     * This method returns the contents of the tile above the given tile.  OutOfBounds returned if it goes off the board.
+     * @param tile
+     * @return
+     */
     public Tile getAboveOf(Tile tile){
         if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
@@ -87,6 +128,11 @@ public class Board {
         return tiles[tile.getPosition().x][tile.getPosition().y-1];
     }
 
+    /**
+     * * This method returns the contents of the tile below the given tile.  OutOfBounds returned if it goes off the board.
+     * @param tile
+     * @return
+     */
     public Tile getBelowOf(Tile tile){
         if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y<0){
             throw new IndexOutOfBoundsException();
@@ -96,6 +142,11 @@ public class Board {
         return tiles[tile.getPosition().x][tile.getPosition().y+1];
     }
 
+    /**
+     * This methods offers possible reactions for the given piece i.e. neighbours that are pieces.
+     * @param piece
+     * @return
+     */
     public ArrayList<Piece> offerReactions(Piece piece){
         //todo how to do w/out casting
         ArrayList<Piece> neighbours = new ArrayList<>();

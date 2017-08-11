@@ -3,6 +3,9 @@ package Actions.Visitors;
 import Tiles.*;
 import Tiles.Reactables.*;
 
+/**
+ * This interface specifies the actions to be implemented by concrete visitors
+ */
 public interface Visitor {
 
     void visitPiece(Piece piece);

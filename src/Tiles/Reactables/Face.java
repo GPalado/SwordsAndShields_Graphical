@@ -5,15 +5,22 @@ import Tiles.Tile;
 
 import java.awt.*;
 
+/**
+ * This class is a representation of the reactable face tile of a Swords and Shields game.
+ */
 public class Face implements Tile, Reactable {
 
-    private boolean movable;
     private Character[][] representation;
     private Point position;
     private Status status;
 
+    /**
+     * The constructor takes a face character and a point as parameters.
+     * The former is used to construct the character representation, and the latter used to determine it's position on the board.
+     * @param face
+     * @param pos
+     */
     public Face(char face, Point pos){
-        movable=false;
         representation= new Character[][]{{' ', ' ', ' '}, {' ', face, ' '}, {' ', ' ', ' '}};
         position=pos;
         status = Status.ON_BOARD;
@@ -22,11 +29,6 @@ public class Face implements Tile, Reactable {
     @Override
     public Character[][] getRepresentation() {
         return representation;
-    }
-
-    @Override
-    public boolean isMovable() {
-        return movable;
     }
 
     @Override

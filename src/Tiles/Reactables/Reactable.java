@@ -1,15 +1,33 @@
 package Tiles.Reactables;
 
+/**
+ * This interface determines the actions required by reactable tiles in the swords and shields game.
+ */
 public interface Reactable {
 
-    public enum Status{
+    /**
+     * The reactable tiles have statuses:
+     * Unused, on the board, and dead (cemetery)
+     */
+    enum Status{
         UNUSED,
         ON_BOARD,
         CEMETERY
     }
 
-    public Status getStatus();
+    /**
+     * This method returns the reactable tile's status
+     * @return
+     */
+    Status getStatus();
 
-    public void kill();
-    public void toLife();
+    /**
+     * This method sets the reactable tile's status to the appropriate "dead" status for that tile
+     */
+    void kill();
+
+    /**
+     * This method revives/reactivates a reactable tile.
+     */
+    void toLife();
 }

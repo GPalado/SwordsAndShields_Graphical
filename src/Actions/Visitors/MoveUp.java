@@ -7,6 +7,9 @@ import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import Tiles.Tile;
 
+/**
+ * This class provides the full implementation of the move up action
+ */
 public class MoveUp extends MoveActionVisitor {
 
     public MoveUp(Piece p, Player pl){
