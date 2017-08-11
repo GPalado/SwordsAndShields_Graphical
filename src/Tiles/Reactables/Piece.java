@@ -44,6 +44,7 @@ public class Piece implements Tile, Reactable {
     /**
      * The constructor takes a character array representation of the piece.
      * It sets initial values of moved to false, and status to unused.
+     * Note, the Symbol array symbols are in order of NORTH, EAST, SOUTH, WEST
      */
     public Piece(Symbol[] symbols, char letter){
         status=Status.UNUSED;
