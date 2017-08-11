@@ -15,7 +15,7 @@ public class CreateAction implements Action {
     private Board board;
 
     public CreateAction(Piece p, int o, Player pl){
-        if(piece==null) throw new InvalidMoveException("Cannot create null piece");
+        if(p==null) throw new InvalidMoveException("Cannot create null piece");
         orientation=o;
         piece=p;
         player=pl;
@@ -27,7 +27,14 @@ public class CreateAction implements Action {
         if(player.creationSquare.isOccupied()){
             throw new InvalidMoveException("Your creation square is occupied");
         }
+        if(player.hasCreated()){
+            throw new InvalidMoveException("You cannot create twice in one move");
+        }
+        if(player.hasMoved()){
+            throw new InvalidMoveException("You can only create at the start of your turn");
+        }
         player.creationSquare.setPiece(piece);
+        player.setCreated(true);
         piece.toLife();
     }
 

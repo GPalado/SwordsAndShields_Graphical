@@ -78,6 +78,6 @@ public class Piece implements Tile, Reactable {
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitPiece(this);
     }
 }

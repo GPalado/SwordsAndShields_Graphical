@@ -90,7 +90,7 @@ public class Board {
     }
 
     public Tile getBelowOf(Tile tile){
-        if(tile.getPosition().x<SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y<0){
+        if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().x<0||tile.getPosition().y<0){
             throw new IndexOutOfBoundsException();
         } else if(tile.getPosition().y==SnSGame.BOARD_SIZE-1){
             return new OutOfBounds(new Point(tile.getPosition().x, SnSGame.BOARD_SIZE));

@@ -20,11 +20,13 @@ public class Player {
     private Map<Character, Piece> pieces = new HashMap<>();
     private Deque<Action> actions = new ArrayDeque<>();
     private boolean hasCreated;
+    private boolean hasMoved;
 
     public Player(Color c, boolean caps, char faceChar, Point facePos, CreationSquare cs){
         color=c;
         isCaps=caps;
         hasCreated = false;
+        hasMoved=false;
         face=new Face(faceChar, facePos);
         creationSquare=cs;
         initializePieces();
@@ -43,6 +45,20 @@ public class Player {
         return actions.pollLast();
     }
 
+    public boolean hasCreated(){
+        return hasCreated;
+    }
+
+    public void setCreated(boolean b){
+        hasCreated=b;
+    }
+
+    public boolean hasMoved(){ return hasMoved; }
+
+    public void setMoved(boolean b){
+        hasMoved=b;
+    }
+
     public void drawUnusedPieces(){
         //todo implement this
     }
@@ -50,7 +66,10 @@ public class Player {
     public void pass(){
         actions=new ArrayDeque<>();
         hasCreated=false;
-
+        hasMoved=false;
+        for(Piece p:pieces.values()){
+            p.setMoved(false);
+        }
     }
 
     public Piece getPiece(char c){

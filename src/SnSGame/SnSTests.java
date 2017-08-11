@@ -2,12 +2,7 @@ package SnSGame; /**
  * Created by gabrielle palado on 6/08/2017.
  */
 
-
-import SnSGame.InvalidMoveException;
 import org.junit.*;
-
-import java.awt.*;
-
 import static org.junit.Assert.*;
 
 public class SnSTests {
@@ -328,16 +323,16 @@ public class SnSTests {
         try {
             //also test caps/non caps
             game.playerMove("Create A 90"); //should be lower case
-            game.playerMove("Move A left"); //^
+            game.playerMove("Move A right"); //^
             game.playerMove("pass");
             game.playerMove("Create e 180"); //should be upper case
-            game.playerMove("Move e down"); //^
+            game.playerMove("Move e up"); //^
             game.playerMove("pass");
-            game.playerMove("move a Left");
+            game.playerMove("move a RIGHT");
             game.playerMove("pass");
-            game.playerMove("move e down");
+            game.playerMove("move e UP");
             game.playerMove("pass");
-            game.playerMove("move a left");
+            game.playerMove("move a Right");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx E                      \n" +
                     "xxxxxx                        \n" +
@@ -370,7 +365,7 @@ public class SnSTests {
                     "                        xxxxxx\n";
             assertEquals(moveBoard, game.getBoard().toString());
             game.playerMove("pass");
-            game.playerMove("move e right");
+            game.playerMove("move e left");
 
             moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
@@ -464,9 +459,9 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\    | \n" +
-                    "                     | | e -a#\n" +
-                    "                     \\-/    | \n" +
+                    "                |    /-\\      \n" +
+                    "               -a# e | |      \n" +
+                    "                |    \\-/      \n" +
                     "                           xxx\n" +
                     "                         0 xxx\n" +
                     "                           xxx\n" +
@@ -478,6 +473,10 @@ public class SnSTests {
             fail(e.getMessage());
         }
     }
+
+    //test undo
+
+    //test reactions
 
     //test kill face
 
