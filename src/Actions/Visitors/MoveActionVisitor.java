@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class MoveActionVisitor implements Action, Visitor{
-    private Piece pieceToPlace;
-    private Piece startingPiece;
-    private List<Piece> piecesPushed;
-    private Player player;
-    private Board board;
+    protected Piece pieceToPlace;
+    protected Piece startingPiece;
+    protected List<Piece> piecesPushed;
+    protected Player player;
+    protected Board board;
 
     public MoveActionVisitor(Piece p, Player player){
         pieceToPlace=p;
@@ -25,30 +25,6 @@ public abstract class MoveActionVisitor implements Action, Visitor{
         piecesPushed=new ArrayList<>();
         this.player=player;
     }
-
-    public void setBoard(Board b){
-        board=b;
-    }
-
-    public Piece getPieceToPlace() {
-        return pieceToPlace;
-    }
-
-    public Piece getStartingPiece() {
-        return startingPiece;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public List<Piece> getPiecesPushed() {
-        return piecesPushed;
-    }
-
-    public Board getBoard(){ return board;}
-
-    public void setPieceToPlace(Piece p){ pieceToPlace=p; }
 
     public void visitFace(Face face) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
@@ -76,7 +52,7 @@ public abstract class MoveActionVisitor implements Action, Visitor{
         }
     }
 
-    public Piece getPiece(){
-        return startingPiece;
-    }
+//    public Piece getPiece(){
+//        return startingPiece;
+//    }
 }

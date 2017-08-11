@@ -16,49 +16,49 @@ public class MoveUp extends MoveActionVisitor {
     @Override
     public void execute(Board board) {
         //todo implement this
-        if(getPlayer().getPiecesMoved().contains(getStartingPiece())){
+        if(player.getPiecesMoved().contains(startingPiece)){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
-        getPlayer().pieceMoved(getStartingPiece());
-        setBoard(board);
-        if(getPieceToPlace().getPosition().equals(getPlayer().creationSquare.getPosition())){ //set creation square to no piece
-            getPlayer().creationSquare.setPiece(null);
+        player.pieceMoved(startingPiece);
+        this.board=board;
+        if(pieceToPlace.getPosition().equals(player.creationSquare.getPosition())){ //set creation square to no piece
+            player.creationSquare.setPiece(null);
         } else { //set tile that had piece to new emptySpace
-            getBoard().setEmpty(getPieceToPlace().getPosition().x, getPieceToPlace().getPosition().y);
+            board.setEmpty(pieceToPlace.getPosition().x, pieceToPlace.getPosition().y);
         }
-        Tile shift = getBoard().getAboveOf(getStartingPiece());
+        Tile shift = board.getAboveOf(startingPiece);
         shift.accept(this);
     }
 
     @Override
     public void visitPiece(Piece piece) {
-        if(getPieceToPlace()!=getStartingPiece())getPiecesPushed().add(getPieceToPlace());
-        getBoard().setPiece(getPieceToPlace(), piece.getPosition().x, piece.getPosition().y);
-        setPieceToPlace(piece);
-        Tile shift = getBoard().getAboveOf(getPieceToPlace());
+        if(pieceToPlace!=startingPiece)piecesPushed.add(pieceToPlace);
+        board.setPiece(pieceToPlace, piece.getPosition().x, piece.getPosition().y);
+        pieceToPlace=piece;
+        Tile shift = board.getAboveOf(pieceToPlace);
         shift.accept(this);
     }
 
     @Override
     public void undo() {
-        getPlayer().pieceNotMoved(getStartingPiece());
-        if(getPiecesPushed().isEmpty()){ //just move the one piece
-            if(getStartingPiece().getStatus().equals(Reactable.Status.CEMETERY)){
-                getStartingPiece().toLife();
-                getBoard().setPiece(getStartingPiece(), getStartingPiece().getPosition().x, getStartingPiece().getPosition().y);
+        player.pieceNotMoved(startingPiece);
+        if(piecesPushed.isEmpty()){ //just move the one piece
+            if(startingPiece.getStatus().equals(Reactable.Status.CEMETERY)){
+                startingPiece.toLife();
+                board.setPiece(startingPiece, startingPiece.getPosition().x, startingPiece.getPosition().y);
             } else {
-                getBoard().apply(new MoveDown(getStartingPiece(), getPlayer()));
+                board.apply(new MoveDown(startingPiece, player));
             }
-        } else if(getStartingPiece().getPosition().y-getPiecesPushed().size()<0) { //move all pushed pieces and bring other piece back to life
-            if(getPiecesPushed().size()==1){
-                getBoard().apply(new MoveDown(getStartingPiece(), getPlayer()));
+        } else if(startingPiece.getPosition().y-piecesPushed.size()<0) { //move all pushed pieces and bring other piece back to life
+            if(piecesPushed.size()==1){
+                board.apply(new MoveDown(startingPiece, player));
             } else {
-                getBoard().apply(new MoveDown(getPiecesPushed().get(getPiecesPushed().size() - 2), getPlayer()));
+                board.apply(new MoveDown(piecesPushed.get(piecesPushed.size() - 2), player));
             }
-            getPiecesPushed().get(getPiecesPushed().size()-1).toLife();
-            getBoard().setPiece(getPiecesPushed().get(getPiecesPushed().size()-1), getStartingPiece().getPosition().x, 0);
+            piecesPushed.get(piecesPushed.size()-1).toLife();
+            board.setPiece(piecesPushed.get(piecesPushed.size()-1), startingPiece.getPosition().x, 0);
         } else {
-            getBoard().apply(new MoveDown(getPiecesPushed().get(getPiecesPushed().size()-1), getPlayer()));
+            board.apply(new MoveDown(piecesPushed.get(piecesPushed.size()-1), player));
         }
     }
 }

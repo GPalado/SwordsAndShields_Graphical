@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d86b5-f5a6-4b34-9eb6-442d49b08633" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/RotateAction.java" afterPath="$PROJECT_DIR$/src/Actions/RotateAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +51,7 @@
       <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="345">
               <caret line="1052" column="20" lean-forward="false" selection-start-line="1052" selection-start-column="20" selection-end-line="1052" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -63,40 +60,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RotateAction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
+      <file leaf-file-name="MoveActionVisitor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+            <state relative-caret-position="209">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Piece.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-                <element signature="e#919#920#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actions/CreateAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1580#1581#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -104,8 +73,8 @@
       <file leaf-file-name="MoveUp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+            <state relative-caret-position="-267">
+              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,8 +85,8 @@
       <file leaf-file-name="MoveDown.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="228">
+              <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,8 +97,8 @@
       <file leaf-file-name="MoveRight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="161">
+              <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,8 +109,8 @@
       <file leaf-file-name="MoveLeft.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+            <state relative-caret-position="232">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,11 +134,17 @@
       <find>super.</find>
       <find>piecesPushed</find>
       <find>setMoved</find>
+      <find>getPiecesPushed()</find>
+      <find>getBoard()</find>
+      <find>setPieceToPlace(</find>
     </findStrings>
     <replaceStrings>
       <replace>super.getPiecesPushed()</replace>
       <replace>super.getBoard()</replace>
       <replace>getPiecesPushed()</replace>
+      <replace>piecesPushed</replace>
+      <replace>board</replace>
+      <replace>pieceToPlace=</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,19 +174,19 @@
         <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/Visitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Tile.java" />
-        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
         <option value="$PROJECT_DIR$/src/Actions/ReactAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/CreateAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/Action.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/Player.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
+        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
+        <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
-        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
-        <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
+        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
       </list>
     </option>
   </component>
@@ -422,9 +397,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnSTests - 2017.08.11 at 17h 25m 18s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SnSTests - 2017.08.11 at 17h 25m 27s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
@@ -452,6 +424,9 @@
     <history-entry file="SnSTests - 2017.08.11 at 19h 04m 16s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SnSTests - 2017.08.11 at 19h 37m 00s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -465,9 +440,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.251981" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16006339" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22979398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17642753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -940,68 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2016#2017#0" expanded="false" />
-            <element signature="e#2052#2053#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="1052" column="20" lean-forward="false" selection-start-line="1052" selection-start-column="20" selection-end-line="1052" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1016,8 +929,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="328">
           <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="1052" column="20" lean-forward="false" selection-start-line="1052" selection-start-column="20" selection-end-line="1052" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-267">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
