@@ -39,9 +39,8 @@ public class Player {
 
     public Action undo(){
         if(actions.isEmpty()){
-            //todo throw exception
+            throw new InvalidMoveException("Cannot undo any further");
         }
-        //todo implement this
         return actions.pollLast();
     }
 

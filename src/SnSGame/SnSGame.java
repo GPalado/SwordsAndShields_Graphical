@@ -24,6 +24,7 @@ public class SnSGame {
     private Player player1, player2;
     private Player currentPlayer;
     private Board board;
+    private boolean passed=false;
 
     public SnSGame() {
         player1 = new Player(colors[0], false, '0', p1FaceCoords, new CreationSquare(p1CreationCoords));
@@ -36,19 +37,20 @@ public class SnSGame {
     public void playGame(){
         //loop while game is not won
         while(!isGameOver()){
-            System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " SnSGame.Player's Turn!\nYour unplayed pieces are:\n");
+            System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player's Turn!\nYour unplayed pieces are:\n");
             currentPlayer.drawUnusedPieces();
             try {
-                while(currentPlayer.hasMovesLeft()) {
+                while(currentPlayer.hasMovesLeft()&&!passed) {
                     System.out.print("What would you like to do (Create, Rotate, Move): ");
                     String input = System.in.toString();
                     playerMove(input);
                 }
-                //todo MAKE player pass?
+                currentPlayer.pass();
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
             }
             swapPlayers();
+            passed=false;
         }
     }
 
@@ -95,10 +97,9 @@ public class SnSGame {
                 throw new InvalidMoveException("Invalid direction");
             }
         } else if (input[0].toLowerCase().equals("undo")) {
-            currentPlayer.undo();
+            board.reverse(currentPlayer.undo());
         } else if (input[0].toLowerCase().equals("pass")) {
-            currentPlayer.pass();
-            swapPlayers();
+            passed=true;
         } else {
             throw new InvalidMoveException("Unrecognizable command");
         }
