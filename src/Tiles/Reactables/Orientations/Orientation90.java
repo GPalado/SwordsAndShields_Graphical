@@ -20,11 +20,10 @@ public class Orientation90 implements PieceOrientation {
 
     @Override
     public Character[][] getRepresentation(Piece piece) {
-//        symbolCharacterMap.get(piece.symbols[0])
         Character[][] rep = new Character[][]{
-                {' ', piece.symbols[0].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[0]), ' '}, //first column
-                {piece.symbols[3].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[3]), piece.letter, piece.symbols[0].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[1])}, //second column
-                {' ', piece.symbols[2].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[2]), ' '} //third column
+                {' ', piece.symbols[2].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[2]), ' '}, //first column
+                {piece.symbols[3].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[3]), piece.letter, piece.symbols[1].name().equals("SWORD_HORIZONTAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_VERTICAL) : symbolCharacterMap.get(piece.symbols[1])}, //second column
+                {' ', piece.symbols[0].name().equals("SWORD_VERTICAL") ? symbolCharacterMap.get(Piece.Symbol.SWORD_HORIZONTAL) : symbolCharacterMap.get(piece.symbols[0]), ' '} //third column
         } ;
         return rep;
     }
