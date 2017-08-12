@@ -9,6 +9,8 @@ import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Reactable;
+import org.omg.CORBA.DynAnyPackage.Invalid;
+
 import java.awt.*;
 import java.util.Scanner;
 
@@ -61,6 +63,11 @@ public class SnSGame {
                 String input = scanner.nextLine();
                 playerMove(input);
             }
+            if(!passed){ //force pass when no moves possible
+                System.out.println((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player, your turn is over. (No move possible moves)");
+                currentPlayer.pass();
+                swapPlayers();
+            }
             passed=false;
         }
     }
@@ -68,47 +75,68 @@ public class SnSGame {
     /**
      * This method retrieves and translates user input into player moves and triggers the relevant actions.
      */
-    public void playerMove(String in) throws InvalidMoveException {
+    public void playerMove(String in) {
         String[] input = in.split(" ");
         if (input.length > 3) {
-            throw new InvalidMoveException("Input too long");
+            System.out.println("Input too long!");
+            return;
         }
         if (input[0].toLowerCase().equals("create")) {
-            char c = parseChar(input[1]);
-            int i = parseInt(input[2]);
-            CreateAction create = new CreateAction(currentPlayer.getPiece(c), i, currentPlayer);
-            currentPlayer.addAction(create);
-            board.apply(create);
+            try {
+                char c = parseChar(input[1]);
+                int i = parseInt(input[2]);
+                CreateAction create = new CreateAction(currentPlayer.getPiece(c), i, currentPlayer);
+                currentPlayer.addAction(create);
+                board.apply(create);
+            } catch (InvalidMoveException e){
+                System.out.println(e.getMessage());
+                return;
+            }
         } else if (input[0].toLowerCase().equals("rotate")) {
-            char c = parseChar(input[1]);
-            int i = parseInt(input[2]);
-            RotateAction rotate = new RotateAction(currentPlayer.getPiece(c), i, currentPlayer);
-            currentPlayer.addAction(rotate);
-            board.apply(rotate);
+            try {
+                char c = parseChar(input[1]);
+                int i = parseInt(input[2]);
+                RotateAction rotate = new RotateAction(currentPlayer.getPiece(c), i, currentPlayer);
+                currentPlayer.addAction(rotate);
+                board.apply(rotate);
+            } catch (InvalidMoveException e){
+                System.out.println(e.getMessage());
+                return;
+            }
         } else if (input[0].toLowerCase().equals("move")) {
-            char c = parseChar(input[1]);
-            String direction = input[2];
-            if(direction.toLowerCase().equals("up")){
-                MoveUp up = new MoveUp(currentPlayer.getPiece(c), currentPlayer);
-                currentPlayer.addAction(up);
-                board.apply(up);
-            } else if(direction.toLowerCase().equals("down")){
-                MoveDown down = new MoveDown(currentPlayer.getPiece(c), currentPlayer);
-                currentPlayer.addAction(down);
-                board.apply(down);
-            } else if(direction.toLowerCase().equals("left")){
-                MoveLeft left = new MoveLeft(currentPlayer.getPiece(c), currentPlayer);
-                currentPlayer.addAction(left);
-                board.apply(left);
-            } else if(direction.toLowerCase().equals("right")){
-                MoveRight right = new MoveRight(currentPlayer.getPiece(c), currentPlayer);
-                currentPlayer.addAction(right);
-                board.apply(right);
-            } else {
-                throw new InvalidMoveException("Invalid direction");
+            try {
+                char c = parseChar(input[1]);
+                String direction = input[2];
+                if (direction.toLowerCase().equals("up")) {
+                    MoveUp up = new MoveUp(currentPlayer.getPiece(c), currentPlayer);
+                    currentPlayer.addAction(up);
+                    board.apply(up);
+                } else if (direction.toLowerCase().equals("down")) {
+                    MoveDown down = new MoveDown(currentPlayer.getPiece(c), currentPlayer);
+                    currentPlayer.addAction(down);
+                    board.apply(down);
+                } else if (direction.toLowerCase().equals("left")) {
+                    MoveLeft left = new MoveLeft(currentPlayer.getPiece(c), currentPlayer);
+                    currentPlayer.addAction(left);
+                    board.apply(left);
+                } else if (direction.toLowerCase().equals("right")) {
+                    MoveRight right = new MoveRight(currentPlayer.getPiece(c), currentPlayer);
+                    currentPlayer.addAction(right);
+                    board.apply(right);
+                } else {
+                    throw new InvalidMoveException("Invalid direction");
+                }
+            } catch (InvalidMoveException e){
+                System.out.println(e.getMessage());
+                return;
             }
         } else if (input[0].toLowerCase().equals("undo")) {
-            board.reverse(currentPlayer.undo());
+            try {
+                board.reverse(currentPlayer.undo());
+            } catch (InvalidMoveException e){
+                System.out.println(e.getMessage());
+                return;
+            }
         } else if (input[0].toLowerCase().equals("pass")) {
             if(currentPlayer.hasCreated()||currentPlayer.hasMoved()) {
                 passed = true;
@@ -118,7 +146,8 @@ public class SnSGame {
                 currentPlayer.setCreated(true);
             }
         } else {
-            throw new InvalidMoveException("Unrecognizable command");
+            System.out.println("Unrecognizable command");
+            return;
         }
         redrawGame();
     }
