@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d86b5-f5a6-4b34-9eb6-442d49b08633" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/Actions/Visitors/MoveActionVisitor.class" afterPath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/Actions/Visitors/MoveActionVisitor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/Actions/Visitors/MoveLeft.class" afterPath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/Actions/Visitors/MoveLeft.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/Board.class" afterPath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/Player.class" afterPath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/SnSGame.class" afterPath="$PROJECT_DIR$/out/production/SwordsAndShieldsVer2/SnSGame/SnSGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/CreateAction.java" afterPath="$PROJECT_DIR$/src/Actions/CreateAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/RotateAction.java" afterPath="$PROJECT_DIR$/src/Actions/RotateAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/Board.java" afterPath="$PROJECT_DIR$/src/SnSGame/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/Player.java" afterPath="$PROJECT_DIR$/src/SnSGame/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SwordsAndShieldsVer2$SnSTests.coverage" NAME="SnSTests Coverage Results" MODIFIED="1502505809085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SwordsAndShieldsVer2$SnSTests.coverage" NAME="SnSTests Coverage Results" MODIFIED="1502508656458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -72,51 +73,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveActionVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SnSGame/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="313">
+              <caret line="135" column="27" lean-forward="false" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveLeft.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
+      <file leaf-file-name="SnSGame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="388">
+              <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveRight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="51" column="38" lean-forward="false" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveUp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-74">
-              <caret line="50" column="30" lean-forward="false" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveDown.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="52" column="30" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+            <state relative-caret-position="405">
+              <caret line="189" column="9" lean-forward="true" selection-start-line="172" selection-start-column="8" selection-end-line="189" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -149,6 +130,7 @@
       <replace>piecesPushed</replace>
       <replace>board</replace>
       <replace>pieceToPlace=</replace>
+      <replace>unused</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -170,32 +152,32 @@
         <option value="$PROJECT_DIR$/src/Tiles/Actions/CreateAction.java" />
         <option value="$PROJECT_DIR$/src/SnSTests.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/InvalidMoveException.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Tile.java" />
         <option value="$PROJECT_DIR$/src/Tiles/OutOfBounds.java" />
         <option value="$PROJECT_DIR$/src/Tiles/EmptySpace.java" />
         <option value="$PROJECT_DIR$/src/Tiles/CreationSquare.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Reactable.java" />
-        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Face.java" />
         <option value="$PROJECT_DIR$/src/Actions/Action.java" />
         <option value="$PROJECT_DIR$/src/Actions/ReactAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/Visitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/PieceOrientation.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/Player.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
         <option value="$PROJECT_DIR$/src/Actions/CreateAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
-        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" />
-        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
+        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
+        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Face.java" />
+        <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/Player.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
       </list>
     </option>
   </component>
@@ -252,7 +234,7 @@
               <item name="SwordsAndShieldsVer2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SwordsAndShieldsVer2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Tiles" type="462c0819:PsiDirectoryNode" />
+              <item name="SnSGame" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,7 +245,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -277,7 +259,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SnSTests">
+  <component name="RunManager" selected="Application.Swords And Shields">
     <configuration name="SnSTests" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="SwordsAndShieldsVer2" />
@@ -297,6 +279,20 @@
       </option>
       <envs />
       <patterns />
+    </configuration>
+    <configuration name="Swords And Shields" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="SnSGame.SnSGame" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="SwordsAndShieldsVer2" />
+      <envs />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -379,6 +375,10 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Swords And Shields" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SnSTests" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -394,34 +394,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnSTests - 2017.08.12 at 11h 23m 44s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 11h 24m 31s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 11h 26m 35s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 11h 35m 09s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 11h 43m 07s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 11h 45m 44s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 12h 07m 29s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 14h 43m 38s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.12 at 14h 56m 52s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SnSTests - 2017.08.12 at 15h 01m 41s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 14m 15s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 21m 52s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 23m 20s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 25m 33s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 27m 24s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 28m 14s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 31m 01s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 42m 20s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 15h 43m 12s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -437,13 +437,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09825674" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.084919475" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2282092" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15959005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16032211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -522,6 +522,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -671,20 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="166" column="0" lean-forward="true" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/OutOfBounds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tiles/EmptySpace.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -696,21 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="78" lean-forward="false" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Face.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="129" lean-forward="false" selection-start-line="18" selection-start-column="129" selection-end-line="18" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="213" column="147" lean-forward="false" selection-start-line="213" selection-start-column="147" selection-end-line="213" selection-end-column="147" />
           <folding />
         </state>
       </provider>
@@ -747,16 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -811,10 +773,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/CreationSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="51" column="38" lean-forward="false" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="52" column="30" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="50" column="30" lean-forward="false" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Face.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="39" column="41" lean-forward="false" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+          <folding>
+            <element signature="e#1069#1070#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/OutOfBounds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="189" column="9" lean-forward="true" selection-start-line="172" selection-start-column="8" selection-end-line="189" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -863,58 +907,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="135" column="27" lean-forward="false" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="191" column="43" lean-forward="false" selection-start-line="191" selection-start-column="43" selection-end-line="191" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/CreationSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="51" column="38" lean-forward="false" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="52" column="30" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-74">
-          <caret line="50" column="30" lean-forward="false" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        <state relative-caret-position="388">
+          <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
           <folding />
         </state>
       </provider>

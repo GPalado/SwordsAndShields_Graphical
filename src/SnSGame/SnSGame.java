@@ -10,6 +10,7 @@ import Tiles.CreationSquare;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Reactable;
 import java.awt.*;
+import java.util.Scanner;
 
 /**
  * This class is a representation of the Swords and Shields game.
@@ -47,22 +48,20 @@ public class SnSGame {
     public void playGame(){
         //loop while game is not won
         while(!isGameOver()){
-            System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player's Turn!\nYour unplayed pieces are:\n");
-            currentPlayer.drawUnusedPieces();
-            try {
-                while(currentPlayer.hasMovesLeft()&&!passed) {
-                    if(currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
-                        System.out.print("What would you like to do (Rotate, Move): ");
-                    } else {
-                        System.out.print("What would you like to do (Create, Rotate, Move): ");
-                    }
-                    String input = System.in.toString();
-                    playerMove(input);
+            System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player's Turn!\n");
+            while(currentPlayer.hasMovesLeft()&&!passed) {
+                if(currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
+                    System.out.print("What would you like to do (Rotate, Move): ");
+                } else {
+                    System.out.print("Your unused pieces are...\n");
+                    currentPlayer.drawUnusedPieces();
+                    System.out.print("What would you like to do (Create, Rotate, Move): ");
                 }
-                passed=false;
-            } catch (InvalidMoveException e){
-                System.out.println(e.getMessage());
+                Scanner scanner = new Scanner(System.in);  // Read from System.in
+                String input = scanner.nextLine();
+                playerMove(input);
             }
+            passed=false;
         }
     }
 

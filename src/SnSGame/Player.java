@@ -7,6 +7,7 @@ import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * This class is a representation of a Player in the Swords an Shields game.
@@ -108,7 +109,31 @@ public class Player {
      * This method draws all the player's unused pieces to offer them choices for creation.
      */
     public void drawUnusedPieces(){
-        //todo implement this
+        //todo test this pls
+        List<Piece> unusedPieces = new ArrayList<>();
+        for(Piece p:pieces.values()){
+            if(p.getStatus().equals(Reactable.Status.UNUSED)){
+                unusedPieces.add(p);
+            }
+        }
+        Character[][] unused = new Character[SnSGame.PIECE_SIZE*unusedPieces.size()][SnSGame.PIECE_SIZE];
+        for(int x=0; x<unused.length; x+=SnSGame.PIECE_SIZE){
+                Character[][] rep = unusedPieces.get(x/SnSGame.PIECE_SIZE).getRepresentation();
+                for(int i=0; i<rep.length; i++){
+                    for(int j=0; j<rep[0].length; j++){
+                        unused[x+i][j]=rep[i][j];
+                    }
+                }
+        }
+        StringBuilder sb = new StringBuilder();
+        //print char grid
+        for(int y=0; y<unused[0].length; y++){
+            for(int x=0; x<unused.length; x++){
+                sb.append(unused[x][y]);
+            }
+            sb.append('\n');
+        }
+        System.out.println(sb.toString());
     }
 
     /**

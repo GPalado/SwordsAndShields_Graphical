@@ -3,13 +3,10 @@ package Actions.Visitors;
 import Actions.Action;
 import SnSGame.Board;
 import SnSGame.Player;
-import Tiles.CreationSquare;
 import Tiles.EmptySpace;
 import Tiles.OutOfBounds;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Piece;
-import Tiles.Tile;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +40,7 @@ public abstract class MoveActionVisitor implements Action, Visitor{
 
     @Override
     public void visitOOB(OutOfBounds oob) {
+        System.out.println("OOB");
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }

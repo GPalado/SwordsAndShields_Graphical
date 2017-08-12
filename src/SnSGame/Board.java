@@ -95,8 +95,10 @@ public class Board {
         if(tile.getPosition().x>SnSGame.BOARD_SIZE-1||tile.getPosition().y<0||tile.getPosition().y>SnSGame.BOARD_SIZE-1){
             throw new IndexOutOfBoundsException();
         } else if(tile.getPosition().x==0){
+            System.out.println("POSx=0");
             return new OutOfBounds(new Point(-1, tile.getPosition().y));
         }
+        System.out.println(tiles[tile.getPosition().x-1][tile.getPosition().y].getClass());
         return tiles[tile.getPosition().x-1][tile.getPosition().y];
     }
 
