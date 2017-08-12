@@ -4,6 +4,7 @@ import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
 import SnSGame.SnSGame;
+import Tiles.CreationSquare;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import Tiles.Tile;
@@ -44,6 +45,20 @@ public class MoveDown extends MoveActionVisitor {
     }
 
     @Override
+    public void visitCreation(CreationSquare cs) {
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
+        if(cs.isOccupied()){
+            Piece temp = cs.getPiece();
+            cs.setPiece(pieceToPlace);
+            pieceToPlace=temp;
+            Tile shift = board.getBelowOf(pieceToPlace);
+            shift.accept(this);
+        } else {
+            cs.setPiece(pieceToPlace);
+        }
+    }
+
+    @Override
     public void undo() {
         player.pieceNotMoved(startingPiece);
         if(piecesPushed.isEmpty()){ //just move the one piece
@@ -61,7 +76,7 @@ public class MoveDown extends MoveActionVisitor {
             }
             piecesPushed.get(piecesPushed.size()-1).toLife();
             board.setPiece(piecesPushed.get(piecesPushed.size()-1), startingPiece.getPosition().x, SnSGame.BOARD_SIZE-1);
-        } else {
+        } else { //push all pieces back
             board.apply(new MoveUp(piecesPushed.get(piecesPushed.size()-1), player));
         }
     }

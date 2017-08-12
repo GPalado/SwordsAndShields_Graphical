@@ -8,6 +8,7 @@ import Tiles.EmptySpace;
 import Tiles.OutOfBounds;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Piece;
+import Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,17 +51,5 @@ public abstract class MoveActionVisitor implements Action, Visitor{
     public void visitEmpty(EmptySpace empty) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         board.setPiece(pieceToPlace, empty.getPosition().x, empty.getPosition().y);
-    }
-
-    @Override
-    public void visitCreation(CreationSquare cs) {
-        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
-        if(cs.isOccupied()){
-            Piece temp = cs.getPiece();
-            cs.setPiece(pieceToPlace);
-            pieceToPlace=temp;
-        } else {
-            cs.setPiece(pieceToPlace);
-        }
     }
 }

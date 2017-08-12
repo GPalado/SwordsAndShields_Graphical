@@ -42,12 +42,4 @@ public class RotateAction implements Action {
         piece.rotate(360-amount);
         player.pieceNotMoved(piece);
     }
-
-    /**
-     * This method returns the piece that was rotated
-     * @return
-     */
-    public Piece getPiece(){
-        return piece;
-    }
 }

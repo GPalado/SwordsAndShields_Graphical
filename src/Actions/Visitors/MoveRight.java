@@ -4,6 +4,7 @@ import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
 import SnSGame.SnSGame;
+import Tiles.CreationSquare;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import Tiles.Tile;
@@ -41,6 +42,20 @@ public class MoveRight extends MoveActionVisitor {
         pieceToPlace=piece;
         Tile shift = board.getRightOf(pieceToPlace);
         shift.accept(this);
+    }
+
+    @Override
+    public void visitCreation(CreationSquare cs) {
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
+        if(cs.isOccupied()){
+            Piece temp = cs.getPiece();
+            cs.setPiece(pieceToPlace);
+            pieceToPlace=temp;
+            Tile shift = board.getRightOf(pieceToPlace);
+            shift.accept(this);
+        } else {
+            cs.setPiece(pieceToPlace);
+        }
     }
 
     @Override

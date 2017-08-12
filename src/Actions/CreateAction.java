@@ -56,12 +56,4 @@ public class CreateAction implements Action {
         player.creationSquare.setPiece(null);
         piece.backToUnused();
     }
-
-    /**
-     * This method returns the piece created in this action
-     * @return
-     */
-    public Piece getPiece() {
-        return piece;
-    }
 }

@@ -630,6 +630,112 @@ public class SnSTests {
         }
     }
 
+    @Test
+    public void test_push_off_creation(){
+        SnSGame game = new SnSGame();
+        try{
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create e 0");
+            game.playerMove("Move e down");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create c 0");
+            game.playerMove("move e up");
+            String moveBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx    #                      \n" +
+                    "xxx 1 #C#                     \n" +
+                    "xxx    #                      \n" +
+                    "                              \n" +
+                    "       E                      \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                     /-\\      \n" +
+                    "                     | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            assertEquals(moveBoard, game.getBoard().toString());
+        } catch (InvalidMoveException e){
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void test_push_onto_face(){
+        SnSGame game = new SnSGame();
+        try{
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create e 0");
+            game.playerMove("Move e up");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("Create c 0");
+            game.playerMove("move c right");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("move c up");
+            game.playerMove("pass"); //pass turn
+            game.playerMove("pass"); //pass create
+            game.playerMove("pass"); //pass turn
+            game.playerMove("move c left");
+            String moveBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx    #                      \n" +
+                    "xxx 1 #C#                     \n" +
+                    "xxx    #                      \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                     /-\\      \n" +
+                    "                     | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            assertEquals(moveBoard, game.getBoard().toString());
+        } catch (InvalidMoveException e){
+            fail(e.getMessage());
+        }
+    }
+
     //test placing piece already on board
     @Test
     public void test_create_onboard(){
@@ -1030,7 +1136,7 @@ public class SnSTests {
         }
     }
 
-//todo test undo rotations
+//test undo rotations
     @Test
     public void test_undo_10(){
         SnSGame game = new SnSGame();
@@ -1201,16 +1307,6 @@ public class SnSTests {
             fail(e.getMessage());
         }
     }
-
-    //    @Test
-//    public void test_undo_14(){
-//        SnSGame game = new SnSGame();
-//        try{
-//
-//        } catch (Exception e){
-//            fail(e.getMessage());
-//        }
-//    }
 
     //test rotations
     @Test

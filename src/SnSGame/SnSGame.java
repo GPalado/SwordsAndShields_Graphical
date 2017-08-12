@@ -191,6 +191,7 @@ public class SnSGame {
 
     public static void main(String[] args){
         SnSGame game = new SnSGame();
+        game.playGame();
     }
 
 }

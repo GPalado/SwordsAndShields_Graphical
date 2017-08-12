@@ -3,6 +3,7 @@ package Actions.Visitors;
 import SnSGame.Board;
 import SnSGame.InvalidMoveException;
 import SnSGame.Player;
+import Tiles.CreationSquare;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import Tiles.Tile;
@@ -43,11 +44,23 @@ public class MoveLeft extends MoveActionVisitor {
     }
 
     @Override
+    public void visitCreation(CreationSquare cs) {
+        if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
+        if(cs.isOccupied()){
+            Piece temp = cs.getPiece();
+            cs.setPiece(pieceToPlace);
+            pieceToPlace=temp;
+            Tile shift = board.getLeftOf(pieceToPlace);
+            shift.accept(this);
+        } else {
+            cs.setPiece(pieceToPlace);
+        }
+    }
+
+    @Override
     public void undo() {
-        System.out.println("undo left");
         player.pieceNotMoved(startingPiece);
         if(piecesPushed.isEmpty()){ //just move the one piece
-            System.out.println("just one");
             if(startingPiece.getStatus().equals(Reactable.Status.CEMETERY)){
                 startingPiece.toLife();
                 board.setPiece(startingPiece, startingPiece.getPosition().x, startingPiece.getPosition().y);
@@ -55,7 +68,6 @@ public class MoveLeft extends MoveActionVisitor {
                 board.apply(new MoveRight(startingPiece, player));
             }
         } else if(startingPiece.getPosition().x-piecesPushed.size()<0) { //move all pushed pieces and bring other piece back to life
-            System.out.println("killed");
             if(piecesPushed.size()==1){
                 board.apply(new MoveRight(startingPiece, player));
             } else {
@@ -64,7 +76,6 @@ public class MoveLeft extends MoveActionVisitor {
             piecesPushed.get(piecesPushed.size()-1).toLife();
             board.setPiece(piecesPushed.get(piecesPushed.size()-1), 0, startingPiece.getPosition().y);
         } else { //move all pushed pieces back
-            System.out.println("shifted");
             board.apply(new MoveRight(piecesPushed.get(piecesPushed.size()-1), player));
         }
     }
