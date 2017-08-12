@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * This class is a representation of the reactable face tile of a Swords and Shields game.
  */
-public class Face implements Tile, Reactable {
+public class Face implements Reactable {
 
     private Character[][] representation;
     private Point position;
@@ -51,4 +51,24 @@ public class Face implements Tile, Reactable {
 
     @Override
     public void toLife() { status=Status.ON_BOARD; }
+
+    @Override
+    public Symbol getLeftSymbol() {
+        return Symbol.NOTHING;
+    }
+
+    @Override
+    public Symbol getRightSymbol() {
+        return Symbol.NOTHING;
+    }
+
+    @Override
+    public Symbol getTopSymbol() {
+        return Symbol.NOTHING;
+    }
+
+    @Override
+    public Symbol getBottomSymbol() {
+        return Symbol.NOTHING;
+    }
 }

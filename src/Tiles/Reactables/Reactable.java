@@ -1,9 +1,11 @@
 package Tiles.Reactables;
 
+import Tiles.Tile;
+
 /**
  * This interface determines the actions required by reactable tiles in the swords and shields game.
  */
-public interface Reactable {
+public interface Reactable extends Tile {
 
     /**
      * The reactable tiles have statuses:
@@ -30,4 +32,28 @@ public interface Reactable {
      * This method revives/reactivates a reactable tile.
      */
     void toLife();
+
+    /**
+     * This method returns the reactable's left symbol in it's current orientation
+     * @return
+     */
+    Symbol getLeftSymbol();
+
+    /**
+     * This method returns the reactable's right symbol in it's current orientation
+     * @return
+     */
+    Symbol getRightSymbol();
+
+    /**
+     * This method returns the reactable's top symbol in it's current orientation
+     * @return
+     */
+    Symbol getTopSymbol();
+
+    /**
+     * This method returns the reactable's bottom symbol in it's current orientation
+     * @return
+     */
+    Symbol getBottomSymbol();
 }

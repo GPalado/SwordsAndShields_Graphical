@@ -8,6 +8,8 @@ public interface SymbolReactable {
 
     Reaction reactWithNothing();
 
+    Reaction causes(Symbol symbol);
+
 //    void reactWithFace(Face face);
 
 }

@@ -4,14 +4,14 @@ public class ReactionVisitor {
 
     public ReactionVisitor(){}
 
-    public void visitKilled(Piece piece){
-        piece.kill();
+    public void visitKilled(Reactable r){
+        r.kill();
     }
 
-    public void visitPushed(Piece piece){
+    public void visitPushed(Reactable r){
         //todo pushed in which direction?
     }
 
-    public void visitNone(Piece piece){}
+    public void visitNone(Reactable r){}
 
 }

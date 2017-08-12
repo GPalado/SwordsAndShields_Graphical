@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * This class provides a representation of a Piece in the Swords and Shields game.
  */
-public class Piece implements Tile, Reactable {
+public class Piece implements Reactable {
 
     public static final Map<Symbol, Character> symbolCharacterMap;
     public static final Map<Integer, PieceOrientation> orientations;
@@ -94,30 +94,6 @@ public class Piece implements Tile, Reactable {
      */
     public void backToUnused(){ status=Status.UNUSED; }
 
-    /**
-     * This method returns the piece's left symbol in it's current orientation
-     * @return
-     */
-    Symbol getLeftSymbol(){ return pieceOrientation.getLeftSymbol(this);}
-
-    /**
-     * This method returns the piece's right symbol in it's current orientation
-     * @return
-     */
-    Symbol getRightSymbol(){ return pieceOrientation.getRightSymbol(this);}
-
-    /**
-     * This method returns the piece's top symbol in it's current orientation
-     * @return
-     */
-    Symbol getTopSymbol(){ return pieceOrientation.getTopSymbol(this);}
-
-    /**
-     * This method returns the piece's bottom symbol in it's current orientation
-     * @return
-     */
-    Symbol getBottomSymbol(){ return pieceOrientation.getBottomSymbol(this);}
-
     @Override
     public Status getStatus() {
         return status;
@@ -131,6 +107,26 @@ public class Piece implements Tile, Reactable {
     @Override
     public void toLife() {
         status=Status.ON_BOARD;
+    }
+
+    @Override
+    public Symbol getLeftSymbol() {
+        return pieceOrientation.getLeftSymbol(this);
+    }
+
+    @Override
+    public Symbol getRightSymbol() {
+        return pieceOrientation.getRightSymbol(this);
+    }
+
+    @Override
+    public Symbol getTopSymbol() {
+        return pieceOrientation.getTopSymbol(this);
+    }
+
+    @Override
+    public Symbol getBottomSymbol() {
+        return pieceOrientation.getBottomSymbol(this);
     }
 
     @Override

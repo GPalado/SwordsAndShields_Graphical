@@ -19,6 +19,11 @@ public enum Symbol implements SymbolReactable {
         public Reaction reactWithNothing() {
             return Reaction.NONE;
         }
+
+        @Override
+        public Reaction causes(Symbol symbol) {
+            return symbol.reactWithSword();
+        }
     },
 
     SWORD_HORIZONTAL {
@@ -35,6 +40,11 @@ public enum Symbol implements SymbolReactable {
         @Override
         public Reaction reactWithNothing() {
             return Reaction.NONE;
+        }
+
+        @Override
+        public Reaction causes(Symbol symbol) {
+            return symbol.reactWithSword();
         }
     },
 
@@ -53,6 +63,11 @@ public enum Symbol implements SymbolReactable {
         public Reaction reactWithNothing() {
             return Reaction.NONE;
         }
+
+        @Override
+        public Reaction causes(Symbol symbol) {
+            return symbol.reactWithShield();
+        }
     },
 
     NOTHING {
@@ -69,6 +84,11 @@ public enum Symbol implements SymbolReactable {
         @Override
         public Reaction reactWithNothing() {
             return Reaction.NONE;
+        }
+
+        @Override
+        public Reaction causes(Symbol symbol) {
+            return symbol.reactWithNothing();
         }
     }
 

@@ -32,10 +32,25 @@ public class ReactAction implements Action {
 
     @Override
     public void execute(Board board) {
-        //todo get symbols that will react
-
-        //todo find the reactions for each piece
         this.board=board;
+        //get symbols that will react and use them to find the reactions for each piece
+        if(r1.getPosition().x<r2.getPosition().x){
+            //find reaction of first reactable
+            reaction1 = r2.getLeftSymbol().causes(r1.getRightSymbol());
+            //find reaction of second piece
+            reaction2 = r1.getRightSymbol().causes(r2.getLeftSymbol());
+        } else if(r1.getPosition().x>r2.getPosition().x){
+            reaction1 = r2.getRightSymbol().causes(r1.getLeftSymbol());
+            reaction2 = r1.getLeftSymbol().causes(r2.getRightSymbol());
+        } else if(r1.getPosition().y>r2.getPosition().y){
+            reaction1 = r2.getBottomSymbol().causes(r1.getTopSymbol());
+            reaction2 = r1.getTopSymbol().causes(r2.getBottomSymbol());
+        } else { //if(r1.getPosition().y<r2.getPosition().y)
+            reaction1 = r2.getTopSymbol().causes(r1.getBottomSymbol());
+            reaction2 = r1.getBottomSymbol().causes(r2.getTopSymbol());
+        }
+        reaction1.accept(rv, r1);
+        reaction2.accept(rv, r2);
     }
 
     @Override
