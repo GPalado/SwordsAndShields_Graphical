@@ -20,10 +20,10 @@ public class MoveDown extends MoveActionVisitor {
 
     @Override
     public void execute(Board board) {
-        //todo implement this
         if(player.getPiecesMoved().contains(startingPiece)){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
+        player.addAction(this);
         player.pieceMoved(startingPiece);
         this.board=board;
         if(pieceToPlace.getPosition().equals(player.creationSquare.getPosition())){ //set creation square to no piece

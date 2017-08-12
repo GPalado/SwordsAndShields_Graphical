@@ -26,6 +26,7 @@ public class RotateAction implements Action {
      */
     public RotateAction(Piece p, int amt, Player pl){
         if(!validAmounts.contains(amt)) throw new InvalidMoveException("Invalid rotation amount given");
+        if(player.getPiecesMoved().contains(p)) throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         amount = amt;
         piece=p;
         player=pl;
@@ -35,6 +36,7 @@ public class RotateAction implements Action {
     public void execute(Board board) {
         piece.rotate(amount);
         player.pieceMoved(piece);
+        player.addAction(this);
     }
 
     @Override

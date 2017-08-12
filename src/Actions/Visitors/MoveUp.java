@@ -22,6 +22,7 @@ public class MoveUp extends MoveActionVisitor {
         if(player.getPiecesMoved().contains(startingPiece)){
             throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         }
+        player.addAction(this);
         player.pieceMoved(startingPiece);
         this.board=board;
         if(pieceToPlace.getPosition().equals(player.creationSquare.getPosition())){ //set creation square to no piece

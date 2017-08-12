@@ -45,6 +45,7 @@ public class CreateAction implements Action {
         if(piece.getStatus().equals(Reactable.Status.ON_BOARD)){
             throw new InvalidMoveException("Cannot create a piece already on the board");
         }
+        player.addAction(this);
         piece.rotate(orientation);
         player.creationSquare.setPiece(piece);
         player.setCreated(true);
