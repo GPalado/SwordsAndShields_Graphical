@@ -3,6 +3,8 @@ package Actions;
 import SnSGame.Board;
 import SnSGame.Player;
 import Tiles.Reactables.Reactable;
+import Tiles.Reactables.Reaction;
+import Tiles.Reactables.ReactionVisitor;
 
 /**
  * This class provides the concrete implementation of a React action (reaction)
@@ -13,6 +15,8 @@ public class ReactAction implements Action {
     private Reactable r1;
     private Reactable r2;
     private Board board;
+    private ReactionVisitor rv = new ReactionVisitor();
+    private Reaction reaction1, reaction2;
 
     /**
      * The constructor takes the two reactables to react, and the player involved in the reaction.
@@ -28,6 +32,9 @@ public class ReactAction implements Action {
 
     @Override
     public void execute(Board board) {
+        //todo get symbols that will react
+
+        //todo find the reactions for each piece
         this.board=board;
     }
 

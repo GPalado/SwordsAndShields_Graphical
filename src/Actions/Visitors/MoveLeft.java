@@ -40,7 +40,6 @@ public class MoveLeft extends MoveActionVisitor {
         board.setPiece(pieceToPlace, piece.getPosition().x, piece.getPosition().y);
         pieceToPlace=piece;
         Tile shift = board.getLeftOf(pieceToPlace);
-        System.out.println(shift.getClass());
         shift.accept(this);
     }
 

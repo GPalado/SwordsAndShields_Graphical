@@ -32,7 +32,6 @@ public class MoveRight extends MoveActionVisitor {
         }
         Tile shift = board.getRightOf(startingPiece);
         shift.accept(this);
-        System.out.println(piecesPushed.size());
     }
 
     @Override

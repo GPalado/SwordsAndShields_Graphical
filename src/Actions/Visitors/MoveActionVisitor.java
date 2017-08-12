@@ -40,7 +40,6 @@ public abstract class MoveActionVisitor implements Action, Visitor{
 
     @Override
     public void visitOOB(OutOfBounds oob) {
-        System.out.println("OOB");
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         pieceToPlace.kill();
     }

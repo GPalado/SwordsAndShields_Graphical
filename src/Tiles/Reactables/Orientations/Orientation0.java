@@ -1,6 +1,7 @@
 package Tiles.Reactables.Orientations;
 
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Symbol;
 
 import static Tiles.Reactables.Piece.orientations;
 import static Tiles.Reactables.Piece.symbolCharacterMap;
@@ -25,5 +26,25 @@ public class Orientation0 implements PieceOrientation {
                 {' ', symbolCharacterMap.get(piece.symbols[1]), ' '} //third column
         } ;
         return rep;
+    }
+
+    @Override
+    public Symbol getLeftSymbol(Piece piece) {
+        return piece.symbols[3];
+    }
+
+    @Override
+    public Symbol getRightSymbol(Piece piece) {
+        return piece.symbols[1];
+    }
+
+    @Override
+    public Symbol getTopSymbol(Piece piece) {
+        return piece.symbols[0];
+    }
+
+    @Override
+    public Symbol getBottomSymbol(Piece piece) {
+        return piece.symbols[2];
     }
 }

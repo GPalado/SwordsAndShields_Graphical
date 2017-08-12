@@ -131,6 +131,10 @@ public class SnSGame {
                 return;
             }
         } else if (input[0].toLowerCase().equals("undo")) {
+            if(input.length>1){
+                System.out.println("Input too long for undo command");
+                return;
+            }
             try {
                 board.reverse(currentPlayer.undo());
             } catch (InvalidMoveException e){
@@ -138,6 +142,10 @@ public class SnSGame {
                 return;
             }
         } else if (input[0].toLowerCase().equals("pass")) {
+            if(input.length>1){
+                System.out.println("Input too long for pass command");
+                return;
+            }
             if(currentPlayer.hasCreated()||currentPlayer.hasMoved()) {
                 passed = true;
                 currentPlayer.pass();
@@ -156,8 +164,6 @@ public class SnSGame {
      * This method redraws the game's board
      */
     public void redrawGame() {
-        //clear current board from console
-        System.out.print("\n\n\n");
         board.draw();
     }
 

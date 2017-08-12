@@ -34,13 +34,6 @@ public class Piece implements Tile, Reactable {
         orientations.put(270, new Orientation270());
     }
 
-    public enum Symbol{
-        SWORD_VERTICAL,
-        SWORD_HORIZONTAL,
-        SHIELD,
-        NOTHING
-    }
-
     /**
      * The constructor takes a character array representation of the piece.
      * It sets initial values of moved to false, and status to unused.
@@ -100,6 +93,30 @@ public class Piece implements Tile, Reactable {
      * This method reverts the piece back to the unused state.
      */
     public void backToUnused(){ status=Status.UNUSED; }
+
+    /**
+     * This method returns the piece's left symbol in it's current orientation
+     * @return
+     */
+    Symbol getLeftSymbol(){ return pieceOrientation.getLeftSymbol(this);}
+
+    /**
+     * This method returns the piece's right symbol in it's current orientation
+     * @return
+     */
+    Symbol getRightSymbol(){ return pieceOrientation.getRightSymbol(this);}
+
+    /**
+     * This method returns the piece's top symbol in it's current orientation
+     * @return
+     */
+    Symbol getTopSymbol(){ return pieceOrientation.getTopSymbol(this);}
+
+    /**
+     * This method returns the piece's bottom symbol in it's current orientation
+     * @return
+     */
+    Symbol getBottomSymbol(){ return pieceOrientation.getBottomSymbol(this);}
 
     @Override
     public Status getStatus() {

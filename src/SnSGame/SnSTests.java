@@ -297,10 +297,10 @@ public class SnSTests {
             game.playerMove("Create a 0");
             game.playerMove("Move a right");
             game.playerMove("Move a left");
-            fail("Cannot move a piece twice in one go");
+            //ok, should catch and print output
         } catch (InvalidMoveException e) {
             //good. Supposed to happen
-            System.out.println(e.getMessage());
+            fail(e.getMessage());
         }
     }
 
