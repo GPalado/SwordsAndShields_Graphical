@@ -1029,19 +1029,181 @@ public class SnSTests {
             fail(e.getMessage());
         }
     }
+
 //todo test undo rotations
-//    @Test
-//    public void test_undo_10(){
-//        SnSGame game = new SnSGame();
-//        try{
-//
-//        } catch (Exception e){
-//            fail(e.getMessage());
-//        }
-//    }
-//
-//    @Test
-//    public void test_undo_11(){
+    @Test
+    public void test_undo_10(){
+        SnSGame game = new SnSGame();
+        String rotateBoard = "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxx                           \n" +
+                "xxx 1                         \n" +
+                "xxx                           \n" +
+                "      /-\\                     \n" +
+                "      | |                     \n" +
+                "      \\-/                     \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                     /-\\      \n" +
+                "                     | |      \n" +
+                "                     \\-/      \n" +
+                "                           xxx\n" +
+                "                         0 xxx\n" +
+                "                           xxx\n" +
+                "                        xxxxxx\n" +
+                "                        xxxxxx\n" +
+                "                        xxxxxx\n";
+        try {
+            game.playerMove("create u 90");
+            game.playerMove("undo");
+            assertEquals(game.getBoard().toString(), rotateBoard);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void test_undo_11(){
+        SnSGame game = new SnSGame();
+        String rotateBoard = "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxxxxx                        \n" +
+                "xxx                           \n" +
+                "xxx 1                         \n" +
+                "xxx                           \n" +
+                "      /-\\                     \n" +
+                "      | |                     \n" +
+                "      \\-/                     \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                              \n" +
+                "                      |       \n" +
+                "                      u-      \n" +
+                "                              \n" +
+                "                           xxx\n" +
+                "                         0 xxx\n" +
+                "                           xxx\n" +
+                "                        xxxxxx\n" +
+                "                        xxxxxx\n" +
+                "                        xxxxxx\n";
+        try {
+            game.playerMove("create u 90");
+            game.playerMove("rotate u 90");
+            game.playerMove("undo");
+            assertEquals(game.getBoard().toString(), rotateBoard);
+        } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
+
+        @Test
+    public void test_undo_12(){
+        SnSGame game = new SnSGame();
+            String rotateBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx                           \n" +
+                    "xxx 1                         \n" +
+                    "xxx                           \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                      |       \n" +
+                    "                     -u       \n" +
+                    "                              \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            try {
+                game.playerMove("create u 0");
+                game.playerMove("rotate u 180");
+                game.playerMove("undo");
+                assertEquals(game.getBoard().toString(), rotateBoard);
+        } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
+
+        @Test
+    public void test_undo_13(){
+        SnSGame game = new SnSGame();
+            String rotateBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx                           \n" +
+                    "xxx 1                         \n" +
+                    "xxx                           \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                      |       \n" +
+                    "                     -u       \n" +
+                    "                              \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            try {
+                game.playerMove("create u 0");
+                game.playerMove("rotate u 270");
+                game.playerMove("undo");
+                assertEquals(game.getBoard().toString(), rotateBoard);
+        } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
+
+    //    @Test
+//    public void test_undo_14(){
 //        SnSGame game = new SnSGame();
 //        try{
 //
@@ -1050,7 +1212,7 @@ public class SnSTests {
 //        }
 //    }
 
-    //todo test rotations
+    //test rotations
     @Test
     public void test_rotation_1(){
         SnSGame game = new SnSGame();

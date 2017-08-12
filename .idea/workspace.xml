@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d86b5-f5a6-4b34-9eb6-442d49b08633" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/RotateAction.java" afterPath="$PROJECT_DIR$/src/Actions/RotateAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,51 @@
       <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2895">
-              <caret line="1329" column="40" lean-forward="false" selection-start-line="1329" selection-start-column="40" selection-end-line="1329" selection-end-column="40" />
+            <state relative-caret-position="294">
+              <caret line="1196" column="45" lean-forward="false" selection-start-line="1196" selection-start-column="45" selection-end-line="1196" selection-end-column="45" />
+              <folding>
+                <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_creation_square_occupied#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_move_down#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_move_right#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_move_left#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_move_up#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_move_twice#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_create_twice#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_OOB#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_place_dead#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_push_left#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_push_right#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_push_up#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_push_down#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_create_onboard#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_1#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_2#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_3#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_4#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_5#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_6#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_7#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_8#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_9#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_4#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_5#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_6#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_rotation_7#0;class#SnSTests#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RotateAction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="472">
+              <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -73,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Orientation270.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Orientation270.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="195" lean-forward="false" selection-start-line="24" selection-start-column="195" selection-end-line="24" selection-end-column="195" />
+            <state relative-caret-position="314">
+              <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,14 +193,14 @@
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/PieceOrientation.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/Player.java" />
-        <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/CreateAction.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
+        <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
       </list>
     </option>
   </component>
@@ -377,12 +419,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnSTests - 2017.08.11 at 18h 45m 54s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnSTests - 2017.08.11 at 18h 47m 29s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SnSTests - 2017.08.11 at 19h 03m 39s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
@@ -405,6 +441,12 @@
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SnSTests - 2017.08.12 at 11h 43m 07s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 11h 45m 44s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnSTests - 2017.08.12 at 12h 07m 29s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -472,7 +514,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -798,29 +842,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="35" column="134" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="134" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
           <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,21 +870,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2895">
-          <caret line="1329" column="40" lean-forward="false" selection-start-line="1329" selection-start-column="40" selection-end-line="1329" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="195" lean-forward="false" selection-start-line="24" selection-start-column="195" selection-end-line="24" selection-end-column="195" />
+        <state relative-caret-position="314">
+          <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="1196" column="45" lean-forward="false" selection-start-line="1196" selection-start-column="45" selection-end-line="1196" selection-end-column="45" />
+          <folding>
+            <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_creation_square_occupied#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_move_down#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_move_right#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_move_left#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_move_up#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_move_twice#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_create_twice#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_OOB#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_place_dead#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_push_left#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_push_right#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_push_up#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_push_down#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_create_onboard#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_1#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_2#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_3#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_4#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_5#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_6#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_7#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_8#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_9#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_4#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_5#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_6#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_rotation_7#0;class#SnSTests#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/RotateAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
