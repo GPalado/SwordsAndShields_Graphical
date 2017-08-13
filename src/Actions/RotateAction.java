@@ -25,8 +25,9 @@ public class RotateAction implements Action {
      * @param pl
      */
     public RotateAction(Piece p, int amt, Player pl){
+        if(p==null) throw new InvalidMoveException("Cannot rotate a null piece");
         if(!validAmounts.contains(amt)) throw new InvalidMoveException("Invalid rotation amount given");
-        if(player.getPiecesMoved().contains(p)) throw new InvalidMoveException("Cannot move a piece that has already been moved!");
+        if(pl.getPiecesMoved().contains(p)) throw new InvalidMoveException("Cannot move a piece that has already been moved!");
         amount = amt;
         piece=p;
         player=pl;
@@ -43,5 +44,10 @@ public class RotateAction implements Action {
     public void undo() {
         piece.rotate(360-amount);
         player.pieceNotMoved(piece);
+    }
+
+    @Override
+    public Piece getPiece() {
+        return piece;
     }
 }

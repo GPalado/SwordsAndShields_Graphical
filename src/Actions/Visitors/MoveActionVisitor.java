@@ -47,11 +47,8 @@ public abstract class MoveActionVisitor implements Action, Visitor{
         board.setPiece(pieceToPlace, empty.getPosition().x, empty.getPosition().y);
     }
 
-    /**
-     * This method returns the starting piece of this move.
-     * @return
-     */
-    public Piece getStartingPiece(){
+    @Override
+    public Piece getPiece(){
         return startingPiece;
     }
 }

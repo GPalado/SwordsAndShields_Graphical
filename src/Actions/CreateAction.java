@@ -23,6 +23,7 @@ public class CreateAction implements Action {
      */
     public CreateAction(Piece p, int o, Player pl){
         if(p==null) throw new InvalidMoveException("Cannot create null piece");
+        if(pl==null) throw new InvalidMoveException("Null player");
         orientation=o;
         piece=p;
         player=pl;
@@ -46,7 +47,7 @@ public class CreateAction implements Action {
             throw new InvalidMoveException("Cannot create a piece already on the board");
         }
         player.addAction(this);
-        piece.rotate(orientation);
+        piece.setOrientation(orientation);
         player.creationSquare.setPiece(piece);
         player.setCreated(true);
         piece.toLife();
@@ -56,5 +57,10 @@ public class CreateAction implements Action {
     public void undo() {
         player.creationSquare.setPiece(null);
         piece.backToUnused();
+    }
+
+    @Override
+    public Piece getPiece() {
+        return piece;
     }
 }

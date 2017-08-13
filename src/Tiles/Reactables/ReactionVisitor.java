@@ -17,25 +17,26 @@ public class ReactionVisitor {
     }
 
     public MoveActionVisitor visitPushedRight(Reactable r){
-        MoveActionVisitor move = new MoveRight(r);
+        MoveActionVisitor move = new MoveRight((Piece)r);
         board.apply(move);
         return move;
     }
 
     public MoveActionVisitor visitPushedLeft(Reactable r){
-        MoveActionVisitor move = new MoveLeft(r);
+        //note only pieces can be pushed
+        MoveActionVisitor move = new MoveLeft((Piece)r);
         board.apply(move);
         return move;
     }
 
     public MoveActionVisitor visitPushedUp(Reactable r){
-        MoveActionVisitor move = new MoveUp(r);
+        MoveActionVisitor move = new MoveUp((Piece)r);
         board.apply(move);
         return move;
     }
 
     public MoveActionVisitor visitPushedDown(Reactable r){
-        MoveActionVisitor move = new MoveDown(r);
+        MoveActionVisitor move = new MoveDown((Piece)r);
         board.apply(move);
         return move;
     }

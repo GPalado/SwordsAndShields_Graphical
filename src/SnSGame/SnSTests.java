@@ -44,19 +44,6 @@ public class SnSTests {
         assertEquals(emptyBoard, game.getBoard().toString());
     }
 
-//    @Test
-//    public void get_piece(){
-//        //todo fix this test
-//        Player p1 = new Player(Color.yellow, true, '0');
-//        Character[][] pieceRep = {{' ', '-', ' '},{'|', 'A', '|'},{' ', '#', ' '}};
-//        try {
-//            assertEquals(pieceRep, p1.getPiece('A').getRepresentation());
-//            assertEquals("unused", p1.getPiece('A').getStatus());
-//        } catch (InvalidMoveException e){
-//            fail(e.getMessage());
-//        }
-//    }
-
     @Test
     public void player_place_new_piece() {
         SnSGame game = new SnSGame();
@@ -207,8 +194,6 @@ public class SnSTests {
     public void test_move_left(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("pass"); //pass create
-            game.playerMove("pass"); //pass turn
             game.playerMove("Create a 0");
             game.playerMove("Move a left");
             String moveBoard = "xxxxxx                        \n" +
@@ -217,9 +202,9 @@ public class SnSTests {
                     "xxx                           \n" +
                     "xxx 1                         \n" +
                     "xxx                           \n" +
-                    "    | /-\\                     \n" +
-                    "   -A#| |                     \n" +
-                    "    | \\-/                     \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
@@ -232,9 +217,9 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\      \n" +
-                    "                     | |      \n" +
-                    "                     \\-/      \n" +
+                    "                   | /-\\      \n" +
+                    "                  -a#| |      \n" +
+                    "                   | \\-/      \n" +
                     "                           xxx\n" +
                     "                         0 xxx\n" +
                     "                           xxx\n" +
@@ -324,7 +309,7 @@ public class SnSTests {
         SnSGame game = new SnSGame();
         try {
             //also test caps/non caps
-            game.playerMove("Create A 0"); //should be lower case
+            game.playerMove("Create A 90"); //should be lower case
             game.playerMove("Move A right"); //^
             game.playerMove("pass"); //pass turn
             game.playerMove("Create e 0"); //should be upper case
@@ -486,8 +471,8 @@ public class SnSTests {
         try{
             game.playerMove("pass");
             game.playerMove("pass");
-            game.playerMove("Create a 0");
-            game.playerMove("Move a left");
+            game.playerMove("Create c 0");
+            game.playerMove("Move c left");
             game.playerMove("pass"); //pass move
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
@@ -542,12 +527,12 @@ public class SnSTests {
             game.playerMove("pass"); //pass turn
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
-            game.playerMove("Create a 0");
-            game.playerMove("move a right");
+            game.playerMove("Create c 0");
+            game.playerMove("move c right");
             game.playerMove("pass"); //pass turn
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
-            game.playerMove("move a right");
+            game.playerMove("move c right");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
@@ -569,9 +554,9 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\    | \n" +
-                    "                     | |   -a#\n" +
-                    "                     \\-/    | \n" +
+                    "                     /-\\    # \n" +
+                    "                     | |   #c#\n" +
+                    "                     \\-/    # \n" +
                     "                           xxx\n" +
                     "                         0 xxx\n" +
                     "                           xxx\n" +
@@ -1156,7 +1141,7 @@ public class SnSTests {
     public void test_create_onboard(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("Create a 0");
+            game.playerMove("Create a 90");
             game.playerMove("Move a right");
             game.playerMove("pass");
             game.playerMove("pass");
@@ -1224,7 +1209,7 @@ public class SnSTests {
         }
     }
 
-    //todo not throw this exception
+    //not throw this exception
     @Test
     public void test_undo_3(){
         SnSGame game = new SnSGame();
@@ -1632,7 +1617,7 @@ public class SnSTests {
             game.playerMove("rotate u 90");
             game.playerMove("undo");
             assertEquals(game.getBoard().toString(), rotateBoard);
-        } catch (Exception e){
+        } catch (InvalidMoveException e){
             fail(e.getMessage());
         }
     }
@@ -1675,7 +1660,7 @@ public class SnSTests {
                 game.playerMove("rotate u 180");
                 game.playerMove("undo");
                 assertEquals(game.getBoard().toString(), rotateBoard);
-        } catch (Exception e){
+        } catch (InvalidMoveException e){
             fail(e.getMessage());
         }
     }
@@ -1718,7 +1703,7 @@ public class SnSTests {
                 game.playerMove("rotate u 270");
                 game.playerMove("undo");
                 assertEquals(game.getBoard().toString(), rotateBoard);
-        } catch (Exception e){
+        } catch (InvalidMoveException e){
             fail(e.getMessage());
         }
     }
@@ -1748,8 +1733,8 @@ public class SnSTests {
                 "                              \n" +
                 "                              \n" +
                 "                      |       \n" +
-                "                     -a#      \n" +
-                "                      |       \n" +
+                "                     -a-      \n" +
+                "                      #       \n" +
                 "                           xxx\n" +
                 "                         0 xxx\n" +
                 "                           xxx\n" +
@@ -1757,7 +1742,7 @@ public class SnSTests {
                 "                        xxxxxx\n" +
                 "                        xxxxxx\n";
         try{
-            game.playerMove("Create a 0");
+            game.playerMove("Create a 90");
             game.playerMove("move a right");
             game.playerMove("undo");
             assertEquals(undoBoard, game.getBoard().toString());
@@ -1861,12 +1846,12 @@ public class SnSTests {
             game.playerMove("pass"); //pass turn
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
-            game.playerMove("Create a 0");
-            game.playerMove("move a right");
+            game.playerMove("Create c 0");
+            game.playerMove("move c right");
             game.playerMove("pass"); //pass turn
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
-            game.playerMove("move a right");
+            game.playerMove("move c right");
             game.playerMove("undo");
             String moveBoard = "xxxxxx                        \n" +
                     "xxxxxx                        \n" +
@@ -1889,9 +1874,9 @@ public class SnSTests {
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +
-                    "                     /-\\ |    \n" +
-                    "                     | |-a# e \n" +
-                    "                     \\-/ |    \n" +
+                    "                     /-\\ #    \n" +
+                    "                     | |#c# e \n" +
+                    "                     \\-/ #    \n" +
                     "                           xxx\n" +
                     "                         0 xxx\n" +
                     "                           xxx\n" +
@@ -2068,7 +2053,7 @@ public class SnSTests {
         try{
             game.playerMove("pass");
             game.playerMove("pass");
-            game.playerMove("Create a 0");
+            game.playerMove("Create a 270");
             game.playerMove("Move a left");
             game.playerMove("pass"); //pass move
             game.playerMove("pass"); //pass create
@@ -2086,8 +2071,8 @@ public class SnSTests {
                     "xxx                           \n" +
                     "xxx 1                         \n" +
                     "xxx                           \n" +
-                    " |    /-\\                     \n" +
-                    "-A# E | |                     \n" +
+                    " #    /-\\                     \n" +
+                    "-A- E | |                     \n" +
                     " |    \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
@@ -2404,6 +2389,50 @@ public class SnSTests {
             game.playerMove("create u 270");
             assertEquals(game.getBoard().toString(), rotateBoard);
         } catch (Exception e){
+            fail(e.getMessage());
+        }
+    }
+
+    //test cannot move AND rotate a piece
+    @Test
+    public void test_move_and_rotate_invalid(){
+        SnSGame game = new SnSGame();
+        try {
+            String mrBoard = "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxxxxx                        \n" +
+                    "xxx                           \n" +
+                    "xxx 1                         \n" +
+                    "xxx                           \n" +
+                    "      /-\\                     \n" +
+                    "      | |                     \n" +
+                    "      \\-/                     \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                              \n" +
+                    "                   | /-\\      \n" +
+                    "                  -u | |      \n" +
+                    "                     \\-/      \n" +
+                    "                           xxx\n" +
+                    "                         0 xxx\n" +
+                    "                           xxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n" +
+                    "                        xxxxxx\n";
+            game.playerMove("Create u 0");
+            game.playerMove("move u left");
+            game.playerMove("rotate u 90");
+            assertEquals(game.getBoard().toString(), mrBoard);
+        } catch (InvalidMoveException e){
             fail(e.getMessage());
         }
     }

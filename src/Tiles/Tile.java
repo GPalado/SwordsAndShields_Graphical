@@ -2,6 +2,7 @@ package Tiles;
 
 import Actions.ReactAction;
 import Actions.Visitors.Visitor;
+import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 
 import java.awt.*;

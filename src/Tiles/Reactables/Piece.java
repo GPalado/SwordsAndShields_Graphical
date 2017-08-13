@@ -64,7 +64,6 @@ public class Piece implements Reactable {
      * @param amount
      */
     public void rotate(int amount){
-        //todo implement this
         if(!orientations.keySet().contains(amount)){
             throw new InvalidMoveException("That is an invalid orientation");
         }
@@ -80,6 +79,17 @@ public class Piece implements Reactable {
             throw new InvalidMoveException("That is an invalid orientation");
         }
         pieceOrientation=o;
+    }
+
+    /**
+     * This method sets the piece's orientation based on the given integer
+     * @param o
+     */
+    public void setOrientation(int o){
+        if(!orientations.keySet().contains(o)){
+            throw new InvalidMoveException("That is an invalid orientation");
+        }
+        pieceOrientation=orientations.get(o);
     }
 
     /**

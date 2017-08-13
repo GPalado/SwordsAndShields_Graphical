@@ -82,9 +82,7 @@ public class Player {
         if(actions.isEmpty()){
             throw new InvalidMoveException("Cannot undo any further");
         }
-        if(actions.peek() instanceof MoveActionVisitor){
-            pieceNotMoved(((MoveActionVisitor)actions.peek()).getStartingPiece());
-        }
+        pieceNotMoved(actions.peek().getPiece());
         return actions.pollLast();
     }
 

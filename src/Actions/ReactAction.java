@@ -2,10 +2,7 @@ package Actions;
 
 import SnSGame.Board;
 import SnSGame.Player;
-import Tiles.Reactables.Direction;
-import Tiles.Reactables.Reactable;
-import Tiles.Reactables.Reaction;
-import Tiles.Reactables.ReactionVisitor;
+import Tiles.Reactables.*;
 
 /**
  * This class provides the concrete implementation of a React action (reaction)
@@ -59,5 +56,10 @@ public class ReactAction implements Action {
     @Override
     public void undo() {
 
+    }
+
+    @Override
+    public Piece getPiece() {
+        return null;
     }
 }
