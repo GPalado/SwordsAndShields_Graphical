@@ -55,7 +55,8 @@ public class ReactAction implements Action {
 
     @Override
     public void undo() {
-
+        reaction1.reverse(rv, r1);
+        reaction2.reverse(rv, r2);
     }
 
     @Override

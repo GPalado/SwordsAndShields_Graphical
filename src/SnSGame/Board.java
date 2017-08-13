@@ -4,6 +4,7 @@ import Actions.Action;
 import Tiles.*;
 import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
+import Tiles.Reactables.Symbol;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -161,7 +162,53 @@ public class Board {
      */
     public ArrayList<Reactable> offerReactions(Piece piece){
         ArrayList<Reactable> neighbours = new ArrayList<>();
-        neighbours = tiles[piece.getPosition().x][piece.getPosition().y+1].accept(tiles[piece.getPosition().x][piece.getPosition().y-1].accept(tiles[piece.getPosition().x+1][piece.getPosition().y].accept(tiles[piece.getPosition().x-1][piece.getPosition().y].accept(neighbours))));
+        //find neighbouring reactable pieces starting from NORTH EAST SOUTH then WEST
+        if(piece.getPosition().y-1>=0){
+            neighbours = tiles[piece.getPosition().x][piece.getPosition().y-1].accept(neighbours);
+        }
+        if(piece.getPosition().x+1<=SnSGame.BOARD_SIZE-1){
+            neighbours = tiles[piece.getPosition().x+1][piece.getPosition().y].accept(neighbours);
+        }
+        if(piece.getPosition().y+1<=SnSGame.BOARD_SIZE-1){
+            neighbours = tiles[piece.getPosition().x][piece.getPosition().y+1].accept(neighbours);
+        }
+        if(piece.getPosition().x-1>=0){
+            neighbours = tiles[piece.getPosition().x-1][piece.getPosition().y].accept(neighbours);
+        }
+        //only offer possible reactions i.e. if one of the symbols facing another piece's symbol is a sword
+        int count=0;
+        if(neighbours.contains(tiles[piece.getPosition().x][piece.getPosition().y-1])){ //reactable exists above piece
+            if(!piece.getTopSymbol().equals(Symbol.SWORD_VERTICAL) && !neighbours.get(count).getBottomSymbol().equals(Symbol.SWORD_VERTICAL)){
+                neighbours.remove(tiles[piece.getPosition().x][piece.getPosition().y-1]);
+                System.out.println("above not reaction");
+            } else {
+                count++;
+            }
+        }
+        if(neighbours.contains(tiles[piece.getPosition().x+1][piece.getPosition().y])){ //reactable exists to the right of piece
+            if(!piece.getRightSymbol().equals(Symbol.SWORD_HORIZONTAL) && !neighbours.get(count).getLeftSymbol().equals(Symbol.SWORD_HORIZONTAL)){
+                neighbours.remove(tiles[piece.getPosition().x+1][piece.getPosition().y]);
+                System.out.println("right not reaction");
+            } else {
+                count++;
+            }
+        }
+        if(neighbours.contains(tiles[piece.getPosition().x][piece.getPosition().y+1])){ //reactable exists below piece
+            if(!piece.getBottomSymbol().equals(Symbol.SWORD_VERTICAL) && !neighbours.get(count).getTopSymbol().equals(Symbol.SWORD_VERTICAL)){
+                neighbours.remove(tiles[piece.getPosition().x][piece.getPosition().y+1]);
+                System.out.println("below not reaction");
+            } else {
+                count++;
+            }
+        }
+        if(neighbours.contains(tiles[piece.getPosition().x-1][piece.getPosition().y])){ //reactable exists left of piece
+            if(!piece.getLeftSymbol().equals(Symbol.SWORD_HORIZONTAL) && !neighbours.get(count).getRightSymbol().equals(Symbol.SWORD_HORIZONTAL)){
+                neighbours.remove(tiles[piece.getPosition().x-1][piece.getPosition().y]);
+                System.out.println("left not reaction");
+            } else {
+                count++;
+            }
+        }
         return neighbours;
     }
 

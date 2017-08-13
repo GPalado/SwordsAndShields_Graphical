@@ -1,5 +1,6 @@
 package SnSGame;
 
+import Actions.Action;
 import Actions.CreateAction;
 import Actions.ReactAction;
 import Actions.RotateAction;
@@ -46,12 +47,12 @@ public class SnSGame {
      * This method is invoked to play the game until someone wins.
      * It repeatedly asks for user inputs and passes the input to the playerMove method which parses the commands.
      */
-    public void playGame(){
+    public void playGame() {
         //loop while game is not won
-        while(!isGameOver()){
-            System.out.print((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player's Turn!\n");
-            while(currentPlayer.hasMovesLeft()&&!passed) {
-                if(currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
+        while (!isGameOver()) {
+            System.out.print((currentPlayer.equals(player1) ? "Player 1's" : "Player 2's") + " Turn!\n");
+            while (currentPlayer.hasMovesLeft() && !passed && !isGameOver()) {
+                if (currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
                     System.out.print("What would you like to do (Rotate, Move): ");
                 } else {
                     System.out.print("Your unused pieces are...\n");
@@ -62,13 +63,15 @@ public class SnSGame {
                 String input = scanner.nextLine();
                 playerMove(input);
             }
-            if(!passed){ //force pass when no moves possible
-                System.out.println((currentPlayer.equals(player1)? "Yellow" : "Green") + " Player, your turn is over. (No move possible moves)");
+            if (isGameOver()) break;
+            if (!passed) { //force pass when no moves possible
+                System.out.println((currentPlayer.equals(player1) ? "Player 1" : "Player 2") + ", your turn is over. (No move possible moves)");
                 currentPlayer.pass();
                 swapPlayers();
             }
-            passed=false;
+            passed = false;
         }
+        System.out.println((player1.face.getStatus().equals(Reactable.Status.CEMETERY)) ? "Player 2 won!" : "Player 1 won!");
     }
 
     /**
@@ -81,29 +84,42 @@ public class SnSGame {
             return;
         }
         if (input[0].toLowerCase().equals("create")) {
+            if (input.length < 3) {
+                System.out.println("Input too short!");
+                return;
+            }
             try {
                 char c = parseChar(input[1]);
                 int i = parseInt(input[2]);
                 CreateAction create = new CreateAction(currentPlayer.getPiece(c), i, currentPlayer);
                 board.apply(create);
+                //todo check for reactions
+                reactionCheck(player1.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
             }
-            //todo if successful, check for reactions
-
         } else if (input[0].toLowerCase().equals("rotate")) {
+            if (input.length < 3) {
+                System.out.println("Input too short!");
+                return;
+            }
             try {
                 char c = parseChar(input[1]);
                 int i = parseInt(input[2]);
                 RotateAction rotate = new RotateAction(currentPlayer.getPiece(c), i, currentPlayer);
                 board.apply(rotate);
+                //todo check for reactions
+                reactionCheck(player1.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
             }
-            //todo if successful, check for reactions
         } else if (input[0].toLowerCase().equals("move")) {
+            if (input.length < 3) {
+                System.out.println("Input too short!");
+                return;
+            }
             try {
                 MoveActionVisitor move;
                 char c = parseChar(input[1]);
@@ -126,23 +142,26 @@ public class SnSGame {
                 board.apply(move);
                 currentPlayer.addAction(move);
                 currentPlayer.pieceMoved(currentPlayer.getPiece(c));
+                //todo check for reactions
+                reactionCheck(player1.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
             }
-            //todo if successful, check for reactions
         } else if (input[0].toLowerCase().equals("undo")) {
             if(input.length>1){
                 System.out.println("Input too long for undo command");
                 return;
             }
             try {
-                board.reverse(currentPlayer.undo());
+                Action toReverse = currentPlayer.undo();
+                board.reverse(toReverse);
+                //todo check for reactions
+                reactionCheck(toReverse.getPiece());
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
             }
-            //todo if successful, check for reactions
         } else if (input[0].toLowerCase().equals("pass")) {
             if(input.length>1){
                 System.out.println("Input too long for pass command");
@@ -165,6 +184,7 @@ public class SnSGame {
     public void reactionCheck(Piece piece){
         //todo complete
         if(!board.offerReactions(piece).isEmpty()){
+            redrawGame();
             System.out.println("Choose a reaction: (enter a character)");
             printTiles(board.offerReactions(piece));
             Map<Character, Reactable> chars = new HashMap<>();
@@ -172,15 +192,21 @@ public class SnSGame {
                 chars.put(r.getLetter(), r);
             }
             Scanner scanner = new Scanner(System.in);  // read from System.in
-            char input = scanner.next().charAt(0);
+            String input = scanner.next();
+            char c = input.charAt(0);
             scanner.nextLine();
-            while(!chars.keySet().contains(input)){
+            while(!input.equals("undo") && !chars.keySet().contains(c)){
                 System.out.println("Sorry, that wasn't one of the options. Choose again. (Case Sensitive)");
                 printTiles(board.offerReactions(piece));
-                input = scanner.next().charAt(0);
+                input = scanner.next();
+                c = input.charAt(0);
                 scanner.nextLine();
             }
-            board.apply(new ReactAction(piece, chars.get(input), currentPlayer));
+            if(input.equals("undo")){
+                playerMove(input);
+            } else {
+                board.apply(new ReactAction(piece, chars.get(input), currentPlayer));
+            }
         }
     }
 

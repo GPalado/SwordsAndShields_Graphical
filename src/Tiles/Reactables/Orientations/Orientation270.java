@@ -31,21 +31,21 @@ public class Orientation270 implements PieceOrientation {
 
     @Override
     public Symbol getLeftSymbol(Piece piece) {
-        return piece.symbols[0];
+        return piece.symbols[0].name().equals("SWORD_VERTICAL") ? Symbol.SWORD_HORIZONTAL : piece.symbols[0];
     }
 
     @Override
     public Symbol getRightSymbol(Piece piece) {
-        return piece.symbols[2];
+        return piece.symbols[2].name().equals("SWORD_VERTICAL") ? Symbol.SWORD_HORIZONTAL : piece.symbols[2];
     }
 
     @Override
     public Symbol getTopSymbol(Piece piece) {
-        return piece.symbols[1];
+        return piece.symbols[1].name().equals("SWORD_HORIZONTAL") ? Symbol.SWORD_VERTICAL : piece.symbols[1];
     }
 
     @Override
     public Symbol getBottomSymbol(Piece piece) {
-        return piece.symbols[3];
+        return piece.symbols[3].name().equals("SWORD_HORIZONTAL") ? Symbol.SWORD_VERTICAL : piece.symbols[3];
     }
 }

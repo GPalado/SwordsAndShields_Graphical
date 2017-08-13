@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d86b5-f5a6-4b34-9eb6-442d49b08633" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Action.java" afterPath="$PROJECT_DIR$/src/Actions/Action.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/CreateAction.java" afterPath="$PROJECT_DIR$/src/Actions/CreateAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/ReactAction.java" afterPath="$PROJECT_DIR$/src/Actions/ReactAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/RotateAction.java" afterPath="$PROJECT_DIR$/src/Actions/RotateAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" afterPath="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/Player.java" afterPath="$PROJECT_DIR$/src/SnSGame/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Tile.java" afterPath="$PROJECT_DIR$/src/Tiles/Tile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/Board.java" afterPath="$PROJECT_DIR$/src/SnSGame/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" afterPath="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +22,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReactAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Actions/ReactAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="58" column="34" lean-forward="false" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+              <folding>
+                <element signature="e#2290#2291#0" expanded="true" />
+                <element signature="e#2317#2318#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReactionVisitor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-135">
+              <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reaction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Reaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="73" column="70" lean-forward="false" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="2074" column="24" lean-forward="false" selection-start-line="2074" selection-start-column="24" selection-end-line="2074" selection-end-column="24" />
+            <state relative-caret-position="944">
+              <caret line="2050" column="30" lean-forward="false" selection-start-line="2050" selection-start-column="30" selection-end-line="2050" selection-end-column="30" />
               <folding>
                 <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
@@ -70,6 +99,9 @@
                 <element signature="method#test_undo_8#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_9#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_10#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_11#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_12#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_13#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_14#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_15#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_16#0;class#SnSTests#0" expanded="false" />
@@ -77,6 +109,7 @@
                 <element signature="method#test_undo_18#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_19#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_20#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_undo_21#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
@@ -90,46 +123,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SnSGame/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1548">
-              <caret line="138" column="33" lean-forward="true" selection-start-line="138" selection-start-column="33" selection-end-line="138" selection-end-column="33" />
-              <folding>
-                <element signature="method#undo#0;class#Player#0" expanded="false" />
-                <element signature="method#getUnusedPieces#0;class#Player#0" expanded="false" />
-                <element signature="method#pass#0;class#Player#0" expanded="false" />
-                <element signature="method#hasMovesLeft#0;class#Player#0" expanded="false" />
-                <element signature="method#initializePieces#0;class#Player#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Piece.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="84" column="74" lean-forward="false" selection-start-line="84" selection-start-column="74" selection-end-line="84" selection-end-column="74" />
-              <folding>
-                <element signature="method#rotate#0;class#Piece#0" expanded="false" />
-                <element signature="method#setOrientation#1;class#Piece#0" expanded="false" />
-                <element signature="method#accept#1;class#Piece#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SnSGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="426">
+              <caret line="208" column="13" lean-forward="false" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
               <folding>
                 <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="165" column="39" lean-forward="true" selection-start-line="165" selection-start-column="39" selection-end-line="165" selection-end-column="39" />
+              <folding>
+                <element signature="method#Board#0;class#Board#0" expanded="false" />
+                <element signature="method#setPiece#0;class#Board#0" expanded="false" />
+                <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
+                <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
+                <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
+                <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
+                <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
+                <element signature="method#toString#0;class#Board#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -194,10 +216,8 @@
         <option value="$PROJECT_DIR$/src/Actions/Visitors/Visitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Symbol.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/PieceOrientation.java" />
-        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java" />
-        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/ReactActionVisitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/ReactableVisitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/OutOfBounds.java" />
@@ -210,8 +230,6 @@
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Symbol.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitorAcceptable.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Reaction.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveLeft.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java" />
@@ -222,10 +240,14 @@
         <option value="$PROJECT_DIR$/src/Actions/Action.java" />
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveActionVisitor.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/Piece.java" />
-        <option value="$PROJECT_DIR$/src/Actions/ReactAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/RotateAction.java" />
         <option value="$PROJECT_DIR$/src/Actions/CreateAction.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
+        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java" />
+        <option value="$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
+        <option value="$PROJECT_DIR$/src/Actions/ReactAction.java" />
       </list>
     </option>
   </component>
@@ -294,6 +316,14 @@
               <item name="Tiles" type="462c0819:PsiDirectoryNode" />
               <item name="Reactables" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SwordsAndShieldsVer2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SwordsAndShieldsVer2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Reactables" type="462c0819:PsiDirectoryNode" />
+              <item name="Orientations" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -324,7 +354,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SnSTests">
+  <component name="RunManager" selected="Application.Swords And Shields">
     <configuration name="SnSTests" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="SwordsAndShieldsVer2" />
@@ -459,9 +489,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnSTests - 2017.08.12 at 16h 36m 11s.xml">
-      <configuration name="SnSTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SnSTests - 2017.08.12 at 16h 36m 26s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
@@ -489,6 +516,9 @@
     <history-entry file="SnSTests - 2017.08.13 at 15h 56m 22s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SnSTests - 2017.08.13 at 15h 57m 51s.xml">
+      <configuration name="SnSTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -502,12 +532,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09508716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14104596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2282092" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33280507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23645681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -686,75 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="46" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="e#1180#1181#0" expanded="false" />
-            <element signature="e#1219#1220#0" expanded="false" />
-            <element signature="e#1282#1283#0" expanded="false" />
-            <element signature="e#1321#1322#0" expanded="false" />
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1485#1486#0" expanded="false" />
-            <element signature="e#1524#1525#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="45" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1033#1034#0" expanded="false" />
-            <element signature="e#1072#1073#0" expanded="false" />
-            <element signature="e#1135#1136#0" expanded="false" />
-            <element signature="e#1174#1175#0" expanded="false" />
-            <element signature="e#1235#1236#0" expanded="false" />
-            <element signature="e#1274#1275#0" expanded="false" />
-            <element signature="e#1338#1339#0" expanded="false" />
-            <element signature="e#1377#1378#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#1580#1581#0" expanded="false" />
-            <element signature="e#1619#1620#0" expanded="false" />
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1721#1722#0" expanded="false" />
-            <element signature="e#1782#1783#0" expanded="false" />
-            <element signature="e#1821#1822#0" expanded="false" />
-            <element signature="e#1885#1886#0" expanded="false" />
-            <element signature="e#1924#1925#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#1586#1587#0" expanded="true" />
-            <element signature="e#1625#1626#0" expanded="true" />
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#1891#1892#0" expanded="true" />
-            <element signature="e#1930#1931#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/ReactableVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/PieceOrientation.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -850,26 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Reaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="73" column="70" lean-forward="false" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#431#432#0" expanded="false" />
-            <element signature="e#475#476#0" expanded="false" />
-            <element signature="e#760#761#0" expanded="false" />
-            <element signature="e#804#805#0" expanded="false" />
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1129#1130#0" expanded="false" />
-            <element signature="e#1414#1415#0" expanded="false" />
-            <element signature="e#1458#1459#0" expanded="false" />
-            <element signature="e#1706#1707#0" expanded="false" />
-            <element signature="e#1757#1758#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveDown.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -902,39 +843,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-          <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
-            <element signature="method#setPiece#0;class#Board#0" expanded="false" />
-            <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
-            <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
-            <element signature="method#offerReactions#0;class#Board#0" expanded="false" />
-            <element signature="method#toString#0;class#Board#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,30 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/ReactAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="62" column="20" lean-forward="true" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-          <folding>
-            <element signature="e#2221#2222#0" expanded="true" />
-            <element signature="e#2248#2249#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SnSGame/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1548">
@@ -1031,10 +920,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation0.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation270.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="2074" column="24" lean-forward="false" selection-start-line="2074" selection-start-column="24" selection-end-line="2074" selection-end-column="24" />
+        <state relative-caret-position="944">
+          <caret line="2050" column="30" lean-forward="false" selection-start-line="2050" selection-start-column="30" selection-end-line="2050" selection-end-column="30" />
           <folding>
             <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
             <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
@@ -1072,6 +977,9 @@
             <element signature="method#test_undo_8#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_9#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_10#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_11#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_12#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_13#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_14#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_15#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_16#0;class#SnSTests#0" expanded="false" />
@@ -1079,6 +987,7 @@
             <element signature="method#test_undo_18#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_19#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_20#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_undo_21#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
@@ -1088,6 +997,81 @@
             <element signature="method#test_rotation_7#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_move_and_rotate_invalid#0;class#SnSTests#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation90.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="48" column="68" lean-forward="false" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Orientations/Orientation180.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="165" column="39" lean-forward="true" selection-start-line="165" selection-start-column="39" selection-end-line="165" selection-end-column="39" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#setPiece#0;class#Board#0" expanded="false" />
+            <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
+            <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
+            <element signature="method#toString#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="208" column="13" lean-forward="false" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
+          <folding>
+            <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/ReactAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="58" column="34" lean-forward="false" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+          <folding>
+            <element signature="e#2290#2291#0" expanded="true" />
+            <element signature="e#2317#2318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tiles/Reactables/Reaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="73" column="70" lean-forward="false" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
