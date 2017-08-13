@@ -30,17 +30,20 @@ public class SnSGame {
     private Player currentPlayer;
     private Board board;
     private boolean passed=false;
+    private Scanner scanner;
 
     /**
      * The constructor initializes the two players and their faces and creation squares.
      * It also initializes the board.
      */
-    public SnSGame() {
+    public SnSGame(Scanner scanner) {
         player1 = new Player(colors[0], false, new Face('0', p1FaceCoords), new CreationSquare(p1CreationCoords));
         player2 = new Player(colors[1], true, new Face('1', p2FaceCoords), new CreationSquare(p2CreationCoords));
         board = new Board(player1, player2);
         currentPlayer = player1;
+        this.scanner=scanner;
         redrawGame();
+        playGame();
     }
 
     /**
@@ -49,29 +52,31 @@ public class SnSGame {
      */
     public void playGame() {
         //loop while game is not won
-        while (!isGameOver()) {
+        while (!isGameOver()&&scanner.hasNext()) {
             System.out.print((currentPlayer.equals(player1) ? "Player 1's" : "Player 2's") + " Turn!\n");
-            while (currentPlayer.hasMovesLeft() && !passed && !isGameOver()) {
-                if (currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
+            while (!passed && !isGameOver()&&scanner.hasNext()) {
+                if(!currentPlayer.hasMovesLeft()){
+                    System.out.print("You have no move possible moves left this turn! You need to pass!");
+                } else if (currentPlayer.hasCreated() || currentPlayer.hasMoved()) {
                     System.out.print("What would you like to do (Rotate, Move): ");
                 } else {
                     System.out.print("Your unused pieces are...\n");
                     printTiles(currentPlayer.getUnusedPieces());
                     System.out.print("What would you like to do (Create, Rotate, Move): ");
                 }
-                Scanner scanner = new Scanner(System.in);  // read from System.in
                 String input = scanner.nextLine();
                 playerMove(input);
             }
             if (isGameOver()) break;
-            if (!passed) { //force pass when no moves possible
-                System.out.println((currentPlayer.equals(player1) ? "Player 1" : "Player 2") + ", your turn is over. (No move possible moves)");
-                currentPlayer.pass();
-                swapPlayers();
-            }
             passed = false;
         }
-        System.out.println((player1.face.getStatus().equals(Reactable.Status.CEMETERY)) ? "Player 2 won!" : "Player 1 won!");
+        if(player1.face.getStatus().equals(Reactable.Status.CEMETERY)) {
+            System.out.println("Player 2 won!");
+        } else if(player2.face.getStatus().equals(Reactable.Status.CEMETERY)){
+            System.out.println("Player 1 won!");
+        } else {
+            System.out.println("No more input! Game over!");
+        }
     }
 
     /**
@@ -177,7 +182,7 @@ public class SnSGame {
                 currentPlayer.setCreated(true);
             }
         } else {
-            System.out.println("Unrecognizable command");
+            System.out.println("Unrecognizable command: '"+in+"'");
             return;
         }
         redrawGame();
@@ -193,7 +198,6 @@ public class SnSGame {
             for(Reactable r : board.offerReactions(piece)){
                 chars.put(r.getLetter(), r);
             }
-            Scanner scanner = new Scanner(System.in);  // read from System.in
             String input = scanner.next();
             char c = input.charAt(0);
             scanner.nextLine();
@@ -298,8 +302,7 @@ public class SnSGame {
     }
 
     public static void main(String[] args){
-        SnSGame game = new SnSGame();
-        game.playGame();
+        SnSGame game = new SnSGame(new Scanner(System.in));
     }
 
 }

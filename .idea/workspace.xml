@@ -4,6 +4,7 @@
     <list default="true" id="734d86b5-f5a6-4b34-9eb6-442d49b08633" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" afterPath="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SnSTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3300">
-              <caret line="2441" column="20" lean-forward="true" selection-start-line="2441" selection-start-column="20" selection-end-line="2441" selection-end-column="20" />
+            <state relative-caret-position="220">
+              <caret line="1505" column="33" lean-forward="false" selection-start-line="1505" selection-start-column="33" selection-end-line="1505" selection-end-column="33" />
               <folding>
                 <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
@@ -37,6 +38,7 @@
                 <element signature="method#test_OOB#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_place_dead#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_push_left#0;class#SnSTests#0" expanded="false" />
+                <element signature="method#test_push_left_dead#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_push_right_dead#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_push_right#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_push_up#0;class#SnSTests#0" expanded="false" />
@@ -70,7 +72,6 @@
                 <element signature="method#test_undo_18#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_19#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_undo_20#0;class#SnSTests#0" expanded="false" />
-                <element signature="method#test_undo_21#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
                 <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
@@ -84,36 +85,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnSGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SnSGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
+            <state relative-caret-position="206">
+              <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding>
                 <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
                 <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2227">
-              <caret line="200" column="41" lean-forward="false" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
-              <folding>
-                <element signature="method#Board#0;class#Board#0" expanded="false" />
-                <element signature="e#2037#2038#0" expanded="true" />
-                <element signature="e#2073#2074#0" expanded="true" />
-                <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
-                <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
-                <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
-                <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
-                <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
-                <element signature="method#toString#0;class#Board#0" expanded="false" />
+                <element signature="e#11647#11648#0" expanded="true" />
+                <element signature="e#11713#11714#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,12 +197,12 @@
         <option value="$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java" />
         <option value="$PROJECT_DIR$/src/Tiles/Reactables/ReactionVisitor.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/Board.java" />
-        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
         <option value="$PROJECT_DIR$/src/SnSGame/SnSGame.java" />
+        <option value="$PROJECT_DIR$/src/SnSGame/SnSTests.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="617" />
     <option name="width" value="756" />
     <option name="height" value="735" />
@@ -457,49 +440,50 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnSTests - 2017.08.13 at 17h 59m 16s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 12m 53s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 00m 22s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 13m 26s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 02m 04s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 14m 55s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 04m 23s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 16m 10s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 07m 30s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 17m 12s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 11m 49s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 18m 06s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 12m 47s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 19m 09s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 13m 26s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 19m 30s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 13m 54s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 20m 49s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnSTests - 2017.08.13 at 18h 14m 15s.xml">
+    <history-entry file="SnSTests - 2017.08.13 at 21h 21m 40s.xml">
       <configuration name="SnSTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13787639" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44532487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09984152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33280507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -516,7 +500,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13787639" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.008052709" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
     </layout>
@@ -555,7 +538,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -686,7 +669,7 @@
         <state relative-caret-position="205">
           <caret line="25" column="59" lean-forward="true" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -839,14 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="67" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -876,25 +851,7 @@
         <state relative-caret-position="379">
           <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2227">
-          <caret line="200" column="41" lean-forward="false" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
-          <folding>
-            <element signature="method#Board#0;class#Board#0" expanded="false" />
-            <element signature="e#2037#2038#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-            <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
-            <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
-            <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
-            <element signature="method#toString#0;class#Board#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,10 +899,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="200" column="41" lean-forward="false" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#setEmpty#0;class#Board#0" expanded="false" />
+            <element signature="method#getLeftOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getRightOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getAboveOf#0;class#Board#0" expanded="false" />
+            <element signature="method#getBelowOf#0;class#Board#0" expanded="false" />
+            <element signature="method#toString#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Actions/Visitors/MoveRight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding>
+            <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
+            <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
+            <element signature="e#11647#11648#0" expanded="true" />
+            <element signature="e#11713#11714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3300">
-          <caret line="2441" column="20" lean-forward="true" selection-start-line="2441" selection-start-column="20" selection-end-line="2441" selection-end-column="20" />
+        <state relative-caret-position="220">
+          <caret line="1505" column="33" lean-forward="false" selection-start-line="1505" selection-start-column="33" selection-end-line="1505" selection-end-column="33" />
           <folding>
             <element signature="method#test_create_board#0;class#SnSTests#0" expanded="false" />
             <element signature="method#player_place_new_piece#0;class#SnSTests#0" expanded="false" />
@@ -959,6 +955,7 @@
             <element signature="method#test_OOB#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_place_dead#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_push_left#0;class#SnSTests#0" expanded="false" />
+            <element signature="method#test_push_left_dead#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_push_right_dead#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_push_right#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_push_up#0;class#SnSTests#0" expanded="false" />
@@ -992,7 +989,6 @@
             <element signature="method#test_undo_18#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_19#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_undo_20#0;class#SnSTests#0" expanded="false" />
-            <element signature="method#test_undo_21#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_1#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_2#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_3#0;class#SnSTests#0" expanded="false" />
@@ -1001,19 +997,6 @@
             <element signature="method#test_rotation_6#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_rotation_7#0;class#SnSTests#0" expanded="false" />
             <element signature="method#test_move_and_rotate_invalid#0;class#SnSTests#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SnSGame/SnSGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="194" column="13" lean-forward="true" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
-          <folding>
-            <element signature="method#isGameOver#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#swapPlayers#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#parseChar#0;class#SnSGame#0" expanded="false" />
-            <element signature="method#parseInt#0;class#SnSGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
