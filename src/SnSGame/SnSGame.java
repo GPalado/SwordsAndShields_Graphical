@@ -187,7 +187,7 @@ public class SnSGame {
         //todo complete
         if(!board.offerReactions(piece).isEmpty()){
             redrawGame();
-            System.out.println("Choose a reaction: (enter a character)");
+            System.out.println("Choose a reaction for "+piece.letter+": (enter a character)");
             printTiles(board.offerReactions(piece));
             Map<Character, Reactable> chars = new HashMap<>();
             for(Reactable r : board.offerReactions(piece)){
@@ -208,6 +208,7 @@ public class SnSGame {
                 playerMove(input);
             } else {
                 board.apply(new ReactAction(piece, chars.get(c), currentPlayer));
+                //todo offer chain reaction
             }
         }
     }
