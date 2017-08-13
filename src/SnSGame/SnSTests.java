@@ -279,9 +279,9 @@ public class SnSTests {
     public void test_move_twice(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("Create a 0");
-            game.playerMove("Move a right");
-            game.playerMove("Move a left");
+            game.playerMove("Create C 0");
+            game.playerMove("Move C right");
+            game.playerMove("Move c left");
             //ok, should catch and print output
         } catch (InvalidMoveException e) {
             //good. Supposed to happen
@@ -294,8 +294,8 @@ public class SnSTests {
     public void test_create_twice(){
         SnSGame game = new SnSGame();
         try {
-            game.playerMove("Create a 0");
-            game.playerMove("Move a right");
+            game.playerMove("Create C 0");
+            game.playerMove("Move C right");
             game.playerMove("Create b 0");
             //should catch error and print message
         } catch (InvalidMoveException e) {
@@ -396,21 +396,21 @@ public class SnSTests {
         SnSGame game = new SnSGame();
         try {
             //also test caps/non caps
-            game.playerMove("Create A 0"); //should be lower case
-            game.playerMove("Move A right"); //^
+            game.playerMove("Create C 0"); //should be lower case
+            game.playerMove("Move c right"); //^
             game.playerMove("pass"); //pass turn
             game.playerMove("Create e 0"); //should be upper case
             game.playerMove("Move e up"); //^
             game.playerMove("pass"); //pass turn
-            game.playerMove("move a right");
+            game.playerMove("move c right");
             game.playerMove("pass"); //pass turn
             game.playerMove("move e up");
             game.playerMove("pass"); //pass turn
-            game.playerMove("move a right");
+            game.playerMove("move c right");
             game.playerMove("pass"); //pass turn
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass move
-            game.playerMove("create a 0");
+            game.playerMove("create c 0");
             //should catch error and print message
         } catch (InvalidMoveException e){
             fail(e.getMessage());
@@ -2053,8 +2053,8 @@ public class SnSTests {
         try{
             game.playerMove("pass");
             game.playerMove("pass");
-            game.playerMove("Create a 270");
-            game.playerMove("Move a left");
+            game.playerMove("Create c 270");
+            game.playerMove("Move c left");
             game.playerMove("pass"); //pass move
             game.playerMove("pass"); //pass create
             game.playerMove("pass"); //pass turn
@@ -2072,8 +2072,8 @@ public class SnSTests {
                     "xxx 1                         \n" +
                     "xxx                           \n" +
                     " #    /-\\                     \n" +
-                    "-A- E | |                     \n" +
-                    " |    \\-/                     \n" +
+                    "#C# E | |                     \n" +
+                    " #    \\-/                     \n" +
                     "                              \n" +
                     "                              \n" +
                     "                              \n" +

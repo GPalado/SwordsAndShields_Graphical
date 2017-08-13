@@ -56,6 +56,7 @@ public class CreateAction implements Action {
     @Override
     public void undo() {
         player.creationSquare.setPiece(null);
+        player.setCreated(false);
         piece.backToUnused();
     }
 

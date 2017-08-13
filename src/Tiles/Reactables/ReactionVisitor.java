@@ -44,6 +44,7 @@ public class ReactionVisitor {
     public void visitNone(Reactable r){}
 
     public void reverseKilled(Reactable r){
+        board.setPiece((Piece)r, r.getPosition().x, r.getPosition().y);
         r.toLife();
     }
 

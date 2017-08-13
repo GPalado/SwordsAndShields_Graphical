@@ -93,8 +93,8 @@ public class SnSGame {
                 int i = parseInt(input[2]);
                 CreateAction create = new CreateAction(currentPlayer.getPiece(c), i, currentPlayer);
                 board.apply(create);
-                //todo check for reactions
-                reactionCheck(player1.getPiece(c));
+                //check for reactions
+                reactionCheck(currentPlayer.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
@@ -110,7 +110,7 @@ public class SnSGame {
                 RotateAction rotate = new RotateAction(currentPlayer.getPiece(c), i, currentPlayer);
                 board.apply(rotate);
                 //todo check for reactions
-                reactionCheck(player1.getPiece(c));
+                reactionCheck(currentPlayer.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
@@ -142,8 +142,8 @@ public class SnSGame {
                 board.apply(move);
                 currentPlayer.addAction(move);
                 currentPlayer.pieceMoved(currentPlayer.getPiece(c));
-                //todo check for reactions
-                reactionCheck(player1.getPiece(c));
+                //check for reactions
+                reactionCheck(currentPlayer.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
@@ -156,8 +156,10 @@ public class SnSGame {
             try {
                 Action toReverse = currentPlayer.undo();
                 board.reverse(toReverse);
-                //todo check for reactions
-                reactionCheck(toReverse.getPiece());
+                //todo check for reactions if the piece involved is still on the board
+                if(toReverse.getPiece().getStatus().equals(Reactable.Status.ON_BOARD)) {
+                    reactionCheck(toReverse.getPiece());
+                }
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;
@@ -205,7 +207,7 @@ public class SnSGame {
             if(input.equals("undo")){
                 playerMove(input);
             } else {
-                board.apply(new ReactAction(piece, chars.get(input), currentPlayer));
+                board.apply(new ReactAction(piece, chars.get(c), currentPlayer));
             }
         }
     }

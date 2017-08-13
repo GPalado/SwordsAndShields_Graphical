@@ -61,6 +61,6 @@ public class ReactAction implements Action {
 
     @Override
     public Piece getPiece() {
-        return null;
+        return (Piece)r1;
     }
 }
