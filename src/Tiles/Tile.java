@@ -1,7 +1,11 @@
 package Tiles;
 
+import Actions.ReactAction;
 import Actions.Visitors.Visitor;
+import Tiles.Reactables.Reactable;
+
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * This interface specifies the methods required to be implemented by the tiles on a Swords and Shields game's board
@@ -25,4 +29,9 @@ public interface Tile {
      * @param visitor
      */
     void accept(Visitor visitor);
+
+    /**
+     * This method accepts a List of Reactable objects. It returns the list, adding itself to the list if applicable.
+     */
+    ArrayList<Reactable> accept(ArrayList<Reactable> reactableList);
 }

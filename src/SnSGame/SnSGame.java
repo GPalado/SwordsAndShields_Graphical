@@ -1,6 +1,7 @@
 package SnSGame;
 
 import Actions.CreateAction;
+import Actions.ReactAction;
 import Actions.RotateAction;
 import Actions.Visitors.MoveDown;
 import Actions.Visitors.MoveLeft;
@@ -8,11 +9,12 @@ import Actions.Visitors.MoveRight;
 import Actions.Visitors.MoveUp;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Face;
+import Tiles.Reactables.Piece;
 import Tiles.Reactables.Reactable;
 import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import java.awt.*;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This class is a representation of the Swords and Shields game.
@@ -56,10 +58,10 @@ public class SnSGame {
                     System.out.print("What would you like to do (Rotate, Move): ");
                 } else {
                     System.out.print("Your unused pieces are...\n");
-                    currentPlayer.drawUnusedPieces();
+                    printTiles(currentPlayer.getUnusedPieces());
                     System.out.print("What would you like to do (Create, Rotate, Move): ");
                 }
-                Scanner scanner = new Scanner(System.in);  // Read from System.in
+                Scanner scanner = new Scanner(System.in);  // read from System.in
                 String input = scanner.nextLine();
                 playerMove(input);
             }
@@ -92,6 +94,7 @@ public class SnSGame {
                 return;
             }
             //todo if successful, check for reactions
+
         } else if (input[0].toLowerCase().equals("rotate")) {
             try {
                 char c = parseChar(input[1]);
@@ -156,6 +159,49 @@ public class SnSGame {
             return;
         }
         redrawGame();
+    }
+
+    public void reactionCheck(Piece piece){
+        //todo complete
+        if(!board.offerReactions(piece).isEmpty()){
+            System.out.println("Choose a reaction: (enter a character)");
+            printTiles(board.offerReactions(piece));
+            Map<Character, Reactable> chars = new HashMap<>();
+            for(Reactable r : board.offerReactions(piece)){
+                chars.put(r.getLetter(), r);
+            }
+            Scanner scanner = new Scanner(System.in);  // read from System.in
+            char input = scanner.next().charAt(0);
+            scanner.nextLine();
+            while(!chars.keySet().contains(input)){
+                System.out.println("Sorry, that wasn't one of the options. Choose again. (Case Sensitive)");
+                printTiles(board.offerReactions(piece));
+                input = scanner.next().charAt(0);
+                scanner.nextLine();
+            }
+            board.apply(new ReactAction(piece, chars.get(input), currentPlayer));
+        }
+    }
+
+    private void printTiles(ArrayList<? extends Reactable> tiles){
+        Character[][] toPrint = new Character[SnSGame.PIECE_SIZE*tiles.size()][SnSGame.PIECE_SIZE];
+        for(int x=0; x<toPrint.length; x+=SnSGame.PIECE_SIZE){
+            Character[][] rep = tiles.get(x/SnSGame.PIECE_SIZE).getRepresentation();
+            for(int i=0; i<rep.length; i++){
+                for(int j=0; j<rep[0].length; j++){
+                    toPrint[x+i][j]=rep[i][j];
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        //print char grid
+        for(int y=0; y<toPrint[0].length; y++){
+            for(int x=0; x<toPrint.length; x++){
+                sb.append(toPrint[x][y]);
+            }
+            sb.append('\n');
+        }
+        System.out.println(sb.toString());
     }
 
     /**

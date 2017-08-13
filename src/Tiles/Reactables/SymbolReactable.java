@@ -2,14 +2,11 @@ package Tiles.Reactables;
 
 public interface SymbolReactable {
 
-    Reaction reactWithSword();
+    Reaction reactWithSword(Direction placement);
 
-    Reaction reactWithShield();
+    Reaction reactWithShield(Direction placement);
 
-    Reaction reactWithNothing();
+    Reaction reactWithNothing(Direction placement);
 
-    Reaction causes(Symbol symbol);
-
-//    void reactWithFace(Face face);
-
+    Reaction causes(Symbol symbol, Direction placement);
 }

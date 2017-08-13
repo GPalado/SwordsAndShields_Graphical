@@ -5,6 +5,7 @@ import SnSGame.InvalidMoveException;
 import Tiles.Reactables.Orientations.*;
 import Tiles.Tile;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -130,6 +131,11 @@ public class Piece implements Reactable {
     }
 
     @Override
+    public Character getLetter() {
+        return letter;
+    }
+
+    @Override
     public Character[][] getRepresentation() {
         return pieceOrientation.getRepresentation(this);
     }
@@ -142,5 +148,11 @@ public class Piece implements Reactable {
     @Override
     public void accept(Visitor visitor) {
         visitor.visitPiece(this);
+    }
+
+    @Override
+    public ArrayList<Reactable> accept(ArrayList<Reactable> reactableList) {
+        reactableList.add(this);
+        return reactableList;
     }
 }

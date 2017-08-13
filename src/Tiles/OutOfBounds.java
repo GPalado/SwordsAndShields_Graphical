@@ -1,8 +1,10 @@
 package Tiles;
 
 import Actions.Visitors.Visitor;
+import Tiles.Reactables.Reactable;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * This class is a representation of an OutOfBounds tile on a Swords and Shields game's board.
@@ -32,5 +34,10 @@ public class OutOfBounds implements Tile {
     @Override
     public void accept(Visitor visitor) {
         visitor.visitOOB(this);
+    }
+
+    @Override
+    public ArrayList<Reactable> accept(ArrayList<Reactable> reactableList) {
+        return reactableList;
     }
 }

@@ -3,7 +3,10 @@ package Tiles;
 import Actions.Visitors.Visitor;
 import SnSGame.InvalidMoveException;
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
+
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * This class is a representation of a creation square on a Swords and Shields game's board.
@@ -64,6 +67,11 @@ public class CreationSquare implements Tile {
     @Override
     public void accept(Visitor visitor) {
         visitor.visitCreation(this);
+    }
+
+    @Override
+    public ArrayList<Reactable> accept(ArrayList<Reactable> reactableList) {
+        return reactableList;
     }
 
 }

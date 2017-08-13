@@ -3,6 +3,8 @@ package SnSGame;
 import Actions.Action;
 import Tiles.*;
 import Tiles.Reactables.Piece;
+import Tiles.Reactables.Reactable;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -147,21 +149,9 @@ public class Board {
      * @param piece
      * @return
      */
-    public ArrayList<Piece> offerReactions(Piece piece){
-        //todo how to do w/out casting
-        ArrayList<Piece> neighbours = new ArrayList<>();
-        if(tiles[piece.getPosition().x][piece.getPosition().y+1].getClass().equals(Piece.class)){
-            neighbours.add((Piece)tiles[piece.getPosition().x][piece.getPosition().y+1]);
-        }
-        if(tiles[piece.getPosition().x][piece.getPosition().y-1].getClass().equals(Piece.class)){
-
-        }
-        if(tiles[piece.getPosition().x+1][piece.getPosition().y].getClass().equals(Piece.class)){
-
-        }
-        if(tiles[piece.getPosition().x-1][piece.getPosition().y].getClass().equals(Piece.class)){
-
-        }
+    public ArrayList<Reactable> offerReactions(Piece piece){
+        ArrayList<Reactable> neighbours = new ArrayList<>();
+        neighbours = tiles[piece.getPosition().x][piece.getPosition().y+1].accept(tiles[piece.getPosition().x][piece.getPosition().y-1].accept(tiles[piece.getPosition().x+1][piece.getPosition().y].accept(tiles[piece.getPosition().x-1][piece.getPosition().y].accept(neighbours))));
         return neighbours;
     }
 

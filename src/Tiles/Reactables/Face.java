@@ -4,6 +4,7 @@ import Actions.Visitors.Visitor;
 import Tiles.Tile;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * This class is a representation of the reactable face tile of a Swords and Shields game.
@@ -42,6 +43,12 @@ public class Face implements Reactable {
     }
 
     @Override
+    public ArrayList<Reactable> accept(ArrayList<Reactable> reactableList) {
+        reactableList.add(this);
+        return reactableList;
+    }
+
+    @Override
     public Status getStatus() {
         return status;
     }
@@ -68,7 +75,10 @@ public class Face implements Reactable {
     }
 
     @Override
-    public Symbol getBottomSymbol() {
-        return Symbol.NOTHING;
+    public Symbol getBottomSymbol() { return Symbol.NOTHING; }
+
+    @Override
+    public Character getLetter() {
+        return representation[1][1];
     }
 }

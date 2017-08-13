@@ -109,32 +109,14 @@ public class Player {
     /**
      * This method draws all the player's unused pieces to offer them choices for creation.
      */
-    public void drawUnusedPieces(){
-        //todo test this pls
-        List<Piece> unusedPieces = new ArrayList<>();
+    public ArrayList<Piece> getUnusedPieces(){
+        ArrayList<Piece> unusedPieces = new ArrayList<>();
         for(Piece p:pieces.values()){
             if(p.getStatus().equals(Reactable.Status.UNUSED)){
                 unusedPieces.add(p);
             }
         }
-        Character[][] unused = new Character[SnSGame.PIECE_SIZE*unusedPieces.size()][SnSGame.PIECE_SIZE];
-        for(int x=0; x<unused.length; x+=SnSGame.PIECE_SIZE){
-                Character[][] rep = unusedPieces.get(x/SnSGame.PIECE_SIZE).getRepresentation();
-                for(int i=0; i<rep.length; i++){
-                    for(int j=0; j<rep[0].length; j++){
-                        unused[x+i][j]=rep[i][j];
-                    }
-                }
-        }
-        StringBuilder sb = new StringBuilder();
-        //print char grid
-        for(int y=0; y<unused[0].length; y++){
-            for(int x=0; x<unused.length; x++){
-                sb.append(unused[x][y]);
-            }
-            sb.append('\n');
-        }
-        System.out.println(sb.toString());
+        return unusedPieces;
     }
 
     /**

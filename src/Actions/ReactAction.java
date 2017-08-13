@@ -32,6 +32,7 @@ public class ReactAction implements Action {
 
     @Override
     public void execute(Board board) {
+        player.addAction(this);
         this.board=board;
         //get symbols that will react and use them to find the reactions for each piece
         if(r1.getPosition().x<r2.getPosition().x){

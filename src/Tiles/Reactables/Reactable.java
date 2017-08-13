@@ -56,4 +56,6 @@ public interface Reactable extends Tile {
      * @return
      */
     Symbol getBottomSymbol();
+
+    Character getLetter();
 }
