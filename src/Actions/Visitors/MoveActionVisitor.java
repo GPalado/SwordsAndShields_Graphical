@@ -17,19 +17,16 @@ public abstract class MoveActionVisitor implements Action, Visitor{
     protected Piece pieceToPlace;
     protected Piece startingPiece;
     protected List<Piece> piecesPushed;
-    protected Player player;
     protected Board board;
 
     /**
      * The constructor takes the piece to be moved and the player involved.
      * @param p
-     * @param player
      */
-    public MoveActionVisitor(Piece p, Player player){
+    public MoveActionVisitor(Piece p){
         pieceToPlace=p;
         startingPiece=p;
         piecesPushed=new ArrayList<>();
-        this.player=player;
     }
 
     @Override
@@ -48,5 +45,13 @@ public abstract class MoveActionVisitor implements Action, Visitor{
     public void visitEmpty(EmptySpace empty) {
         if(pieceToPlace!=startingPiece) piecesPushed.add(pieceToPlace);
         board.setPiece(pieceToPlace, empty.getPosition().x, empty.getPosition().y);
+    }
+
+    /**
+     * This method returns the starting piece of this move.
+     * @return
+     */
+    public Piece getStartingPiece(){
+        return startingPiece;
     }
 }

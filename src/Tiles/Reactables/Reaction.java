@@ -1,35 +1,54 @@
 package Tiles.Reactables;
 
+import Actions.Action;
+import Actions.Visitors.MoveActionVisitor;
+
 public enum Reaction implements ReactionVisitorAcceptable {
     PUSHED_RIGHT {
+        private MoveActionVisitor move;
+
         @Override
-        public void accept(ReactionVisitor rv, Reactable reactable) {
-            //todo pushed in which dir?
-            rv.visitPushed(reactable);
+        public void accept(ReactionVisitor rv, Reactable reactable) { move = rv.visitPushedRight(reactable); }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {
+            rv.reversePush(move);
         }
     },
 
     PUSHED_LEFT {
+        private MoveActionVisitor move;
+
         @Override
-        public void accept(ReactionVisitor rv, Reactable reactable) {
-            //todo pushed in which dir?
-            rv.visitPushed(reactable);
+        public void accept(ReactionVisitor rv, Reactable reactable) { move = rv.visitPushedLeft(reactable); }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {
+            rv.reversePush(move);
         }
     },
 
     PUSHED_UP {
+        private MoveActionVisitor move;
+
         @Override
-        public void accept(ReactionVisitor rv, Reactable reactable) {
-            //todo pushed in which dir?
-            rv.visitPushed(reactable);
+        public void accept(ReactionVisitor rv, Reactable reactable) { move = rv.visitPushedUp(reactable); }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {
+            rv.reversePush(move);
         }
     },
 
     PUSHED_DOWN {
+        private MoveActionVisitor move;
+
         @Override
-        public void accept(ReactionVisitor rv, Reactable reactable) {
-            //todo pushed in which dir?
-            rv.visitPushed(reactable);
+        public void accept(ReactionVisitor rv, Reactable reactable) { move = rv.visitPushedDown(reactable); }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {
+            rv.reversePush(move);
         }
     },
 
@@ -38,6 +57,11 @@ public enum Reaction implements ReactionVisitorAcceptable {
         public void accept(ReactionVisitor rv, Reactable reactable) {
             rv.visitKilled(reactable);
         }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {
+            rv.reverseKilled(reactable);
+        }
     },
 
     NONE {
@@ -45,5 +69,8 @@ public enum Reaction implements ReactionVisitorAcceptable {
         public void accept(ReactionVisitor rv, Reactable reactable) {
             rv.visitNone(reactable);
         }
+
+        @Override
+        public void reverse(ReactionVisitor rv, Reactable reactable) {}
     }
 }

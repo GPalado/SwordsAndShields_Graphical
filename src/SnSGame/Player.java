@@ -1,6 +1,7 @@
 package SnSGame;
 
 import Actions.Action;
+import Actions.Visitors.MoveActionVisitor;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Symbol;
@@ -80,6 +81,9 @@ public class Player {
     public Action undo(){
         if(actions.isEmpty()){
             throw new InvalidMoveException("Cannot undo any further");
+        }
+        if(actions.peek() instanceof MoveActionVisitor){
+            pieceNotMoved(((MoveActionVisitor)actions.peek()).getStartingPiece());
         }
         return actions.pollLast();
     }

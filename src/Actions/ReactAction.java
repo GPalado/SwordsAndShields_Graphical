@@ -2,6 +2,7 @@ package Actions;
 
 import SnSGame.Board;
 import SnSGame.Player;
+import Tiles.Reactables.Direction;
 import Tiles.Reactables.Reactable;
 import Tiles.Reactables.Reaction;
 import Tiles.Reactables.ReactionVisitor;
@@ -15,7 +16,7 @@ public class ReactAction implements Action {
     private Reactable r1;
     private Reactable r2;
     private Board board;
-    private ReactionVisitor rv = new ReactionVisitor();
+    private ReactionVisitor rv;
     private Reaction reaction1, reaction2;
 
     /**
@@ -34,21 +35,22 @@ public class ReactAction implements Action {
     public void execute(Board board) {
         player.addAction(this);
         this.board=board;
+        rv=new ReactionVisitor(board);
         //get symbols that will react and use them to find the reactions for each piece
         if(r1.getPosition().x<r2.getPosition().x){
-            //find reaction of first reactable
-            reaction1 = r2.getLeftSymbol().causes(r1.getRightSymbol());
+            //find reaction of first reactable. Note that the direction given represents R1s position with regards to R2.
+            reaction1 = r2.getLeftSymbol().causes(r1.getRightSymbol(), Direction.TO_LEFT);
             //find reaction of second piece
-            reaction2 = r1.getRightSymbol().causes(r2.getLeftSymbol());
+            reaction2 = r1.getRightSymbol().causes(r2.getLeftSymbol(), Direction.TO_RIGHT);
         } else if(r1.getPosition().x>r2.getPosition().x){
-            reaction1 = r2.getRightSymbol().causes(r1.getLeftSymbol());
-            reaction2 = r1.getLeftSymbol().causes(r2.getRightSymbol());
+            reaction1 = r2.getRightSymbol().causes(r1.getLeftSymbol(), Direction.TO_RIGHT);
+            reaction2 = r1.getLeftSymbol().causes(r2.getRightSymbol(), Direction.TO_LEFT);
         } else if(r1.getPosition().y>r2.getPosition().y){
-            reaction1 = r2.getBottomSymbol().causes(r1.getTopSymbol());
-            reaction2 = r1.getTopSymbol().causes(r2.getBottomSymbol());
+            reaction1 = r2.getBottomSymbol().causes(r1.getTopSymbol(), Direction.BELOW);
+            reaction2 = r1.getTopSymbol().causes(r2.getBottomSymbol(), Direction.ABOVE);
         } else { //if(r1.getPosition().y<r2.getPosition().y)
-            reaction1 = r2.getTopSymbol().causes(r1.getBottomSymbol());
-            reaction2 = r1.getBottomSymbol().causes(r2.getTopSymbol());
+            reaction1 = r2.getTopSymbol().causes(r1.getBottomSymbol(), Direction.ABOVE);
+            reaction2 = r1.getBottomSymbol().causes(r2.getTopSymbol(), Direction.BELOW);
         }
         reaction1.accept(rv, r1);
         reaction2.accept(rv, r2);

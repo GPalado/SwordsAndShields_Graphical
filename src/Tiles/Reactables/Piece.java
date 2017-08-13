@@ -131,9 +131,7 @@ public class Piece implements Reactable {
     }
 
     @Override
-    public Character getLetter() {
-        return letter;
-    }
+    public Character getLetter() { return letter; }
 
     @Override
     public Character[][] getRepresentation() {

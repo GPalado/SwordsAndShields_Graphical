@@ -3,10 +3,7 @@ package SnSGame;
 import Actions.CreateAction;
 import Actions.ReactAction;
 import Actions.RotateAction;
-import Actions.Visitors.MoveDown;
-import Actions.Visitors.MoveLeft;
-import Actions.Visitors.MoveRight;
-import Actions.Visitors.MoveUp;
+import Actions.Visitors.*;
 import Tiles.CreationSquare;
 import Tiles.Reactables.Face;
 import Tiles.Reactables.Piece;
@@ -108,23 +105,27 @@ public class SnSGame {
             //todo if successful, check for reactions
         } else if (input[0].toLowerCase().equals("move")) {
             try {
+                MoveActionVisitor move;
                 char c = parseChar(input[1]);
                 String direction = input[2];
                 if (direction.toLowerCase().equals("up")) {
-                    MoveUp up = new MoveUp(currentPlayer.getPiece(c), currentPlayer);
-                    board.apply(up);
+                    move = new MoveUp(currentPlayer.getPiece(c));
+
                 } else if (direction.toLowerCase().equals("down")) {
-                    MoveDown down = new MoveDown(currentPlayer.getPiece(c), currentPlayer);
-                    board.apply(down);
+                    move = new MoveDown(currentPlayer.getPiece(c));
                 } else if (direction.toLowerCase().equals("left")) {
-                    MoveLeft left = new MoveLeft(currentPlayer.getPiece(c), currentPlayer);
-                    board.apply(left);
+                    move = new MoveLeft(currentPlayer.getPiece(c));
                 } else if (direction.toLowerCase().equals("right")) {
-                    MoveRight right = new MoveRight(currentPlayer.getPiece(c), currentPlayer);
-                    board.apply(right);
+                    move = new MoveRight(currentPlayer.getPiece(c));
                 } else {
                     throw new InvalidMoveException("Invalid direction");
                 }
+                if(currentPlayer.getPiecesMoved().contains(currentPlayer.getPiece(c))){
+                    throw new InvalidMoveException("Cannot move a piece that has already been moved!");
+                }
+                board.apply(move);
+                currentPlayer.addAction(move);
+                currentPlayer.pieceMoved(currentPlayer.getPiece(c));
             } catch (InvalidMoveException e){
                 System.out.println(e.getMessage());
                 return;

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Board {
 
     private Tile[][] tiles;
+    private CreationSquare p1CS, p2CS;
 
     /**
      * The constructor takes two players as parameters to set up their faces and creation squares on the board.
@@ -23,6 +24,8 @@ public class Board {
      */
     public Board(Player p1, Player p2){
         assert p1!=null&&p2!=null;
+        p1CS=p1.creationSquare;
+        p2CS=p2.creationSquare;
         //initialize tiles and contents
         tiles = new Tile[SnSGame.BOARD_SIZE][SnSGame.BOARD_SIZE];
         for(int x=0; x<tiles.length; x++){
@@ -85,7 +88,14 @@ public class Board {
      * @param y
      */
     public void setEmpty(int x, int y){
-        tiles[x][y]=new EmptySpace(new Point(x, y));
+        Point p = new Point(x, y);
+        if(p.equals(SnSGame.p1CreationCoords)){
+            p1CS.setPiece(null);
+        } else if(p.equals(SnSGame.p2CreationCoords)){
+            p2CS.setPiece(null);
+        } else {
+            tiles[x][y] = new EmptySpace(new Point(x, y));
+        }
     }
 
     /**
